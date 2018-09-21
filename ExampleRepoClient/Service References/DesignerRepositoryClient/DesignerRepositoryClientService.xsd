@@ -1,0 +1,534 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost/decisions/Primary/API/DesignerRepositoryClientService?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" />
+  <xs:import schemaLocation="http://localhost/decisions/Primary/API/DesignerRepositoryClientService?xsd=xsd4" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:import schemaLocation="http://localhost/decisions/Primary/API/DesignerRepositoryClientService?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/Decisions.DesignerRepository" />
+  <xs:import schemaLocation="http://localhost/decisions/Primary/API/DesignerRepositoryClientService?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/Decisions.DesignerRepository.Client" />
+  <xs:import schemaLocation="http://localhost/decisions/Primary/API/DesignerRepositoryClientService?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Services.ImportExport" />
+  <xs:import schemaLocation="http://localhost/decisions/Primary/API/DesignerRepositoryClientService?xsd=xsd8" namespace="http://schemas.datacontract.org/2004/07/Decisions.DesignerRepository.Client.Service" />
+  <xs:import schemaLocation="http://localhost/decisions/Primary/API/DesignerRepositoryClientService?xsd=xsd9" namespace="http://schemas.datacontract.org/2004/07/DecisionsServiceHost" />
+  <xs:element name="IsRepositoryServerAccessible">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" minOccurs="0" name="userContext" nillable="true" type="q1:AbstractUserContext" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IsRepositoryServerAccessibleResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="IsRepositoryServerAccessibleResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetModules">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" minOccurs="0" name="context" nillable="true" type="q2:AbstractUserContext" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetModulesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetModulesResult" nillable="true" type="q3:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetBranches">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" minOccurs="0" name="context" nillable="true" type="q4:AbstractUserContext" />
+        <xs:element minOccurs="0" name="moduleName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetBranchesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetBranchesResult" nillable="true" type="q5:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IsEntityFromModule">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="entityId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="moduleName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IsEntityFromModuleResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="IsEntityFromModuleResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IsModuleCheckout">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" minOccurs="0" name="context" nillable="true" type="q6:AbstractUserContext" />
+        <xs:element minOccurs="0" name="moduleName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IsModuleCheckoutResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="IsModuleCheckoutResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetBranchForModule">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" minOccurs="0" name="context" nillable="true" type="q7:AbstractUserContext" />
+        <xs:element minOccurs="0" name="moduleName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetBranchForModuleResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetBranchForModuleResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ModuleExistsOnServer">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" minOccurs="0" name="context" nillable="true" type="q8:AbstractUserContext" />
+        <xs:element minOccurs="0" name="moduleName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ModuleExistsOnServerResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ModuleExistsOnServerResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetInfoFiles">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" minOccurs="0" name="userContext" nillable="true" type="q9:AbstractUserContext" />
+        <xs:element minOccurs="0" name="moduleName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="branchName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetInfoFilesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/Decisions.DesignerRepository" minOccurs="0" name="GetInfoFilesResult" nillable="true" type="q10:ArrayOfModuleInfoFile" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetInfoFilesByDate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" minOccurs="0" name="userContext" nillable="true" type="q11:AbstractUserContext" />
+        <xs:element minOccurs="0" name="moduleName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="branchName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="date" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetInfoFilesByDateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/Decisions.DesignerRepository" minOccurs="0" name="GetInfoFilesByDateResult" nillable="true" type="q12:ArrayOfModuleInfoFile" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetInfoFilesByRevision">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" minOccurs="0" name="userContext" nillable="true" type="q13:AbstractUserContext" />
+        <xs:element minOccurs="0" name="moduleName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="branchName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="revision" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetInfoFilesByRevisionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/Decisions.DesignerRepository" minOccurs="0" name="GetInfoFilesByRevisionResult" nillable="true" type="q14:ArrayOfModuleInfoFile" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCheckoutResources">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" minOccurs="0" name="userContext" nillable="true" type="q15:AbstractUserContext" />
+        <xs:element minOccurs="0" name="moduleName" nillable="true" type="xs:string" />
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/Decisions.DesignerRepository" minOccurs="0" name="repositoryResources" nillable="true" type="q16:ArrayOfModuleInfoFile" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCheckoutResourcesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/Decisions.DesignerRepository.Client" minOccurs="0" name="GetCheckoutResourcesResult" nillable="true" type="q17:CheckoutResources" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StartCheckout">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" minOccurs="0" name="context" nillable="true" type="q18:AbstractUserContext" />
+        <xs:element minOccurs="0" name="moduleName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="branchName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="revisionId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StartCheckoutResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="StartCheckoutResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StartCheckoutofDate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" minOccurs="0" name="context" nillable="true" type="q19:AbstractUserContext" />
+        <xs:element minOccurs="0" name="moduleName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="branchName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="date" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StartCheckoutofDateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="StartCheckoutofDateResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CommitCheckout">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" minOccurs="0" name="context" nillable="true" type="q20:AbstractUserContext" />
+        <xs:element minOccurs="0" name="checkoutId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CommitCheckoutResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CancelCheckout">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" minOccurs="0" name="context" nillable="true" type="q21:AbstractUserContext" />
+        <xs:element minOccurs="0" name="checkoutId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="errorMessage" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CancelCheckoutResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StartImportResources">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" minOccurs="0" name="userContext" nillable="true" type="q22:AbstractUserContext" />
+        <xs:element minOccurs="0" name="moduleName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="branchName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="destinationFolderId" nillable="true" type="xs:string" />
+        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/Decisions.DesignerRepository.Client" minOccurs="0" name="resources" nillable="true" type="q23:CheckoutResources" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StartImportResourcesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="StartImportResourcesResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddMergedIssues">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" minOccurs="0" name="userContext" nillable="true" type="q24:AbstractUserContext" />
+        <xs:element minOccurs="0" name="importSessionId" nillable="true" type="xs:string" />
+        <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/Decisions.DesignerRepository.Client" minOccurs="0" name="resources" nillable="true" type="q25:CheckoutResources" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddMergedIssuesResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddRemovedIssues">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" minOccurs="0" name="userContext" nillable="true" type="q26:AbstractUserContext" />
+        <xs:element minOccurs="0" name="importSessionId" nillable="true" type="xs:string" />
+        <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/Decisions.DesignerRepository.Client" minOccurs="0" name="resources" nillable="true" type="q27:CheckoutResources" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddRemovedIssuesResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FinishImportResources">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" minOccurs="0" name="userContext" nillable="true" type="q28:AbstractUserContext" />
+        <xs:element minOccurs="0" name="importSessionId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="moduleName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="branchName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="destinationFolderId" nillable="true" type="xs:string" />
+        <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/Decisions.DesignerRepository.Client" minOccurs="0" name="resources" nillable="true" type="q29:CheckoutResources" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FinishImportResourcesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Services.ImportExport" minOccurs="0" name="FinishImportResourcesResult" nillable="true" type="q30:ImportResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetModuleDataForFolder">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q31="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" minOccurs="0" name="userContext" nillable="true" type="q31:AbstractUserContext" />
+        <xs:element minOccurs="0" name="folderId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="includeSubFolders" type="xs:boolean" />
+        <xs:element minOccurs="0" name="excludeHistoryFolders" type="xs:boolean" />
+        <xs:element minOccurs="0" name="excludeHiddenItems" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetModuleDataForFolderResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q32="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Services.ImportExport" minOccurs="0" name="GetModuleDataForFolderResult" nillable="true" type="q32:ArrayOfExportModuleData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCheckinInfos">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q33="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" minOccurs="0" name="userContext" nillable="true" type="q33:AbstractUserContext" />
+        <xs:element minOccurs="0" name="moduleName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="branchName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCheckinInfosResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q34="http://schemas.datacontract.org/2004/07/Decisions.DesignerRepository" minOccurs="0" name="GetCheckinInfosResult" nillable="true" type="q34:ArrayOfResourceCheckinInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Checkin">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q35="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" minOccurs="0" name="userContext" nillable="true" type="q35:AbstractUserContext" />
+        <xs:element minOccurs="0" name="moduleName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="branchName" nillable="true" type="xs:string" />
+        <xs:element xmlns:q36="http://schemas.datacontract.org/2004/07/Decisions.DesignerRepository" minOccurs="0" name="infos" nillable="true" type="q36:ArrayOfResourceCheckinInfo" />
+        <xs:element minOccurs="0" name="notes" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckinResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q37="http://schemas.datacontract.org/2004/07/Decisions.DesignerRepository.Client" minOccurs="0" name="CheckinResult" nillable="true" type="q37:CheckinResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetResourcesToRevert">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q38="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" minOccurs="0" name="userContext" nillable="true" type="q38:AbstractUserContext" />
+        <xs:element minOccurs="0" name="moduleName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="branchName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetResourcesToRevertResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q39="http://schemas.datacontract.org/2004/07/Decisions.DesignerRepository" minOccurs="0" name="GetResourcesToRevertResult" nillable="true" type="q39:ArrayOfResourceCheckinInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Revert">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q40="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" minOccurs="0" name="userContext" nillable="true" type="q40:AbstractUserContext" />
+        <xs:element minOccurs="0" name="moduleName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="branchName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="destinationFolderId" nillable="true" type="xs:string" />
+        <xs:element xmlns:q41="http://schemas.datacontract.org/2004/07/Decisions.DesignerRepository" minOccurs="0" name="resources" nillable="true" type="q41:ArrayOfModuleInfoFile" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RevertResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q42="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Services.ImportExport" minOccurs="0" name="RevertResult" nillable="true" type="q42:ImportResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetChekinLogs">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q43="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" minOccurs="0" name="userContext" nillable="true" type="q43:AbstractUserContext" />
+        <xs:element minOccurs="0" name="moduleName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="branchName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="count" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetChekinLogsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q44="http://schemas.datacontract.org/2004/07/Decisions.DesignerRepository" minOccurs="0" name="GetChekinLogsResult" nillable="true" type="q44:ArrayOfModuleCheckinInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CalculateDifferences">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q45="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" minOccurs="0" name="userContext" nillable="true" type="q45:AbstractUserContext" />
+        <xs:element minOccurs="0" name="moduleName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CalculateDifferencesResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLastModuleDifferences">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q46="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" minOccurs="0" name="userContext" nillable="true" type="q46:AbstractUserContext" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLastModuleDifferencesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q47="http://schemas.datacontract.org/2004/07/Decisions.DesignerRepository.Client.Service" minOccurs="0" name="GetLastModuleDifferencesResult" nillable="true" type="q47:DiffModuleClientInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UserHasValidCredentialsForRepository">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q48="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" minOccurs="0" name="userContext" nillable="true" type="q48:AbstractUserContext" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UserHasValidCredentialsForRepositoryResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UserHasValidCredentialsForRepositoryResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateUserCredentials">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q49="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" minOccurs="0" name="userContext" nillable="true" type="q49:AbstractUserContext" />
+        <xs:element minOccurs="0" name="email" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="password" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="updateAccount" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateUserCredentialsResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRepositoryUser">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q50="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" minOccurs="0" name="userContext" nillable="true" type="q50:AbstractUserContext" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRepositoryUserResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetRepositoryUserResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ResetCachedCredentials">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q51="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" minOccurs="0" name="userContext" nillable="true" type="q51:AbstractUserContext" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ResetCachedCredentialsResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetServerRemovedResources">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q52="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" minOccurs="0" name="userContext" nillable="true" type="q52:AbstractUserContext" />
+        <xs:element xmlns:q53="http://schemas.datacontract.org/2004/07/DecisionsServiceHost" minOccurs="0" name="removedClientResources" nillable="true" type="q53:ArrayOfModuleResource" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetServerRemovedResourcesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q54="http://schemas.datacontract.org/2004/07/Decisions.DesignerRepository" minOccurs="0" name="GetServerRemovedResourcesResult" nillable="true" type="q54:ArrayOfResourceCheckinInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetClientRemovedResources">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q55="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" minOccurs="0" name="userContext" nillable="true" type="q55:AbstractUserContext" />
+        <xs:element minOccurs="0" name="entityId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="typeName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetClientRemovedResourcesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q56="http://schemas.datacontract.org/2004/07/DecisionsServiceHost" minOccurs="0" name="GetClientRemovedResourcesResult" nillable="true" type="q56:ArrayOfModuleResource" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RemoveFromClient">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q57="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" minOccurs="0" name="userContext" nillable="true" type="q57:AbstractUserContext" />
+        <xs:element xmlns:q58="http://schemas.datacontract.org/2004/07/DecisionsServiceHost" minOccurs="0" name="resources" nillable="true" type="q58:ArrayOfModuleResource" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RemoveFromClientResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

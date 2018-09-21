@@ -1,0 +1,3062 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="AccountServiceWrapper" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="BasicHttpBinding_IAccountService1_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <sp:HttpsToken RequireClientCertificate="false" />
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict />
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost/decisions/Primary/API/AccountService?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost/decisions/Primary/API/AccountService?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" />
+      <xsd:import schemaLocation="http://localhost/decisions/Primary/API/AccountService?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost/decisions/Primary/API/AccountService?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Services.Folder" />
+      <xsd:import schemaLocation="http://localhost/decisions/Primary/API/AccountService?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Services.Accounts" />
+      <xsd:import schemaLocation="http://localhost/decisions/Primary/API/AccountService?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer" />
+      <xsd:import schemaLocation="http://localhost/decisions/Primary/API/AccountService?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/DecisionsFramework.Data.ORMapper" />
+      <xsd:import schemaLocation="http://localhost/decisions/Primary/API/AccountService?xsd=xsd7" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://localhost/decisions/Primary/API/AccountService?xsd=xsd8" namespace="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Services.Portal" />
+      <xsd:import schemaLocation="http://localhost/decisions/Primary/API/AccountService?xsd=xsd9" namespace="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Services.Organization" />
+      <xsd:import schemaLocation="http://localhost/decisions/Primary/API/AccountService?xsd=xsd10" namespace="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Actions" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IAccountService_GetSessionUserContext_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSessionUserContext" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_GetSessionUserContext_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSessionUserContextResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_GetSessionUserContext_FrameworkFault_FaultMessage">
+    <wsdl:part xmlns:q1="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" name="detail" element="q1:FrameworkFault" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_GetPasswordUserContext_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPasswordUserContext" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_GetPasswordUserContext_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPasswordUserContextResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_GetPasswordUserContext_FrameworkFault_FaultMessage">
+    <wsdl:part xmlns:q2="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" name="detail" element="q2:FrameworkFault" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_GetGuestUserContext_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetGuestUserContext" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_GetGuestUserContext_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetGuestUserContextResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_GetGuestUserContext_FrameworkFault_FaultMessage">
+    <wsdl:part xmlns:q3="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" name="detail" element="q3:FrameworkFault" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_Exists_InputMessage">
+    <wsdl:part name="parameters" element="tns:Exists" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_Exists_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ExistsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_Exists_FrameworkFault_FaultMessage">
+    <wsdl:part xmlns:q4="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" name="detail" element="q4:FrameworkFault" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_GetByFolderID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetByFolderID" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_GetByFolderID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetByFolderIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_GetByFolderID_FrameworkFault_FaultMessage">
+    <wsdl:part xmlns:q5="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" name="detail" element="q5:FrameworkFault" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_GetByID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetByID" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_GetByID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_GetByID_FrameworkFault_FaultMessage">
+    <wsdl:part xmlns:q6="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" name="detail" element="q6:FrameworkFault" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_GetAll_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAll" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_GetAll_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_GetAll_FrameworkFault_FaultMessage">
+    <wsdl:part xmlns:q7="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" name="detail" element="q7:FrameworkFault" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_Save_InputMessage">
+    <wsdl:part name="parameters" element="tns:Save" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_Save_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_Save_FrameworkFault_FaultMessage">
+    <wsdl:part xmlns:q8="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" name="detail" element="q8:FrameworkFault" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_Delete_InputMessage">
+    <wsdl:part name="parameters" element="tns:Delete" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_Delete_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_Delete_FrameworkFault_FaultMessage">
+    <wsdl:part xmlns:q9="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" name="detail" element="q9:FrameworkFault" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_Search_InputMessage">
+    <wsdl:part name="parameters" element="tns:Search" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_Search_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SearchResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_Search_FrameworkFault_FaultMessage">
+    <wsdl:part xmlns:q10="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" name="detail" element="q10:FrameworkFault" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_LoginUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:LoginUser" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_LoginUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoginUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_LoginUser_FrameworkFault_FaultMessage">
+    <wsdl:part xmlns:q11="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" name="detail" element="q11:FrameworkFault" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_LoginUserWithIP_InputMessage">
+    <wsdl:part name="parameters" element="tns:LoginUserWithIP" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_LoginUserWithIP_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoginUserWithIPResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_LoginUserWithIP_FrameworkFault_FaultMessage">
+    <wsdl:part xmlns:q12="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" name="detail" element="q12:FrameworkFault" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_LoginWithoutSharedSession_InputMessage">
+    <wsdl:part name="parameters" element="tns:LoginWithoutSharedSession" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_LoginWithoutSharedSession_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoginWithoutSharedSessionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_LoginWithoutSharedSession_FrameworkFault_FaultMessage">
+    <wsdl:part xmlns:q13="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" name="detail" element="q13:FrameworkFault" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_LoginUserWithTimeZoneInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:LoginUserWithTimeZoneInfo" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_LoginUserWithTimeZoneInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoginUserWithTimeZoneInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_LoginUserWithTimeZoneInfo_FrameworkFault_FaultMessage">
+    <wsdl:part xmlns:q14="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" name="detail" element="q14:FrameworkFault" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_LoginWithoutSharedSessionWithTimeZoneInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:LoginWithoutSharedSessionWithTimeZoneInfo" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_LoginWithoutSharedSessionWithTimeZoneInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoginWithoutSharedSessionWithTimeZoneInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_LoginWithoutSharedSessionWithTimeZoneInfo_FrameworkFault_FaultMessage">
+    <wsdl:part xmlns:q15="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" name="detail" element="q15:FrameworkFault" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_SpecifySessionTimezone_InputMessage">
+    <wsdl:part name="parameters" element="tns:SpecifySessionTimezone" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_SpecifySessionTimezone_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SpecifySessionTimezoneResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_SpecifySessionTimezone_FrameworkFault_FaultMessage">
+    <wsdl:part xmlns:q16="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" name="detail" element="q16:FrameworkFault" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_IsInstanceUsingDefaultSettings_InputMessage">
+    <wsdl:part name="parameters" element="tns:IsInstanceUsingDefaultSettings" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_IsInstanceUsingDefaultSettings_OutputMessage">
+    <wsdl:part name="parameters" element="tns:IsInstanceUsingDefaultSettingsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_IsInstanceUsingDefaultSettings_FrameworkFault_FaultMessage">
+    <wsdl:part xmlns:q17="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" name="detail" element="q17:FrameworkFault" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_SetEmailAddress_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetEmailAddress" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_SetEmailAddress_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetEmailAddressResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_SetEmailAddress_FrameworkFault_FaultMessage">
+    <wsdl:part xmlns:q18="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" name="detail" element="q18:FrameworkFault" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_SetMyEmailAddress_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetMyEmailAddress" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_SetMyEmailAddress_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetMyEmailAddressResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_SetMyEmailAddress_FrameworkFault_FaultMessage">
+    <wsdl:part xmlns:q19="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" name="detail" element="q19:FrameworkFault" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_SendUserOldPassword_InputMessage">
+    <wsdl:part name="parameters" element="tns:SendUserOldPassword" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_SendUserOldPassword_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SendUserOldPasswordResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_SendUserOldPassword_FrameworkFault_FaultMessage">
+    <wsdl:part xmlns:q20="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" name="detail" element="q20:FrameworkFault" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_SendUserOldPasswordCustomText_InputMessage">
+    <wsdl:part name="parameters" element="tns:SendUserOldPasswordCustomText" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_SendUserOldPasswordCustomText_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SendUserOldPasswordCustomTextResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_SendUserOldPasswordCustomText_FrameworkFault_FaultMessage">
+    <wsdl:part xmlns:q21="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" name="detail" element="q21:FrameworkFault" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_ChangeUserPassword_InputMessage">
+    <wsdl:part name="parameters" element="tns:ChangeUserPassword" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_ChangeUserPassword_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ChangeUserPasswordResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_ChangeUserPassword_FrameworkFault_FaultMessage">
+    <wsdl:part xmlns:q22="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" name="detail" element="q22:FrameworkFault" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_ResetAndSendUserPassword_InputMessage">
+    <wsdl:part name="parameters" element="tns:ResetAndSendUserPassword" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_ResetAndSendUserPassword_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ResetAndSendUserPasswordResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_ResetAndSendUserPassword_FrameworkFault_FaultMessage">
+    <wsdl:part xmlns:q23="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" name="detail" element="q23:FrameworkFault" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_ResetAndSendUserPasswordCustomText_InputMessage">
+    <wsdl:part name="parameters" element="tns:ResetAndSendUserPasswordCustomText" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_ResetAndSendUserPasswordCustomText_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ResetAndSendUserPasswordCustomTextResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_ResetAndSendUserPasswordCustomText_FrameworkFault_FaultMessage">
+    <wsdl:part xmlns:q24="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" name="detail" element="q24:FrameworkFault" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_CheckUserContext_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckUserContext" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_CheckUserContext_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckUserContextResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_CheckUserContext_FrameworkFault_FaultMessage">
+    <wsdl:part xmlns:q25="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" name="detail" element="q25:FrameworkFault" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_GetAccountIDBySessionID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAccountIDBySessionID" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_GetAccountIDBySessionID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAccountIDBySessionIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_GetAccountIDBySessionID_FrameworkFault_FaultMessage">
+    <wsdl:part xmlns:q26="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" name="detail" element="q26:FrameworkFault" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_GetCurrentAccountID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCurrentAccountID" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_GetCurrentAccountID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCurrentAccountIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_GetCurrentAccountID_FrameworkFault_FaultMessage">
+    <wsdl:part xmlns:q27="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" name="detail" element="q27:FrameworkFault" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_GetCurrentAccount_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCurrentAccount" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_GetCurrentAccount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCurrentAccountResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_GetCurrentAccount_FrameworkFault_FaultMessage">
+    <wsdl:part xmlns:q28="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" name="detail" element="q28:FrameworkFault" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_Logout_InputMessage">
+    <wsdl:part name="parameters" element="tns:Logout" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_Logout_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LogoutResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_Logout_FrameworkFault_FaultMessage">
+    <wsdl:part xmlns:q29="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" name="detail" element="q29:FrameworkFault" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_LogoutBySessionId_InputMessage">
+    <wsdl:part name="parameters" element="tns:LogoutBySessionId" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_LogoutBySessionId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LogoutBySessionIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_LogoutBySessionId_FrameworkFault_FaultMessage">
+    <wsdl:part xmlns:q30="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" name="detail" element="q30:FrameworkFault" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_AddNewAccountByGroupsIDs_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddNewAccountByGroupsIDs" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_AddNewAccountByGroupsIDs_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddNewAccountByGroupsIDsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_AddNewAccountByGroupsIDs_FrameworkFault_FaultMessage">
+    <wsdl:part xmlns:q31="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" name="detail" element="q31:FrameworkFault" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_AddNewAccount_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddNewAccount" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_AddNewAccount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddNewAccountResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_AddNewAccount_FrameworkFault_FaultMessage">
+    <wsdl:part xmlns:q32="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" name="detail" element="q32:FrameworkFault" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_AddNewAccountWihtoutUserContext_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddNewAccountWihtoutUserContext" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_AddNewAccountWihtoutUserContext_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddNewAccountWihtoutUserContextResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_AddNewAccountWihtoutUserContext_FrameworkFault_FaultMessage">
+    <wsdl:part xmlns:q33="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" name="detail" element="q33:FrameworkFault" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_SetPassword_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetPassword" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_SetPassword_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetPasswordResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_SetPassword_FrameworkFault_FaultMessage">
+    <wsdl:part xmlns:q34="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" name="detail" element="q34:FrameworkFault" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_ChangePassword_InputMessage">
+    <wsdl:part name="parameters" element="tns:ChangePassword" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_ChangePassword_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ChangePasswordResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_ChangePassword_FrameworkFault_FaultMessage">
+    <wsdl:part xmlns:q35="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" name="detail" element="q35:FrameworkFault" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_GetByEmail_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetByEmail" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_GetByEmail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetByEmailResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_GetByEmail_FrameworkFault_FaultMessage">
+    <wsdl:part xmlns:q36="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" name="detail" element="q36:FrameworkFault" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_GetByUserIdentifier_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetByUserIdentifier" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_GetByUserIdentifier_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetByUserIdentifierResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_GetByUserIdentifier_FrameworkFault_FaultMessage">
+    <wsdl:part xmlns:q37="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" name="detail" element="q37:FrameworkFault" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_GetByFacebookID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetByFacebookID" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_GetByFacebookID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetByFacebookIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_GetByFacebookID_FrameworkFault_FaultMessage">
+    <wsdl:part xmlns:q38="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" name="detail" element="q38:FrameworkFault" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_AddModuleRights_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddModuleRights" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_AddModuleRights_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddModuleRightsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_AddModuleRights_FrameworkFault_FaultMessage">
+    <wsdl:part xmlns:q39="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" name="detail" element="q39:FrameworkFault" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_RemoveModuleRights_InputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveModuleRights" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_RemoveModuleRights_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveModuleRightsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_RemoveModuleRights_FrameworkFault_FaultMessage">
+    <wsdl:part xmlns:q40="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" name="detail" element="q40:FrameworkFault" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_GetAllModuleRights_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllModuleRights" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_GetAllModuleRights_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllModuleRightsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_GetAllModuleRights_FrameworkFault_FaultMessage">
+    <wsdl:part xmlns:q41="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" name="detail" element="q41:FrameworkFault" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_GetAccountModuleRightsList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAccountModuleRightsList" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_GetAccountModuleRightsList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAccountModuleRightsListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_GetAccountModuleRightsList_FrameworkFault_FaultMessage">
+    <wsdl:part xmlns:q42="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" name="detail" element="q42:FrameworkFault" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_SetAccountGroups_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetAccountGroups" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_SetAccountGroups_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetAccountGroupsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_SetAccountGroups_FrameworkFault_FaultMessage">
+    <wsdl:part xmlns:q43="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" name="detail" element="q43:FrameworkFault" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_RemoveAccountFromGroup_InputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveAccountFromGroup" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_RemoveAccountFromGroup_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveAccountFromGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_RemoveAccountFromGroup_FrameworkFault_FaultMessage">
+    <wsdl:part xmlns:q44="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" name="detail" element="q44:FrameworkFault" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_GetAccountsForFolder_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAccountsForFolder" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_GetAccountsForFolder_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAccountsForFolderResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_GetAccountsForFolder_FrameworkFault_FaultMessage">
+    <wsdl:part xmlns:q45="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" name="detail" element="q45:FrameworkFault" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_SearchAccounts_InputMessage">
+    <wsdl:part name="parameters" element="tns:SearchAccounts" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_SearchAccounts_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SearchAccountsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_SearchAccounts_FrameworkFault_FaultMessage">
+    <wsdl:part xmlns:q46="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" name="detail" element="q46:FrameworkFault" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_SearchAccountsInFolderAndSubFolders_InputMessage">
+    <wsdl:part name="parameters" element="tns:SearchAccountsInFolderAndSubFolders" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_SearchAccountsInFolderAndSubFolders_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SearchAccountsInFolderAndSubFoldersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_SearchAccountsInFolderAndSubFolders_FrameworkFault_FaultMessage">
+    <wsdl:part xmlns:q47="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" name="detail" element="q47:FrameworkFault" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_GetSpecifiedAccountsICanImpersonate_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSpecifiedAccountsICanImpersonate" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_GetSpecifiedAccountsICanImpersonate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSpecifiedAccountsICanImpersonateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_GetSpecifiedAccountsICanImpersonate_FrameworkFault_FaultMessage">
+    <wsdl:part xmlns:q48="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" name="detail" element="q48:FrameworkFault" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_GetAccountIdsICanImpersonate_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAccountIdsICanImpersonate" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_GetAccountIdsICanImpersonate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAccountIdsICanImpersonateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_GetAccountIdsICanImpersonate_FrameworkFault_FaultMessage">
+    <wsdl:part xmlns:q49="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" name="detail" element="q49:FrameworkFault" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_AddModuleRightsInstance_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddModuleRightsInstance" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_AddModuleRightsInstance_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddModuleRightsInstanceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_AddModuleRightsInstance_FrameworkFault_FaultMessage">
+    <wsdl:part xmlns:q50="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" name="detail" element="q50:FrameworkFault" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_GetAccountAndGroupInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAccountAndGroupInfo" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_GetAccountAndGroupInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAccountAndGroupInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_GetAccountAndGroupInfo_FrameworkFault_FaultMessage">
+    <wsdl:part xmlns:q51="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" name="detail" element="q51:FrameworkFault" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_AddAccountToGroups_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddAccountToGroups" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_AddAccountToGroups_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddAccountToGroupsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_AddAccountToGroups_FrameworkFault_FaultMessage">
+    <wsdl:part xmlns:q52="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" name="detail" element="q52:FrameworkFault" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_SaveWithoutUserContext_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveWithoutUserContext" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_SaveWithoutUserContext_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveWithoutUserContextResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_SaveWithoutUserContext_FrameworkFault_FaultMessage">
+    <wsdl:part xmlns:q53="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" name="detail" element="q53:FrameworkFault" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_UpdateAccount_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateAccount" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_UpdateAccount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateAccountResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_UpdateAccount_FrameworkFault_FaultMessage">
+    <wsdl:part xmlns:q54="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" name="detail" element="q54:FrameworkFault" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_GetAccountByPhoneNumber_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAccountByPhoneNumber" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_GetAccountByPhoneNumber_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAccountByPhoneNumberResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_GetAccountByPhoneNumber_FrameworkFault_FaultMessage">
+    <wsdl:part xmlns:q55="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" name="detail" element="q55:FrameworkFault" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_ActivateAccount_InputMessage">
+    <wsdl:part name="parameters" element="tns:ActivateAccount" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_ActivateAccount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ActivateAccountResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_ActivateAccount_FrameworkFault_FaultMessage">
+    <wsdl:part xmlns:q56="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" name="detail" element="q56:FrameworkFault" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_DeactivateAccount_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeactivateAccount" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_DeactivateAccount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeactivateAccountResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_DeactivateAccount_FrameworkFault_FaultMessage">
+    <wsdl:part xmlns:q57="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" name="detail" element="q57:FrameworkFault" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_CheckAccountIsConfirmed_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckAccountIsConfirmed" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_CheckAccountIsConfirmed_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckAccountIsConfirmedResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_CheckAccountIsConfirmed_FrameworkFault_FaultMessage">
+    <wsdl:part xmlns:q58="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" name="detail" element="q58:FrameworkFault" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_ConfirmAccount_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConfirmAccount" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_ConfirmAccount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConfirmAccountResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_ConfirmAccount_FrameworkFault_FaultMessage">
+    <wsdl:part xmlns:q59="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" name="detail" element="q59:FrameworkFault" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_SendConfirmationEmailToAccount_InputMessage">
+    <wsdl:part name="parameters" element="tns:SendConfirmationEmailToAccount" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_SendConfirmationEmailToAccount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SendConfirmationEmailToAccountResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_SendConfirmationEmailToAccount_FrameworkFault_FaultMessage">
+    <wsdl:part xmlns:q60="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" name="detail" element="q60:FrameworkFault" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_SendConfirmationEmailToAccountWithParameters_InputMessage">
+    <wsdl:part name="parameters" element="tns:SendConfirmationEmailToAccountWithParameters" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_SendConfirmationEmailToAccountWithParameters_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SendConfirmationEmailToAccountWithParametersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_SendConfirmationEmailToAccountWithParameters_FrameworkFault_FaultMessage">
+    <wsdl:part xmlns:q61="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" name="detail" element="q61:FrameworkFault" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_CloneAccountConfiguration_InputMessage">
+    <wsdl:part name="parameters" element="tns:CloneAccountConfiguration" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_CloneAccountConfiguration_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CloneAccountConfigurationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_CloneAccountConfiguration_FrameworkFault_FaultMessage">
+    <wsdl:part xmlns:q62="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" name="detail" element="q62:FrameworkFault" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_GetSecurityQuestionForAccount_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSecurityQuestionForAccount" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_GetSecurityQuestionForAccount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSecurityQuestionForAccountResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_GetSecurityQuestionForAccount_FrameworkFault_FaultMessage">
+    <wsdl:part xmlns:q63="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" name="detail" element="q63:FrameworkFault" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_ConfirmSecurityAnswerForAccount_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConfirmSecurityAnswerForAccount" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_ConfirmSecurityAnswerForAccount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConfirmSecurityAnswerForAccountResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_ConfirmSecurityAnswerForAccount_FrameworkFault_FaultMessage">
+    <wsdl:part xmlns:q64="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" name="detail" element="q64:FrameworkFault" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_CheckSecurityAnswerAndSetPassword_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckSecurityAnswerAndSetPassword" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_CheckSecurityAnswerAndSetPassword_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckSecurityAnswerAndSetPasswordResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_CheckSecurityAnswerAndSetPassword_FrameworkFault_FaultMessage">
+    <wsdl:part xmlns:q65="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" name="detail" element="q65:FrameworkFault" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_GetSecurityQuestionsForAccount_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSecurityQuestionsForAccount" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_GetSecurityQuestionsForAccount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSecurityQuestionsForAccountResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_GetSecurityQuestionsForAccount_FrameworkFault_FaultMessage">
+    <wsdl:part xmlns:q66="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" name="detail" element="q66:FrameworkFault" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_ConfirmSecurityQuestionAndAnswerForAccount_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConfirmSecurityQuestionAndAnswerForAccount" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_ConfirmSecurityQuestionAndAnswerForAccount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConfirmSecurityQuestionAndAnswerForAccountResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_ConfirmSecurityQuestionAndAnswerForAccount_FrameworkFault_FaultMessage">
+    <wsdl:part xmlns:q67="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" name="detail" element="q67:FrameworkFault" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_CheckSecurityQuestionAndAnswerAndSetPassword_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckSecurityQuestionAndAnswerAndSetPassword" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_CheckSecurityQuestionAndAnswerAndSetPassword_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckSecurityQuestionAndAnswerAndSetPasswordResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_CheckSecurityQuestionAndAnswerAndSetPassword_FrameworkFault_FaultMessage">
+    <wsdl:part xmlns:q68="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" name="detail" element="q68:FrameworkFault" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_IsValidPassword_InputMessage">
+    <wsdl:part name="parameters" element="tns:IsValidPassword" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_IsValidPassword_OutputMessage">
+    <wsdl:part name="parameters" element="tns:IsValidPasswordResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_IsValidPassword_FrameworkFault_FaultMessage">
+    <wsdl:part xmlns:q69="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" name="detail" element="q69:FrameworkFault" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_IsValidActiveDirectoryUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:IsValidActiveDirectoryUser" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_IsValidActiveDirectoryUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:IsValidActiveDirectoryUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_IsValidActiveDirectoryUser_FrameworkFault_FaultMessage">
+    <wsdl:part xmlns:q70="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" name="detail" element="q70:FrameworkFault" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_GetAccountByHomeFolderId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAccountByHomeFolderId" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_GetAccountByHomeFolderId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAccountByHomeFolderIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_GetAccountByHomeFolderId_FrameworkFault_FaultMessage">
+    <wsdl:part xmlns:q71="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" name="detail" element="q71:FrameworkFault" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_GetAccountByConfirmationCode_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAccountByConfirmationCode" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_GetAccountByConfirmationCode_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAccountByConfirmationCodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_GetAccountByConfirmationCode_FrameworkFault_FaultMessage">
+    <wsdl:part xmlns:q72="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" name="detail" element="q72:FrameworkFault" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_GetAuthenticationId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAuthenticationId" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_GetAuthenticationId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAuthenticationIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_GetAuthenticationId_FrameworkFault_FaultMessage">
+    <wsdl:part xmlns:q73="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" name="detail" element="q73:FrameworkFault" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_AccountHasManager_InputMessage">
+    <wsdl:part name="parameters" element="tns:AccountHasManager" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_AccountHasManager_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AccountHasManagerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_AccountHasManager_FrameworkFault_FaultMessage">
+    <wsdl:part xmlns:q74="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" name="detail" element="q74:FrameworkFault" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_GetAccountManager_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAccountManager" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_GetAccountManager_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAccountManagerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_GetAccountManager_FrameworkFault_FaultMessage">
+    <wsdl:part xmlns:q75="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" name="detail" element="q75:FrameworkFault" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_GetAccountsByEmployeeId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAccountsByEmployeeId" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_GetAccountsByEmployeeId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAccountsByEmployeeIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_GetAccountsByEmployeeId_FrameworkFault_FaultMessage">
+    <wsdl:part xmlns:q76="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" name="detail" element="q76:FrameworkFault" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_GetAccountsByFirstAndLastName_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAccountsByFirstAndLastName" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_GetAccountsByFirstAndLastName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAccountsByFirstAndLastNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_GetAccountsByFirstAndLastName_FrameworkFault_FaultMessage">
+    <wsdl:part xmlns:q77="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" name="detail" element="q77:FrameworkFault" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_SetCurrentAccountCulture_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetCurrentAccountCulture" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_SetCurrentAccountCulture_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetCurrentAccountCultureResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_SetCurrentAccountCulture_FrameworkFault_FaultMessage">
+    <wsdl:part xmlns:q78="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" name="detail" element="q78:FrameworkFault" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_SetSessionActionsType_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetSessionActionsType" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_SetSessionActionsType_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetSessionActionsTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_SetSessionActionsType_FrameworkFault_FaultMessage">
+    <wsdl:part xmlns:q79="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" name="detail" element="q79:FrameworkFault" />
+  </wsdl:message>
+  <wsdl:portType name="IAccountService">
+    <wsdl:operation name="GetSessionUserContext">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAuthenticatedService/GetSessionUserContext" message="tns:IAccountService_GetSessionUserContext_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAuthenticatedService/GetSessionUserContextResponse" message="tns:IAccountService_GetSessionUserContext_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/FrameworkFaultAction" name="FrameworkFault" message="tns:IAccountService_GetSessionUserContext_FrameworkFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPasswordUserContext">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAuthenticatedService/GetPasswordUserContext" message="tns:IAccountService_GetPasswordUserContext_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAuthenticatedService/GetPasswordUserContextResponse" message="tns:IAccountService_GetPasswordUserContext_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/FrameworkFaultAction" name="FrameworkFault" message="tns:IAccountService_GetPasswordUserContext_FrameworkFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGuestUserContext">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAuthenticatedService/GetGuestUserContext" message="tns:IAccountService_GetGuestUserContext_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAuthenticatedService/GetGuestUserContextResponse" message="tns:IAccountService_GetGuestUserContext_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/FrameworkFaultAction" name="FrameworkFault" message="tns:IAccountService_GetGuestUserContext_FrameworkFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Exists">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBaseEntityServiceOf_Account/Exists" message="tns:IAccountService_Exists_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBaseEntityServiceOf_Account/ExistsResponse" message="tns:IAccountService_Exists_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/FrameworkFaultAction" name="FrameworkFault" message="tns:IAccountService_Exists_FrameworkFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetByFolderID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBaseEntityServiceOf_Account/GetByFolderID" message="tns:IAccountService_GetByFolderID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBaseEntityServiceOf_Account/GetByFolderIDResponse" message="tns:IAccountService_GetByFolderID_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/FrameworkFaultAction" name="FrameworkFault" message="tns:IAccountService_GetByFolderID_FrameworkFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetByID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBaseEntityServiceOf_Account/GetByID" message="tns:IAccountService_GetByID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBaseEntityServiceOf_Account/GetByIDResponse" message="tns:IAccountService_GetByID_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/FrameworkFaultAction" name="FrameworkFault" message="tns:IAccountService_GetByID_FrameworkFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAll">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBaseEntityServiceOf_Account/GetAll" message="tns:IAccountService_GetAll_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBaseEntityServiceOf_Account/GetAllResponse" message="tns:IAccountService_GetAll_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/FrameworkFaultAction" name="FrameworkFault" message="tns:IAccountService_GetAll_FrameworkFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Save">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBaseEntityServiceOf_Account/Save" message="tns:IAccountService_Save_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBaseEntityServiceOf_Account/SaveResponse" message="tns:IAccountService_Save_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/FrameworkFaultAction" name="FrameworkFault" message="tns:IAccountService_Save_FrameworkFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Delete">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBaseEntityServiceOf_Account/Delete" message="tns:IAccountService_Delete_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBaseEntityServiceOf_Account/DeleteResponse" message="tns:IAccountService_Delete_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/FrameworkFaultAction" name="FrameworkFault" message="tns:IAccountService_Delete_FrameworkFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Search">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBaseEntityServiceOf_Account/Search" message="tns:IAccountService_Search_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBaseEntityServiceOf_Account/SearchResponse" message="tns:IAccountService_Search_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/FrameworkFaultAction" name="FrameworkFault" message="tns:IAccountService_Search_FrameworkFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LoginUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAccountService/LoginUser" message="tns:IAccountService_LoginUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAccountService/LoginUserResponse" message="tns:IAccountService_LoginUser_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/FrameworkFaultAction" name="FrameworkFault" message="tns:IAccountService_LoginUser_FrameworkFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LoginUserWithIP">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAccountService/LoginUserWithIP" message="tns:IAccountService_LoginUserWithIP_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAccountService/LoginUserWithIPResponse" message="tns:IAccountService_LoginUserWithIP_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/FrameworkFaultAction" name="FrameworkFault" message="tns:IAccountService_LoginUserWithIP_FrameworkFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LoginWithoutSharedSession">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAccountService/LoginWithoutSharedSession" message="tns:IAccountService_LoginWithoutSharedSession_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAccountService/LoginWithoutSharedSessionResponse" message="tns:IAccountService_LoginWithoutSharedSession_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/FrameworkFaultAction" name="FrameworkFault" message="tns:IAccountService_LoginWithoutSharedSession_FrameworkFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LoginUserWithTimeZoneInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAccountService/LoginUserWithTimeZoneInfo" message="tns:IAccountService_LoginUserWithTimeZoneInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAccountService/LoginUserWithTimeZoneInfoResponse" message="tns:IAccountService_LoginUserWithTimeZoneInfo_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/FrameworkFaultAction" name="FrameworkFault" message="tns:IAccountService_LoginUserWithTimeZoneInfo_FrameworkFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LoginWithoutSharedSessionWithTimeZoneInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAccountService/LoginWithoutSharedSessionWithTimeZoneInfo" message="tns:IAccountService_LoginWithoutSharedSessionWithTimeZoneInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAccountService/LoginWithoutSharedSessionWithTimeZoneInfoResponse" message="tns:IAccountService_LoginWithoutSharedSessionWithTimeZoneInfo_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/FrameworkFaultAction" name="FrameworkFault" message="tns:IAccountService_LoginWithoutSharedSessionWithTimeZoneInfo_FrameworkFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SpecifySessionTimezone">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAccountService/SpecifySessionTimezone" message="tns:IAccountService_SpecifySessionTimezone_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAccountService/SpecifySessionTimezoneResponse" message="tns:IAccountService_SpecifySessionTimezone_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/FrameworkFaultAction" name="FrameworkFault" message="tns:IAccountService_SpecifySessionTimezone_FrameworkFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IsInstanceUsingDefaultSettings">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAccountService/IsInstanceUsingDefaultSettings" message="tns:IAccountService_IsInstanceUsingDefaultSettings_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAccountService/IsInstanceUsingDefaultSettingsResponse" message="tns:IAccountService_IsInstanceUsingDefaultSettings_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/FrameworkFaultAction" name="FrameworkFault" message="tns:IAccountService_IsInstanceUsingDefaultSettings_FrameworkFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetEmailAddress">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAccountService/SetEmailAddress" message="tns:IAccountService_SetEmailAddress_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAccountService/SetEmailAddressResponse" message="tns:IAccountService_SetEmailAddress_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/FrameworkFaultAction" name="FrameworkFault" message="tns:IAccountService_SetEmailAddress_FrameworkFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetMyEmailAddress">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAccountService/SetMyEmailAddress" message="tns:IAccountService_SetMyEmailAddress_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAccountService/SetMyEmailAddressResponse" message="tns:IAccountService_SetMyEmailAddress_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/FrameworkFaultAction" name="FrameworkFault" message="tns:IAccountService_SetMyEmailAddress_FrameworkFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SendUserOldPassword">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAccountService/SendUserOldPassword" message="tns:IAccountService_SendUserOldPassword_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAccountService/SendUserOldPasswordResponse" message="tns:IAccountService_SendUserOldPassword_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/FrameworkFaultAction" name="FrameworkFault" message="tns:IAccountService_SendUserOldPassword_FrameworkFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SendUserOldPasswordCustomText">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAccountService/SendUserOldPasswordCustomText" message="tns:IAccountService_SendUserOldPasswordCustomText_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAccountService/SendUserOldPasswordCustomTextResponse" message="tns:IAccountService_SendUserOldPasswordCustomText_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/FrameworkFaultAction" name="FrameworkFault" message="tns:IAccountService_SendUserOldPasswordCustomText_FrameworkFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ChangeUserPassword">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAccountService/ChangeUserPassword" message="tns:IAccountService_ChangeUserPassword_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAccountService/ChangeUserPasswordResponse" message="tns:IAccountService_ChangeUserPassword_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/FrameworkFaultAction" name="FrameworkFault" message="tns:IAccountService_ChangeUserPassword_FrameworkFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ResetAndSendUserPassword">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAccountService/ResetAndSendUserPassword" message="tns:IAccountService_ResetAndSendUserPassword_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAccountService/ResetAndSendUserPasswordResponse" message="tns:IAccountService_ResetAndSendUserPassword_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/FrameworkFaultAction" name="FrameworkFault" message="tns:IAccountService_ResetAndSendUserPassword_FrameworkFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ResetAndSendUserPasswordCustomText">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAccountService/ResetAndSendUserPasswordCustomText" message="tns:IAccountService_ResetAndSendUserPasswordCustomText_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAccountService/ResetAndSendUserPasswordCustomTextResponse" message="tns:IAccountService_ResetAndSendUserPasswordCustomText_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/FrameworkFaultAction" name="FrameworkFault" message="tns:IAccountService_ResetAndSendUserPasswordCustomText_FrameworkFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckUserContext">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAccountService/CheckUserContext" message="tns:IAccountService_CheckUserContext_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAccountService/CheckUserContextResponse" message="tns:IAccountService_CheckUserContext_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/FrameworkFaultAction" name="FrameworkFault" message="tns:IAccountService_CheckUserContext_FrameworkFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAccountIDBySessionID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAccountService/GetAccountIDBySessionID" message="tns:IAccountService_GetAccountIDBySessionID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAccountService/GetAccountIDBySessionIDResponse" message="tns:IAccountService_GetAccountIDBySessionID_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/FrameworkFaultAction" name="FrameworkFault" message="tns:IAccountService_GetAccountIDBySessionID_FrameworkFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrentAccountID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAccountService/GetCurrentAccountID" message="tns:IAccountService_GetCurrentAccountID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAccountService/GetCurrentAccountIDResponse" message="tns:IAccountService_GetCurrentAccountID_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/FrameworkFaultAction" name="FrameworkFault" message="tns:IAccountService_GetCurrentAccountID_FrameworkFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrentAccount">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAccountService/GetCurrentAccount" message="tns:IAccountService_GetCurrentAccount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAccountService/GetCurrentAccountResponse" message="tns:IAccountService_GetCurrentAccount_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/FrameworkFaultAction" name="FrameworkFault" message="tns:IAccountService_GetCurrentAccount_FrameworkFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Logout">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAccountService/Logout" message="tns:IAccountService_Logout_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAccountService/LogoutResponse" message="tns:IAccountService_Logout_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/FrameworkFaultAction" name="FrameworkFault" message="tns:IAccountService_Logout_FrameworkFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LogoutBySessionId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAccountService/LogoutBySessionId" message="tns:IAccountService_LogoutBySessionId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAccountService/LogoutBySessionIdResponse" message="tns:IAccountService_LogoutBySessionId_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/FrameworkFaultAction" name="FrameworkFault" message="tns:IAccountService_LogoutBySessionId_FrameworkFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddNewAccountByGroupsIDs">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAccountService/AddNewAccountByGroupsIDs" message="tns:IAccountService_AddNewAccountByGroupsIDs_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAccountService/AddNewAccountByGroupsIDsResponse" message="tns:IAccountService_AddNewAccountByGroupsIDs_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/FrameworkFaultAction" name="FrameworkFault" message="tns:IAccountService_AddNewAccountByGroupsIDs_FrameworkFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddNewAccount">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAccountService/AddNewAccount" message="tns:IAccountService_AddNewAccount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAccountService/AddNewAccountResponse" message="tns:IAccountService_AddNewAccount_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/FrameworkFaultAction" name="FrameworkFault" message="tns:IAccountService_AddNewAccount_FrameworkFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddNewAccountWihtoutUserContext">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAccountService/AddNewAccountWihtoutUserContext" message="tns:IAccountService_AddNewAccountWihtoutUserContext_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAccountService/AddNewAccountWihtoutUserContextResponse" message="tns:IAccountService_AddNewAccountWihtoutUserContext_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/FrameworkFaultAction" name="FrameworkFault" message="tns:IAccountService_AddNewAccountWihtoutUserContext_FrameworkFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetPassword">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAccountService/SetPassword" message="tns:IAccountService_SetPassword_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAccountService/SetPasswordResponse" message="tns:IAccountService_SetPassword_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/FrameworkFaultAction" name="FrameworkFault" message="tns:IAccountService_SetPassword_FrameworkFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ChangePassword">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAccountService/ChangePassword" message="tns:IAccountService_ChangePassword_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAccountService/ChangePasswordResponse" message="tns:IAccountService_ChangePassword_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/FrameworkFaultAction" name="FrameworkFault" message="tns:IAccountService_ChangePassword_FrameworkFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetByEmail">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAccountService/GetByEmail" message="tns:IAccountService_GetByEmail_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAccountService/GetByEmailResponse" message="tns:IAccountService_GetByEmail_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/FrameworkFaultAction" name="FrameworkFault" message="tns:IAccountService_GetByEmail_FrameworkFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetByUserIdentifier">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAccountService/GetByUserIdentifier" message="tns:IAccountService_GetByUserIdentifier_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAccountService/GetByUserIdentifierResponse" message="tns:IAccountService_GetByUserIdentifier_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/FrameworkFaultAction" name="FrameworkFault" message="tns:IAccountService_GetByUserIdentifier_FrameworkFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetByFacebookID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAccountService/GetByFacebookID" message="tns:IAccountService_GetByFacebookID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAccountService/GetByFacebookIDResponse" message="tns:IAccountService_GetByFacebookID_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/FrameworkFaultAction" name="FrameworkFault" message="tns:IAccountService_GetByFacebookID_FrameworkFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddModuleRights">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAccountService/AddModuleRights" message="tns:IAccountService_AddModuleRights_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAccountService/AddModuleRightsResponse" message="tns:IAccountService_AddModuleRights_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/FrameworkFaultAction" name="FrameworkFault" message="tns:IAccountService_AddModuleRights_FrameworkFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveModuleRights">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAccountService/RemoveModuleRights" message="tns:IAccountService_RemoveModuleRights_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAccountService/RemoveModuleRightsResponse" message="tns:IAccountService_RemoveModuleRights_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/FrameworkFaultAction" name="FrameworkFault" message="tns:IAccountService_RemoveModuleRights_FrameworkFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllModuleRights">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAccountService/GetAllModuleRights" message="tns:IAccountService_GetAllModuleRights_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAccountService/GetAllModuleRightsResponse" message="tns:IAccountService_GetAllModuleRights_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/FrameworkFaultAction" name="FrameworkFault" message="tns:IAccountService_GetAllModuleRights_FrameworkFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAccountModuleRightsList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAccountService/GetAccountModuleRightsList" message="tns:IAccountService_GetAccountModuleRightsList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAccountService/GetAccountModuleRightsListResponse" message="tns:IAccountService_GetAccountModuleRightsList_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/FrameworkFaultAction" name="FrameworkFault" message="tns:IAccountService_GetAccountModuleRightsList_FrameworkFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetAccountGroups">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAccountService/SetAccountGroups" message="tns:IAccountService_SetAccountGroups_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAccountService/SetAccountGroupsResponse" message="tns:IAccountService_SetAccountGroups_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/FrameworkFaultAction" name="FrameworkFault" message="tns:IAccountService_SetAccountGroups_FrameworkFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveAccountFromGroup">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAccountService/RemoveAccountFromGroup" message="tns:IAccountService_RemoveAccountFromGroup_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAccountService/RemoveAccountFromGroupResponse" message="tns:IAccountService_RemoveAccountFromGroup_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/FrameworkFaultAction" name="FrameworkFault" message="tns:IAccountService_RemoveAccountFromGroup_FrameworkFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAccountsForFolder">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAccountService/GetAccountsForFolder" message="tns:IAccountService_GetAccountsForFolder_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAccountService/GetAccountsForFolderResponse" message="tns:IAccountService_GetAccountsForFolder_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/FrameworkFaultAction" name="FrameworkFault" message="tns:IAccountService_GetAccountsForFolder_FrameworkFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchAccounts">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAccountService/SearchAccounts" message="tns:IAccountService_SearchAccounts_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAccountService/SearchAccountsResponse" message="tns:IAccountService_SearchAccounts_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/FrameworkFaultAction" name="FrameworkFault" message="tns:IAccountService_SearchAccounts_FrameworkFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchAccountsInFolderAndSubFolders">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAccountService/SearchAccountsInFolderAndSubFolders" message="tns:IAccountService_SearchAccountsInFolderAndSubFolders_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAccountService/SearchAccountsInFolderAndSubFoldersResponse" message="tns:IAccountService_SearchAccountsInFolderAndSubFolders_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/FrameworkFaultAction" name="FrameworkFault" message="tns:IAccountService_SearchAccountsInFolderAndSubFolders_FrameworkFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSpecifiedAccountsICanImpersonate">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAccountService/GetSpecifiedAccountsICanImpersonate" message="tns:IAccountService_GetSpecifiedAccountsICanImpersonate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAccountService/GetSpecifiedAccountsICanImpersonateResponse" message="tns:IAccountService_GetSpecifiedAccountsICanImpersonate_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/FrameworkFaultAction" name="FrameworkFault" message="tns:IAccountService_GetSpecifiedAccountsICanImpersonate_FrameworkFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAccountIdsICanImpersonate">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAccountService/GetAccountIdsICanImpersonate" message="tns:IAccountService_GetAccountIdsICanImpersonate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAccountService/GetAccountIdsICanImpersonateResponse" message="tns:IAccountService_GetAccountIdsICanImpersonate_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/FrameworkFaultAction" name="FrameworkFault" message="tns:IAccountService_GetAccountIdsICanImpersonate_FrameworkFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddModuleRightsInstance">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAccountService/AddModuleRightsInstance" message="tns:IAccountService_AddModuleRightsInstance_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAccountService/AddModuleRightsInstanceResponse" message="tns:IAccountService_AddModuleRightsInstance_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/FrameworkFaultAction" name="FrameworkFault" message="tns:IAccountService_AddModuleRightsInstance_FrameworkFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAccountAndGroupInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAccountService/GetAccountAndGroupInfo" message="tns:IAccountService_GetAccountAndGroupInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAccountService/GetAccountAndGroupInfoResponse" message="tns:IAccountService_GetAccountAndGroupInfo_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/FrameworkFaultAction" name="FrameworkFault" message="tns:IAccountService_GetAccountAndGroupInfo_FrameworkFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddAccountToGroups">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAccountService/AddAccountToGroups" message="tns:IAccountService_AddAccountToGroups_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAccountService/AddAccountToGroupsResponse" message="tns:IAccountService_AddAccountToGroups_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/FrameworkFaultAction" name="FrameworkFault" message="tns:IAccountService_AddAccountToGroups_FrameworkFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveWithoutUserContext">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAccountService/SaveWithoutUserContext" message="tns:IAccountService_SaveWithoutUserContext_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAccountService/SaveWithoutUserContextResponse" message="tns:IAccountService_SaveWithoutUserContext_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/FrameworkFaultAction" name="FrameworkFault" message="tns:IAccountService_SaveWithoutUserContext_FrameworkFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAccount">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAccountService/UpdateAccount" message="tns:IAccountService_UpdateAccount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAccountService/UpdateAccountResponse" message="tns:IAccountService_UpdateAccount_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/FrameworkFaultAction" name="FrameworkFault" message="tns:IAccountService_UpdateAccount_FrameworkFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAccountByPhoneNumber">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAccountService/GetAccountByPhoneNumber" message="tns:IAccountService_GetAccountByPhoneNumber_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAccountService/GetAccountByPhoneNumberResponse" message="tns:IAccountService_GetAccountByPhoneNumber_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/FrameworkFaultAction" name="FrameworkFault" message="tns:IAccountService_GetAccountByPhoneNumber_FrameworkFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ActivateAccount">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAccountService/ActivateAccount" message="tns:IAccountService_ActivateAccount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAccountService/ActivateAccountResponse" message="tns:IAccountService_ActivateAccount_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/FrameworkFaultAction" name="FrameworkFault" message="tns:IAccountService_ActivateAccount_FrameworkFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeactivateAccount">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAccountService/DeactivateAccount" message="tns:IAccountService_DeactivateAccount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAccountService/DeactivateAccountResponse" message="tns:IAccountService_DeactivateAccount_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/FrameworkFaultAction" name="FrameworkFault" message="tns:IAccountService_DeactivateAccount_FrameworkFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckAccountIsConfirmed">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAccountService/CheckAccountIsConfirmed" message="tns:IAccountService_CheckAccountIsConfirmed_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAccountService/CheckAccountIsConfirmedResponse" message="tns:IAccountService_CheckAccountIsConfirmed_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/FrameworkFaultAction" name="FrameworkFault" message="tns:IAccountService_CheckAccountIsConfirmed_FrameworkFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ConfirmAccount">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAccountService/ConfirmAccount" message="tns:IAccountService_ConfirmAccount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAccountService/ConfirmAccountResponse" message="tns:IAccountService_ConfirmAccount_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/FrameworkFaultAction" name="FrameworkFault" message="tns:IAccountService_ConfirmAccount_FrameworkFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SendConfirmationEmailToAccount">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAccountService/SendConfirmationEmailToAccount" message="tns:IAccountService_SendConfirmationEmailToAccount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAccountService/SendConfirmationEmailToAccountResponse" message="tns:IAccountService_SendConfirmationEmailToAccount_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/FrameworkFaultAction" name="FrameworkFault" message="tns:IAccountService_SendConfirmationEmailToAccount_FrameworkFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SendConfirmationEmailToAccountWithParameters">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAccountService/SendConfirmationEmailToAccountWithParameters" message="tns:IAccountService_SendConfirmationEmailToAccountWithParameters_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAccountService/SendConfirmationEmailToAccountWithParametersResponse" message="tns:IAccountService_SendConfirmationEmailToAccountWithParameters_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/FrameworkFaultAction" name="FrameworkFault" message="tns:IAccountService_SendConfirmationEmailToAccountWithParameters_FrameworkFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CloneAccountConfiguration">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAccountService/CloneAccountConfiguration" message="tns:IAccountService_CloneAccountConfiguration_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAccountService/CloneAccountConfigurationResponse" message="tns:IAccountService_CloneAccountConfiguration_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/FrameworkFaultAction" name="FrameworkFault" message="tns:IAccountService_CloneAccountConfiguration_FrameworkFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSecurityQuestionForAccount">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAccountService/GetSecurityQuestionForAccount" message="tns:IAccountService_GetSecurityQuestionForAccount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAccountService/GetSecurityQuestionForAccountResponse" message="tns:IAccountService_GetSecurityQuestionForAccount_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/FrameworkFaultAction" name="FrameworkFault" message="tns:IAccountService_GetSecurityQuestionForAccount_FrameworkFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ConfirmSecurityAnswerForAccount">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAccountService/ConfirmSecurityAnswerForAccount" message="tns:IAccountService_ConfirmSecurityAnswerForAccount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAccountService/ConfirmSecurityAnswerForAccountResponse" message="tns:IAccountService_ConfirmSecurityAnswerForAccount_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/FrameworkFaultAction" name="FrameworkFault" message="tns:IAccountService_ConfirmSecurityAnswerForAccount_FrameworkFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckSecurityAnswerAndSetPassword">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAccountService/CheckSecurityAnswerAndSetPassword" message="tns:IAccountService_CheckSecurityAnswerAndSetPassword_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAccountService/CheckSecurityAnswerAndSetPasswordResponse" message="tns:IAccountService_CheckSecurityAnswerAndSetPassword_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/FrameworkFaultAction" name="FrameworkFault" message="tns:IAccountService_CheckSecurityAnswerAndSetPassword_FrameworkFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSecurityQuestionsForAccount">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAccountService/GetSecurityQuestionsForAccount" message="tns:IAccountService_GetSecurityQuestionsForAccount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAccountService/GetSecurityQuestionsForAccountResponse" message="tns:IAccountService_GetSecurityQuestionsForAccount_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/FrameworkFaultAction" name="FrameworkFault" message="tns:IAccountService_GetSecurityQuestionsForAccount_FrameworkFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ConfirmSecurityQuestionAndAnswerForAccount">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAccountService/ConfirmSecurityQuestionAndAnswerForAccount" message="tns:IAccountService_ConfirmSecurityQuestionAndAnswerForAccount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAccountService/ConfirmSecurityQuestionAndAnswerForAccountResponse" message="tns:IAccountService_ConfirmSecurityQuestionAndAnswerForAccount_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/FrameworkFaultAction" name="FrameworkFault" message="tns:IAccountService_ConfirmSecurityQuestionAndAnswerForAccount_FrameworkFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckSecurityQuestionAndAnswerAndSetPassword">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAccountService/CheckSecurityQuestionAndAnswerAndSetPassword" message="tns:IAccountService_CheckSecurityQuestionAndAnswerAndSetPassword_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAccountService/CheckSecurityQuestionAndAnswerAndSetPasswordResponse" message="tns:IAccountService_CheckSecurityQuestionAndAnswerAndSetPassword_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/FrameworkFaultAction" name="FrameworkFault" message="tns:IAccountService_CheckSecurityQuestionAndAnswerAndSetPassword_FrameworkFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IsValidPassword">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAccountService/IsValidPassword" message="tns:IAccountService_IsValidPassword_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAccountService/IsValidPasswordResponse" message="tns:IAccountService_IsValidPassword_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/FrameworkFaultAction" name="FrameworkFault" message="tns:IAccountService_IsValidPassword_FrameworkFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IsValidActiveDirectoryUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAccountService/IsValidActiveDirectoryUser" message="tns:IAccountService_IsValidActiveDirectoryUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAccountService/IsValidActiveDirectoryUserResponse" message="tns:IAccountService_IsValidActiveDirectoryUser_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/FrameworkFaultAction" name="FrameworkFault" message="tns:IAccountService_IsValidActiveDirectoryUser_FrameworkFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAccountByHomeFolderId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAccountService/GetAccountByHomeFolderId" message="tns:IAccountService_GetAccountByHomeFolderId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAccountService/GetAccountByHomeFolderIdResponse" message="tns:IAccountService_GetAccountByHomeFolderId_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/FrameworkFaultAction" name="FrameworkFault" message="tns:IAccountService_GetAccountByHomeFolderId_FrameworkFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAccountByConfirmationCode">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAccountService/GetAccountByConfirmationCode" message="tns:IAccountService_GetAccountByConfirmationCode_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAccountService/GetAccountByConfirmationCodeResponse" message="tns:IAccountService_GetAccountByConfirmationCode_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/FrameworkFaultAction" name="FrameworkFault" message="tns:IAccountService_GetAccountByConfirmationCode_FrameworkFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAuthenticationId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAccountService/GetAuthenticationId" message="tns:IAccountService_GetAuthenticationId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAccountService/GetAuthenticationIdResponse" message="tns:IAccountService_GetAuthenticationId_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/FrameworkFaultAction" name="FrameworkFault" message="tns:IAccountService_GetAuthenticationId_FrameworkFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AccountHasManager">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAccountService/AccountHasManager" message="tns:IAccountService_AccountHasManager_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAccountService/AccountHasManagerResponse" message="tns:IAccountService_AccountHasManager_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/FrameworkFaultAction" name="FrameworkFault" message="tns:IAccountService_AccountHasManager_FrameworkFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAccountManager">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAccountService/GetAccountManager" message="tns:IAccountService_GetAccountManager_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAccountService/GetAccountManagerResponse" message="tns:IAccountService_GetAccountManager_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/FrameworkFaultAction" name="FrameworkFault" message="tns:IAccountService_GetAccountManager_FrameworkFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAccountsByEmployeeId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAccountService/GetAccountsByEmployeeId" message="tns:IAccountService_GetAccountsByEmployeeId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAccountService/GetAccountsByEmployeeIdResponse" message="tns:IAccountService_GetAccountsByEmployeeId_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/FrameworkFaultAction" name="FrameworkFault" message="tns:IAccountService_GetAccountsByEmployeeId_FrameworkFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAccountsByFirstAndLastName">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAccountService/GetAccountsByFirstAndLastName" message="tns:IAccountService_GetAccountsByFirstAndLastName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAccountService/GetAccountsByFirstAndLastNameResponse" message="tns:IAccountService_GetAccountsByFirstAndLastName_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/FrameworkFaultAction" name="FrameworkFault" message="tns:IAccountService_GetAccountsByFirstAndLastName_FrameworkFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetCurrentAccountCulture">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAccountService/SetCurrentAccountCulture" message="tns:IAccountService_SetCurrentAccountCulture_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAccountService/SetCurrentAccountCultureResponse" message="tns:IAccountService_SetCurrentAccountCulture_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/FrameworkFaultAction" name="FrameworkFault" message="tns:IAccountService_SetCurrentAccountCulture_FrameworkFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetSessionActionsType">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAccountService/SetSessionActionsType" message="tns:IAccountService_SetSessionActionsType_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAccountService/SetSessionActionsTypeResponse" message="tns:IAccountService_SetSessionActionsType_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/FrameworkFaultAction" name="FrameworkFault" message="tns:IAccountService_SetSessionActionsType_FrameworkFault_FaultMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IAccountService" type="tns:IAccountService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetSessionUserContext">
+      <soap:operation soapAction="http://tempuri.org/IAuthenticatedService/GetSessionUserContext" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetPasswordUserContext">
+      <soap:operation soapAction="http://tempuri.org/IAuthenticatedService/GetPasswordUserContext" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetGuestUserContext">
+      <soap:operation soapAction="http://tempuri.org/IAuthenticatedService/GetGuestUserContext" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="Exists">
+      <soap:operation soapAction="http://tempuri.org/IBaseEntityServiceOf_Account/Exists" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetByFolderID">
+      <soap:operation soapAction="http://tempuri.org/IBaseEntityServiceOf_Account/GetByFolderID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetByID">
+      <soap:operation soapAction="http://tempuri.org/IBaseEntityServiceOf_Account/GetByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetAll">
+      <soap:operation soapAction="http://tempuri.org/IBaseEntityServiceOf_Account/GetAll" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="Save">
+      <soap:operation soapAction="http://tempuri.org/IBaseEntityServiceOf_Account/Save" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="Delete">
+      <soap:operation soapAction="http://tempuri.org/IBaseEntityServiceOf_Account/Delete" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="Search">
+      <soap:operation soapAction="http://tempuri.org/IBaseEntityServiceOf_Account/Search" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="LoginUser">
+      <soap:operation soapAction="http://tempuri.org/IAccountService/LoginUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="LoginUserWithIP">
+      <soap:operation soapAction="http://tempuri.org/IAccountService/LoginUserWithIP" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="LoginWithoutSharedSession">
+      <soap:operation soapAction="http://tempuri.org/IAccountService/LoginWithoutSharedSession" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="LoginUserWithTimeZoneInfo">
+      <soap:operation soapAction="http://tempuri.org/IAccountService/LoginUserWithTimeZoneInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="LoginWithoutSharedSessionWithTimeZoneInfo">
+      <soap:operation soapAction="http://tempuri.org/IAccountService/LoginWithoutSharedSessionWithTimeZoneInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SpecifySessionTimezone">
+      <soap:operation soapAction="http://tempuri.org/IAccountService/SpecifySessionTimezone" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="IsInstanceUsingDefaultSettings">
+      <soap:operation soapAction="http://tempuri.org/IAccountService/IsInstanceUsingDefaultSettings" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SetEmailAddress">
+      <soap:operation soapAction="http://tempuri.org/IAccountService/SetEmailAddress" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SetMyEmailAddress">
+      <soap:operation soapAction="http://tempuri.org/IAccountService/SetMyEmailAddress" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SendUserOldPassword">
+      <soap:operation soapAction="http://tempuri.org/IAccountService/SendUserOldPassword" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SendUserOldPasswordCustomText">
+      <soap:operation soapAction="http://tempuri.org/IAccountService/SendUserOldPasswordCustomText" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ChangeUserPassword">
+      <soap:operation soapAction="http://tempuri.org/IAccountService/ChangeUserPassword" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ResetAndSendUserPassword">
+      <soap:operation soapAction="http://tempuri.org/IAccountService/ResetAndSendUserPassword" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ResetAndSendUserPasswordCustomText">
+      <soap:operation soapAction="http://tempuri.org/IAccountService/ResetAndSendUserPasswordCustomText" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="CheckUserContext">
+      <soap:operation soapAction="http://tempuri.org/IAccountService/CheckUserContext" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetAccountIDBySessionID">
+      <soap:operation soapAction="http://tempuri.org/IAccountService/GetAccountIDBySessionID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrentAccountID">
+      <soap:operation soapAction="http://tempuri.org/IAccountService/GetCurrentAccountID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrentAccount">
+      <soap:operation soapAction="http://tempuri.org/IAccountService/GetCurrentAccount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="Logout">
+      <soap:operation soapAction="http://tempuri.org/IAccountService/Logout" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="LogoutBySessionId">
+      <soap:operation soapAction="http://tempuri.org/IAccountService/LogoutBySessionId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="AddNewAccountByGroupsIDs">
+      <soap:operation soapAction="http://tempuri.org/IAccountService/AddNewAccountByGroupsIDs" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="AddNewAccount">
+      <soap:operation soapAction="http://tempuri.org/IAccountService/AddNewAccount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="AddNewAccountWihtoutUserContext">
+      <soap:operation soapAction="http://tempuri.org/IAccountService/AddNewAccountWihtoutUserContext" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SetPassword">
+      <soap:operation soapAction="http://tempuri.org/IAccountService/SetPassword" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ChangePassword">
+      <soap:operation soapAction="http://tempuri.org/IAccountService/ChangePassword" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetByEmail">
+      <soap:operation soapAction="http://tempuri.org/IAccountService/GetByEmail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetByUserIdentifier">
+      <soap:operation soapAction="http://tempuri.org/IAccountService/GetByUserIdentifier" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetByFacebookID">
+      <soap:operation soapAction="http://tempuri.org/IAccountService/GetByFacebookID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="AddModuleRights">
+      <soap:operation soapAction="http://tempuri.org/IAccountService/AddModuleRights" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveModuleRights">
+      <soap:operation soapAction="http://tempuri.org/IAccountService/RemoveModuleRights" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllModuleRights">
+      <soap:operation soapAction="http://tempuri.org/IAccountService/GetAllModuleRights" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetAccountModuleRightsList">
+      <soap:operation soapAction="http://tempuri.org/IAccountService/GetAccountModuleRightsList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SetAccountGroups">
+      <soap:operation soapAction="http://tempuri.org/IAccountService/SetAccountGroups" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveAccountFromGroup">
+      <soap:operation soapAction="http://tempuri.org/IAccountService/RemoveAccountFromGroup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetAccountsForFolder">
+      <soap:operation soapAction="http://tempuri.org/IAccountService/GetAccountsForFolder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SearchAccounts">
+      <soap:operation soapAction="http://tempuri.org/IAccountService/SearchAccounts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SearchAccountsInFolderAndSubFolders">
+      <soap:operation soapAction="http://tempuri.org/IAccountService/SearchAccountsInFolderAndSubFolders" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetSpecifiedAccountsICanImpersonate">
+      <soap:operation soapAction="http://tempuri.org/IAccountService/GetSpecifiedAccountsICanImpersonate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetAccountIdsICanImpersonate">
+      <soap:operation soapAction="http://tempuri.org/IAccountService/GetAccountIdsICanImpersonate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="AddModuleRightsInstance">
+      <soap:operation soapAction="http://tempuri.org/IAccountService/AddModuleRightsInstance" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetAccountAndGroupInfo">
+      <soap:operation soapAction="http://tempuri.org/IAccountService/GetAccountAndGroupInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="AddAccountToGroups">
+      <soap:operation soapAction="http://tempuri.org/IAccountService/AddAccountToGroups" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SaveWithoutUserContext">
+      <soap:operation soapAction="http://tempuri.org/IAccountService/SaveWithoutUserContext" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAccount">
+      <soap:operation soapAction="http://tempuri.org/IAccountService/UpdateAccount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetAccountByPhoneNumber">
+      <soap:operation soapAction="http://tempuri.org/IAccountService/GetAccountByPhoneNumber" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ActivateAccount">
+      <soap:operation soapAction="http://tempuri.org/IAccountService/ActivateAccount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="DeactivateAccount">
+      <soap:operation soapAction="http://tempuri.org/IAccountService/DeactivateAccount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="CheckAccountIsConfirmed">
+      <soap:operation soapAction="http://tempuri.org/IAccountService/CheckAccountIsConfirmed" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ConfirmAccount">
+      <soap:operation soapAction="http://tempuri.org/IAccountService/ConfirmAccount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SendConfirmationEmailToAccount">
+      <soap:operation soapAction="http://tempuri.org/IAccountService/SendConfirmationEmailToAccount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SendConfirmationEmailToAccountWithParameters">
+      <soap:operation soapAction="http://tempuri.org/IAccountService/SendConfirmationEmailToAccountWithParameters" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="CloneAccountConfiguration">
+      <soap:operation soapAction="http://tempuri.org/IAccountService/CloneAccountConfiguration" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetSecurityQuestionForAccount">
+      <soap:operation soapAction="http://tempuri.org/IAccountService/GetSecurityQuestionForAccount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ConfirmSecurityAnswerForAccount">
+      <soap:operation soapAction="http://tempuri.org/IAccountService/ConfirmSecurityAnswerForAccount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="CheckSecurityAnswerAndSetPassword">
+      <soap:operation soapAction="http://tempuri.org/IAccountService/CheckSecurityAnswerAndSetPassword" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetSecurityQuestionsForAccount">
+      <soap:operation soapAction="http://tempuri.org/IAccountService/GetSecurityQuestionsForAccount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ConfirmSecurityQuestionAndAnswerForAccount">
+      <soap:operation soapAction="http://tempuri.org/IAccountService/ConfirmSecurityQuestionAndAnswerForAccount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="CheckSecurityQuestionAndAnswerAndSetPassword">
+      <soap:operation soapAction="http://tempuri.org/IAccountService/CheckSecurityQuestionAndAnswerAndSetPassword" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="IsValidPassword">
+      <soap:operation soapAction="http://tempuri.org/IAccountService/IsValidPassword" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="IsValidActiveDirectoryUser">
+      <soap:operation soapAction="http://tempuri.org/IAccountService/IsValidActiveDirectoryUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetAccountByHomeFolderId">
+      <soap:operation soapAction="http://tempuri.org/IAccountService/GetAccountByHomeFolderId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetAccountByConfirmationCode">
+      <soap:operation soapAction="http://tempuri.org/IAccountService/GetAccountByConfirmationCode" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetAuthenticationId">
+      <soap:operation soapAction="http://tempuri.org/IAccountService/GetAuthenticationId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="AccountHasManager">
+      <soap:operation soapAction="http://tempuri.org/IAccountService/AccountHasManager" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetAccountManager">
+      <soap:operation soapAction="http://tempuri.org/IAccountService/GetAccountManager" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetAccountsByEmployeeId">
+      <soap:operation soapAction="http://tempuri.org/IAccountService/GetAccountsByEmployeeId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetAccountsByFirstAndLastName">
+      <soap:operation soapAction="http://tempuri.org/IAccountService/GetAccountsByFirstAndLastName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SetCurrentAccountCulture">
+      <soap:operation soapAction="http://tempuri.org/IAccountService/SetCurrentAccountCulture" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SetSessionActionsType">
+      <soap:operation soapAction="http://tempuri.org/IAccountService/SetSessionActionsType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BasicHttpBinding_IAccountService1" type="tns:IAccountService">
+    <wsp:PolicyReference URI="#BasicHttpBinding_IAccountService1_policy" />
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetSessionUserContext">
+      <soap:operation soapAction="http://tempuri.org/IAuthenticatedService/GetSessionUserContext" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetPasswordUserContext">
+      <soap:operation soapAction="http://tempuri.org/IAuthenticatedService/GetPasswordUserContext" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetGuestUserContext">
+      <soap:operation soapAction="http://tempuri.org/IAuthenticatedService/GetGuestUserContext" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="Exists">
+      <soap:operation soapAction="http://tempuri.org/IBaseEntityServiceOf_Account/Exists" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetByFolderID">
+      <soap:operation soapAction="http://tempuri.org/IBaseEntityServiceOf_Account/GetByFolderID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetByID">
+      <soap:operation soapAction="http://tempuri.org/IBaseEntityServiceOf_Account/GetByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetAll">
+      <soap:operation soapAction="http://tempuri.org/IBaseEntityServiceOf_Account/GetAll" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="Save">
+      <soap:operation soapAction="http://tempuri.org/IBaseEntityServiceOf_Account/Save" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="Delete">
+      <soap:operation soapAction="http://tempuri.org/IBaseEntityServiceOf_Account/Delete" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="Search">
+      <soap:operation soapAction="http://tempuri.org/IBaseEntityServiceOf_Account/Search" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="LoginUser">
+      <soap:operation soapAction="http://tempuri.org/IAccountService/LoginUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="LoginUserWithIP">
+      <soap:operation soapAction="http://tempuri.org/IAccountService/LoginUserWithIP" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="LoginWithoutSharedSession">
+      <soap:operation soapAction="http://tempuri.org/IAccountService/LoginWithoutSharedSession" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="LoginUserWithTimeZoneInfo">
+      <soap:operation soapAction="http://tempuri.org/IAccountService/LoginUserWithTimeZoneInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="LoginWithoutSharedSessionWithTimeZoneInfo">
+      <soap:operation soapAction="http://tempuri.org/IAccountService/LoginWithoutSharedSessionWithTimeZoneInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SpecifySessionTimezone">
+      <soap:operation soapAction="http://tempuri.org/IAccountService/SpecifySessionTimezone" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="IsInstanceUsingDefaultSettings">
+      <soap:operation soapAction="http://tempuri.org/IAccountService/IsInstanceUsingDefaultSettings" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SetEmailAddress">
+      <soap:operation soapAction="http://tempuri.org/IAccountService/SetEmailAddress" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SetMyEmailAddress">
+      <soap:operation soapAction="http://tempuri.org/IAccountService/SetMyEmailAddress" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SendUserOldPassword">
+      <soap:operation soapAction="http://tempuri.org/IAccountService/SendUserOldPassword" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SendUserOldPasswordCustomText">
+      <soap:operation soapAction="http://tempuri.org/IAccountService/SendUserOldPasswordCustomText" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ChangeUserPassword">
+      <soap:operation soapAction="http://tempuri.org/IAccountService/ChangeUserPassword" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ResetAndSendUserPassword">
+      <soap:operation soapAction="http://tempuri.org/IAccountService/ResetAndSendUserPassword" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ResetAndSendUserPasswordCustomText">
+      <soap:operation soapAction="http://tempuri.org/IAccountService/ResetAndSendUserPasswordCustomText" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="CheckUserContext">
+      <soap:operation soapAction="http://tempuri.org/IAccountService/CheckUserContext" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetAccountIDBySessionID">
+      <soap:operation soapAction="http://tempuri.org/IAccountService/GetAccountIDBySessionID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrentAccountID">
+      <soap:operation soapAction="http://tempuri.org/IAccountService/GetCurrentAccountID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrentAccount">
+      <soap:operation soapAction="http://tempuri.org/IAccountService/GetCurrentAccount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="Logout">
+      <soap:operation soapAction="http://tempuri.org/IAccountService/Logout" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="LogoutBySessionId">
+      <soap:operation soapAction="http://tempuri.org/IAccountService/LogoutBySessionId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="AddNewAccountByGroupsIDs">
+      <soap:operation soapAction="http://tempuri.org/IAccountService/AddNewAccountByGroupsIDs" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="AddNewAccount">
+      <soap:operation soapAction="http://tempuri.org/IAccountService/AddNewAccount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="AddNewAccountWihtoutUserContext">
+      <soap:operation soapAction="http://tempuri.org/IAccountService/AddNewAccountWihtoutUserContext" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SetPassword">
+      <soap:operation soapAction="http://tempuri.org/IAccountService/SetPassword" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ChangePassword">
+      <soap:operation soapAction="http://tempuri.org/IAccountService/ChangePassword" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetByEmail">
+      <soap:operation soapAction="http://tempuri.org/IAccountService/GetByEmail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetByUserIdentifier">
+      <soap:operation soapAction="http://tempuri.org/IAccountService/GetByUserIdentifier" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetByFacebookID">
+      <soap:operation soapAction="http://tempuri.org/IAccountService/GetByFacebookID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="AddModuleRights">
+      <soap:operation soapAction="http://tempuri.org/IAccountService/AddModuleRights" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveModuleRights">
+      <soap:operation soapAction="http://tempuri.org/IAccountService/RemoveModuleRights" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllModuleRights">
+      <soap:operation soapAction="http://tempuri.org/IAccountService/GetAllModuleRights" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetAccountModuleRightsList">
+      <soap:operation soapAction="http://tempuri.org/IAccountService/GetAccountModuleRightsList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SetAccountGroups">
+      <soap:operation soapAction="http://tempuri.org/IAccountService/SetAccountGroups" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveAccountFromGroup">
+      <soap:operation soapAction="http://tempuri.org/IAccountService/RemoveAccountFromGroup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetAccountsForFolder">
+      <soap:operation soapAction="http://tempuri.org/IAccountService/GetAccountsForFolder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SearchAccounts">
+      <soap:operation soapAction="http://tempuri.org/IAccountService/SearchAccounts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SearchAccountsInFolderAndSubFolders">
+      <soap:operation soapAction="http://tempuri.org/IAccountService/SearchAccountsInFolderAndSubFolders" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetSpecifiedAccountsICanImpersonate">
+      <soap:operation soapAction="http://tempuri.org/IAccountService/GetSpecifiedAccountsICanImpersonate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetAccountIdsICanImpersonate">
+      <soap:operation soapAction="http://tempuri.org/IAccountService/GetAccountIdsICanImpersonate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="AddModuleRightsInstance">
+      <soap:operation soapAction="http://tempuri.org/IAccountService/AddModuleRightsInstance" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetAccountAndGroupInfo">
+      <soap:operation soapAction="http://tempuri.org/IAccountService/GetAccountAndGroupInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="AddAccountToGroups">
+      <soap:operation soapAction="http://tempuri.org/IAccountService/AddAccountToGroups" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SaveWithoutUserContext">
+      <soap:operation soapAction="http://tempuri.org/IAccountService/SaveWithoutUserContext" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAccount">
+      <soap:operation soapAction="http://tempuri.org/IAccountService/UpdateAccount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetAccountByPhoneNumber">
+      <soap:operation soapAction="http://tempuri.org/IAccountService/GetAccountByPhoneNumber" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ActivateAccount">
+      <soap:operation soapAction="http://tempuri.org/IAccountService/ActivateAccount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="DeactivateAccount">
+      <soap:operation soapAction="http://tempuri.org/IAccountService/DeactivateAccount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="CheckAccountIsConfirmed">
+      <soap:operation soapAction="http://tempuri.org/IAccountService/CheckAccountIsConfirmed" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ConfirmAccount">
+      <soap:operation soapAction="http://tempuri.org/IAccountService/ConfirmAccount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SendConfirmationEmailToAccount">
+      <soap:operation soapAction="http://tempuri.org/IAccountService/SendConfirmationEmailToAccount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SendConfirmationEmailToAccountWithParameters">
+      <soap:operation soapAction="http://tempuri.org/IAccountService/SendConfirmationEmailToAccountWithParameters" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="CloneAccountConfiguration">
+      <soap:operation soapAction="http://tempuri.org/IAccountService/CloneAccountConfiguration" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetSecurityQuestionForAccount">
+      <soap:operation soapAction="http://tempuri.org/IAccountService/GetSecurityQuestionForAccount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ConfirmSecurityAnswerForAccount">
+      <soap:operation soapAction="http://tempuri.org/IAccountService/ConfirmSecurityAnswerForAccount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="CheckSecurityAnswerAndSetPassword">
+      <soap:operation soapAction="http://tempuri.org/IAccountService/CheckSecurityAnswerAndSetPassword" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetSecurityQuestionsForAccount">
+      <soap:operation soapAction="http://tempuri.org/IAccountService/GetSecurityQuestionsForAccount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ConfirmSecurityQuestionAndAnswerForAccount">
+      <soap:operation soapAction="http://tempuri.org/IAccountService/ConfirmSecurityQuestionAndAnswerForAccount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="CheckSecurityQuestionAndAnswerAndSetPassword">
+      <soap:operation soapAction="http://tempuri.org/IAccountService/CheckSecurityQuestionAndAnswerAndSetPassword" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="IsValidPassword">
+      <soap:operation soapAction="http://tempuri.org/IAccountService/IsValidPassword" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="IsValidActiveDirectoryUser">
+      <soap:operation soapAction="http://tempuri.org/IAccountService/IsValidActiveDirectoryUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetAccountByHomeFolderId">
+      <soap:operation soapAction="http://tempuri.org/IAccountService/GetAccountByHomeFolderId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetAccountByConfirmationCode">
+      <soap:operation soapAction="http://tempuri.org/IAccountService/GetAccountByConfirmationCode" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetAuthenticationId">
+      <soap:operation soapAction="http://tempuri.org/IAccountService/GetAuthenticationId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="AccountHasManager">
+      <soap:operation soapAction="http://tempuri.org/IAccountService/AccountHasManager" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetAccountManager">
+      <soap:operation soapAction="http://tempuri.org/IAccountService/GetAccountManager" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetAccountsByEmployeeId">
+      <soap:operation soapAction="http://tempuri.org/IAccountService/GetAccountsByEmployeeId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetAccountsByFirstAndLastName">
+      <soap:operation soapAction="http://tempuri.org/IAccountService/GetAccountsByFirstAndLastName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SetCurrentAccountCulture">
+      <soap:operation soapAction="http://tempuri.org/IAccountService/SetCurrentAccountCulture" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SetSessionActionsType">
+      <soap:operation soapAction="http://tempuri.org/IAccountService/SetSessionActionsType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="AccountServiceWrapper">
+    <wsdl:port name="BasicHttpBinding_IAccountService" binding="tns:BasicHttpBinding_IAccountService">
+      <soap:address location="http://localhost/decisions/Primary/API/AccountService" />
+    </wsdl:port>
+    <wsdl:port name="BasicHttpBinding_IAccountService1" binding="tns:BasicHttpBinding_IAccountService1">
+      <soap:address location="https://localhost/decisions/Primary/API/AccountService" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

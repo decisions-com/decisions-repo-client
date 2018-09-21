@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="d44ead9f-ca17-4e32-b99d-76006b95d009" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost/decisions/Primary/API/DesignerRepositoryClientService" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="DesignerRepositoryClientService5.xsd" MetadataType="Schema" ID="52fc00fc-a683-41df-9fda-0b0a340f770a" SourceId="1" SourceUrl="http://localhost/decisions/Primary/API/DesignerRepositoryClientService?xsd=xsd7" />
+    <MetadataFile FileName="DesignerRepositoryClientService1.xsd" MetadataType="Schema" ID="e64d26a6-3fe7-40fc-a4a1-648b0ad95f0d" SourceId="1" SourceUrl="http://localhost/decisions/Primary/API/DesignerRepositoryClientService?xsd=xsd6" />
+    <MetadataFile FileName="DesignerRepositoryClientService6.xsd" MetadataType="Schema" ID="35533594-146e-45ef-a0a4-43e276f908ef" SourceId="1" SourceUrl="http://localhost/decisions/Primary/API/DesignerRepositoryClientService?xsd=xsd4" />
+    <MetadataFile FileName="DesignerRepositoryClientService.disco" MetadataType="Disco" ID="a2051e89-8c81-4f37-beaf-ae784aeeeadd" SourceId="1" SourceUrl="http://localhost/decisions/Primary/API/DesignerRepositoryClientService?disco" />
+    <MetadataFile FileName="DesignerRepositoryClientServiceWrapper.wsdl" MetadataType="Wsdl" ID="b783a016-b1b4-47f8-b399-83cdc75d7cbe" SourceId="1" SourceUrl="http://localhost/decisions/Primary/API/DesignerRepositoryClientService?wsdl" />
+    <MetadataFile FileName="DesignerRepositoryClientService.xsd" MetadataType="Schema" ID="71c9a184-a53b-40b6-a810-1e5df82e4058" SourceId="1" SourceUrl="http://localhost/decisions/Primary/API/DesignerRepositoryClientService?xsd=xsd0" />
+    <MetadataFile FileName="DesignerRepositoryClientService8.xsd" MetadataType="Schema" ID="cb964f9a-6240-4d0d-83b8-e31733170a8c" SourceId="1" SourceUrl="http://localhost/decisions/Primary/API/DesignerRepositoryClientService?xsd=xsd9" />
+    <MetadataFile FileName="DesignerRepositoryClientService81.xsd" MetadataType="Schema" ID="e5e637c5-bdf7-4cd4-9d2d-0c9737d39154" SourceId="1" SourceUrl="http://localhost/decisions/Primary/API/DesignerRepositoryClientService?xsd=xsd10" />
+    <MetadataFile FileName="DesignerRepositoryClientService3.xsd" MetadataType="Schema" ID="12d74a45-825b-41db-beb4-ca2685d9fe39" SourceId="1" SourceUrl="http://localhost/decisions/Primary/API/DesignerRepositoryClientService?xsd=xsd2" />
+    <MetadataFile FileName="DesignerRepositoryClientService7.xsd" MetadataType="Schema" ID="e99ad830-28b1-4a6f-b370-32ba4948d003" SourceId="1" SourceUrl="http://localhost/decisions/Primary/API/DesignerRepositoryClientService?xsd=xsd5" />
+    <MetadataFile FileName="DesignerRepositoryClientService82.xsd" MetadataType="Schema" ID="85861dca-bc58-454e-a279-c22d6b15264f" SourceId="1" SourceUrl="http://localhost/decisions/Primary/API/DesignerRepositoryClientService?xsd=xsd8" />
+    <MetadataFile FileName="DesignerRepositoryClientService4.xsd" MetadataType="Schema" ID="3abe817c-86f1-4bcb-bb2f-546ef40aa57d" SourceId="1" SourceUrl="http://localhost/decisions/Primary/API/DesignerRepositoryClientService?xsd=xsd1" />
+    <MetadataFile FileName="DesignerRepositoryClientService2.xsd" MetadataType="Schema" ID="4709f0d8-7535-4081-8712-19a2d695ce01" SourceId="1" SourceUrl="http://localhost/decisions/Primary/API/DesignerRepositoryClientService?xsd=xsd3" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

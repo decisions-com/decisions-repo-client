@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="0d4c0735-f5a3-4bca-a328-a9e547926aa2" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost/decisions/Primary/API/AccountService" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="AccountService.xsd" MetadataType="Schema" ID="73d2a5c0-2251-44ca-984d-6bf135df4d22" SourceId="1" SourceUrl="http://localhost/decisions/Primary/API/AccountService?xsd=xsd1" />
+    <MetadataFile FileName="AccountService.disco" MetadataType="Disco" ID="a2ffe148-3579-4c58-b45f-e4bb77262a8e" SourceId="1" SourceUrl="http://localhost/decisions/Primary/API/AccountService?disco" />
+    <MetadataFile FileName="AccountService1.xsd" MetadataType="Schema" ID="e065e4f8-dd10-4bf6-b509-0273302b66dc" SourceId="1" SourceUrl="http://localhost/decisions/Primary/API/AccountService?xsd=xsd8" />
+    <MetadataFile FileName="AccountService2.xsd" MetadataType="Schema" ID="75cc344d-d7d2-4ebe-ac6f-8ce3a924e23a" SourceId="1" SourceUrl="http://localhost/decisions/Primary/API/AccountService?xsd=xsd4" />
+    <MetadataFile FileName="AccountService3.xsd" MetadataType="Schema" ID="e6be6cb5-a68b-42ea-9fdc-a5a2206d5312" SourceId="1" SourceUrl="http://localhost/decisions/Primary/API/AccountService?xsd=xsd0" />
+    <MetadataFile FileName="AccountService4.xsd" MetadataType="Schema" ID="480e4955-85a8-4fc6-8f03-81e4956aa048" SourceId="1" SourceUrl="http://localhost/decisions/Primary/API/AccountService?xsd=xsd10" />
+    <MetadataFile FileName="AccountService5.xsd" MetadataType="Schema" ID="c97065d8-6466-4489-a98d-e068d90411ba" SourceId="1" SourceUrl="http://localhost/decisions/Primary/API/AccountService?xsd=xsd7" />
+    <MetadataFile FileName="AccountService6.xsd" MetadataType="Schema" ID="6c311051-f5ea-4e6c-a7d2-512f28731937" SourceId="1" SourceUrl="http://localhost/decisions/Primary/API/AccountService?xsd=xsd3" />
+    <MetadataFile FileName="AccountServiceWrapper.wsdl" MetadataType="Wsdl" ID="09fcd75e-2563-4570-a623-894ad85a4896" SourceId="1" SourceUrl="http://localhost/decisions/Primary/API/AccountService?wsdl" />
+    <MetadataFile FileName="AccountService7.xsd" MetadataType="Schema" ID="4795fc8d-049a-4f95-9461-42fa7b6f1aad" SourceId="1" SourceUrl="http://localhost/decisions/Primary/API/AccountService?xsd=xsd6" />
+    <MetadataFile FileName="AccountService8.xsd" MetadataType="Schema" ID="993b32e3-8b63-4376-9d42-7979a2725855" SourceId="1" SourceUrl="http://localhost/decisions/Primary/API/AccountService?xsd=xsd2" />
+    <MetadataFile FileName="AccountService9.xsd" MetadataType="Schema" ID="76ecbd9a-21b6-4b82-98f5-04527f01bb7a" SourceId="1" SourceUrl="http://localhost/decisions/Primary/API/AccountService?xsd=xsd9" />
+    <MetadataFile FileName="AccountService10.xsd" MetadataType="Schema" ID="1043d52e-33bd-43f6-aed8-08e732b40989" SourceId="1" SourceUrl="http://localhost/decisions/Primary/API/AccountService?xsd=xsd5" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Decisions.DesignerRepository.Client" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Decisions.DesignerRepository.Client" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost/decisions/Primary/API/DesignerRepositoryClientService?xsd=xsd4" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:import schemaLocation="http://localhost/decisions/Primary/API/DesignerRepositoryClientService?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/Decisions.DesignerRepository" />
+  <xs:complexType name="CheckoutResources">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ToDelete" nillable="true" type="tns:ArrayOfResourceCheckoutInfo" />
+      <xs:element minOccurs="0" name="ToMerge" nillable="true" type="tns:ArrayOfResourceCheckoutInfo" />
+      <xs:element minOccurs="0" name="ToUpdate" nillable="true" type="tns:ArrayOfResourceCheckoutInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CheckoutResources" nillable="true" type="tns:CheckoutResources" />
+  <xs:complexType name="ArrayOfResourceCheckoutInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ResourceCheckoutInfo" nillable="true" type="tns:ResourceCheckoutInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfResourceCheckoutInfo" nillable="true" type="tns:ArrayOfResourceCheckoutInfo" />
+  <xs:complexType name="ResourceCheckoutInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Action" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsDeleted" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsNew" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsUpdated" type="xs:boolean" />
+      <xs:element minOccurs="0" name="LocalRevisionId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Path" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ServerRevisionId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ShortTypeName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TypeName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UseLocalVersion" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ResourceCheckoutInfo" nillable="true" type="tns:ResourceCheckoutInfo" />
+  <xs:complexType name="CheckinResult">
+    <xs:sequence>
+      <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Errors" nillable="true" type="q1:ArrayOfstring" />
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Decisions.DesignerRepository" minOccurs="0" name="Resources" nillable="true" type="q2:ArrayOfResourceCheckinInfo" />
+      <xs:element minOccurs="0" name="RevisionId" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CheckinResult" nillable="true" type="tns:CheckinResult" />
+</xs:schema>

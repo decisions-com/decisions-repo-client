@@ -1,0 +1,1142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost/decisions/Primary/API/AccountService?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" />
+  <xs:import schemaLocation="http://localhost/decisions/Primary/API/AccountService?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Services.Accounts" />
+  <xs:import schemaLocation="http://localhost/decisions/Primary/API/AccountService?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/DecisionsFramework.Data.ORMapper" />
+  <xs:import schemaLocation="http://localhost/decisions/Primary/API/AccountService?xsd=xsd7" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:import schemaLocation="http://localhost/decisions/Primary/API/AccountService?xsd=xsd9" namespace="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Services.Organization" />
+  <xs:import schemaLocation="http://localhost/decisions/Primary/API/AccountService?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Services.Folder" />
+  <xs:import schemaLocation="http://localhost/decisions/Primary/API/AccountService?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer" />
+  <xs:import schemaLocation="http://localhost/decisions/Primary/API/AccountService?xsd=xsd10" namespace="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Actions" />
+  <xs:element name="GetSessionUserContext">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="password" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSessionUserContextResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" minOccurs="0" name="GetSessionUserContextResult" nillable="true" type="q1:SessionUserContext" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPasswordUserContext">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="password" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPasswordUserContextResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" minOccurs="0" name="GetPasswordUserContextResult" nillable="true" type="q2:PasswordCredentialsUserContext" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetGuestUserContext">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetGuestUserContextResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" minOccurs="0" name="GetGuestUserContextResult" nillable="true" type="q3:GuestUserContext" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Exists">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" minOccurs="0" name="userContext" nillable="true" type="q4:AbstractUserContext" />
+        <xs:element minOccurs="0" name="id" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ExistsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ExistsResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetByFolderID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" minOccurs="0" name="userContext" nillable="true" type="q5:AbstractUserContext" />
+        <xs:element minOccurs="0" name="folderID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetByFolderIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Services.Accounts" minOccurs="0" name="GetByFolderIDResult" nillable="true" type="q6:ArrayOfAccount" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetByID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" minOccurs="0" name="userContext" nillable="true" type="q7:AbstractUserContext" />
+        <xs:element minOccurs="0" name="id" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetByIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Services.Accounts" minOccurs="0" name="GetByIDResult" nillable="true" type="q8:Account" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAll">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" minOccurs="0" name="userContext" nillable="true" type="q9:AbstractUserContext" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Services.Accounts" minOccurs="0" name="GetAllResult" nillable="true" type="q10:ArrayOfAccount" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Save">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" minOccurs="0" name="userContext" nillable="true" type="q11:AbstractUserContext" />
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Services.Accounts" minOccurs="0" name="entity" nillable="true" type="q12:Account" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Delete">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" minOccurs="0" name="userContext" nillable="true" type="q13:AbstractUserContext" />
+        <xs:element minOccurs="0" name="id" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Search">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" minOccurs="0" name="userContext" nillable="true" type="q14:AbstractUserContext" />
+        <xs:element minOccurs="0" name="searchFor" nillable="true" type="xs:string" />
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/DecisionsFramework.Data.ORMapper" minOccurs="0" name="matchType" type="q15:QueryMatchType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Services.Accounts" minOccurs="0" name="SearchResult" nillable="true" type="q16:ArrayOfAccount" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LoginUser">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" minOccurs="0" name="context" nillable="true" type="q17:AbstractUserContext" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LoginUserResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" minOccurs="0" name="LoginUserResult" nillable="true" type="q18:SessionUserContext" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LoginUserWithIP">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" minOccurs="0" name="context" nillable="true" type="q19:AbstractUserContext" />
+        <xs:element minOccurs="0" name="userIPAddress" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LoginUserWithIPResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" minOccurs="0" name="LoginUserWithIPResult" nillable="true" type="q20:SessionUserContext" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LoginWithoutSharedSession">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" minOccurs="0" name="context" nillable="true" type="q21:AbstractUserContext" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LoginWithoutSharedSessionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" minOccurs="0" name="LoginWithoutSharedSessionResult" nillable="true" type="q22:SessionUserContext" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LoginUserWithTimeZoneInfo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" minOccurs="0" name="context" nillable="true" type="q23:AbstractUserContext" />
+        <xs:element minOccurs="0" name="timeZoneId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LoginUserWithTimeZoneInfoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" minOccurs="0" name="LoginUserWithTimeZoneInfoResult" nillable="true" type="q24:SessionUserContext" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LoginWithoutSharedSessionWithTimeZoneInfo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" minOccurs="0" name="context" nillable="true" type="q25:AbstractUserContext" />
+        <xs:element minOccurs="0" name="timeZoneId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LoginWithoutSharedSessionWithTimeZoneInfoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" minOccurs="0" name="LoginWithoutSharedSessionWithTimeZoneInfoResult" nillable="true" type="q26:SessionUserContext" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SpecifySessionTimezone">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" minOccurs="0" name="context" nillable="true" type="q27:SessionUserContext" />
+        <xs:element minOccurs="0" name="timeZoneId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SpecifySessionTimezoneResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IsInstanceUsingDefaultSettings">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IsInstanceUsingDefaultSettingsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="IsInstanceUsingDefaultSettingsResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetEmailAddress">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" minOccurs="0" name="context" nillable="true" type="q28:AbstractUserContext" />
+        <xs:element minOccurs="0" name="accountId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="newEmailAddress" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetEmailAddressResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetMyEmailAddress">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" minOccurs="0" name="context" nillable="true" type="q29:AbstractUserContext" />
+        <xs:element minOccurs="0" name="newEmailAddress" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetMyEmailAddressResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SendUserOldPassword">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="emailAddress" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SendUserOldPasswordResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SendUserOldPasswordCustomText">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="emailAddress" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="fromAddress" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="subject" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="bodyTextWithParams" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SendUserOldPasswordCustomTextResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ChangeUserPassword">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="emailAddress" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="oldPassword" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="newPassword" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ChangeUserPasswordResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ResetAndSendUserPassword">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="emailAddress" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ResetAndSendUserPasswordResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ResetAndSendUserPasswordCustomText">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="emailAddress" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="fromAddress" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="subject" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="bodyTextWithParams" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ResetAndSendUserPasswordCustomTextResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckUserContext">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" minOccurs="0" name="context" nillable="true" type="q30:AbstractUserContext" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckUserContextResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAccountIDBySessionID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q31="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" minOccurs="0" name="userContext" nillable="true" type="q31:AbstractUserContext" />
+        <xs:element minOccurs="0" name="sessionID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAccountIDBySessionIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetAccountIDBySessionIDResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCurrentAccountID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q32="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" minOccurs="0" name="userContext" nillable="true" type="q32:AbstractUserContext" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCurrentAccountIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetCurrentAccountIDResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCurrentAccount">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q33="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" minOccurs="0" name="userContext" nillable="true" type="q33:AbstractUserContext" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCurrentAccountResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q34="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Services.Accounts" minOccurs="0" name="GetCurrentAccountResult" nillable="true" type="q34:Account" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Logout">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q35="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" minOccurs="0" name="context" nillable="true" type="q35:SessionUserContext" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LogoutResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LogoutBySessionId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sessionId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LogoutBySessionIdResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddNewAccountByGroupsIDs">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q36="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" minOccurs="0" name="userContext" nillable="true" type="q36:AbstractUserContext" />
+        <xs:element xmlns:q37="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Services.Accounts" minOccurs="0" name="account" nillable="true" type="q37:Account" />
+        <xs:element xmlns:q38="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="memberOf" nillable="true" type="q38:ArrayOfstring" />
+        <xs:element minOccurs="0" name="password" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddNewAccountByGroupsIDsResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddNewAccount">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q39="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" minOccurs="0" name="userContext" nillable="true" type="q39:AbstractUserContext" />
+        <xs:element xmlns:q40="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Services.Accounts" minOccurs="0" name="account" nillable="true" type="q40:Account" />
+        <xs:element xmlns:q41="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Services.Accounts" minOccurs="0" name="memberOf" nillable="true" type="q41:ArrayOfGroup" />
+        <xs:element minOccurs="0" name="password" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddNewAccountResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddNewAccountResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddNewAccountWihtoutUserContext">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q42="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Services.Accounts" minOccurs="0" name="accountObj" nillable="true" type="q42:Account" />
+        <xs:element xmlns:q43="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Services.Accounts" minOccurs="0" name="memberOf" nillable="true" type="q43:ArrayOfGroup" />
+        <xs:element minOccurs="0" name="password" nillable="true" type="xs:string" />
+        <xs:element xmlns:q44="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Services.Organization" minOccurs="0" name="addressObj" nillable="true" type="q44:Address" />
+        <xs:element xmlns:q45="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Services.Organization" minOccurs="0" name="persoData" nillable="true" type="q45:PersonData" />
+        <xs:element minOccurs="0" name="phoneNumber" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddNewAccountWihtoutUserContextResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q46="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Services.Accounts" minOccurs="0" name="AddNewAccountWihtoutUserContextResult" nillable="true" type="q46:Account" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetPassword">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q47="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" minOccurs="0" name="userContext" nillable="true" type="q47:AbstractUserContext" />
+        <xs:element minOccurs="0" name="accountId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="newPassword" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetPasswordResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ChangePassword">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q48="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" minOccurs="0" name="userContext" nillable="true" type="q48:AbstractUserContext" />
+        <xs:element minOccurs="0" name="oldPassword" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="newPassword" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ChangePasswordResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetByEmail">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q49="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" minOccurs="0" name="userContext" nillable="true" type="q49:AbstractUserContext" />
+        <xs:element minOccurs="0" name="emailAddress" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetByEmailResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q50="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Services.Accounts" minOccurs="0" name="GetByEmailResult" nillable="true" type="q50:Account" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetByUserIdentifier">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q51="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" minOccurs="0" name="userContext" nillable="true" type="q51:AbstractUserContext" />
+        <xs:element minOccurs="0" name="userIdentifier" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="includeDeletedAccounts" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetByUserIdentifierResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q52="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Services.Accounts" minOccurs="0" name="GetByUserIdentifierResult" nillable="true" type="q52:Account" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetByFacebookID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q53="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" minOccurs="0" name="userContext" nillable="true" type="q53:AbstractUserContext" />
+        <xs:element minOccurs="0" name="facebookID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetByFacebookIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q54="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Services.Accounts" minOccurs="0" name="GetByFacebookIDResult" nillable="true" type="q54:Account" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddModuleRights">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q55="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" minOccurs="0" name="userContext" nillable="true" type="q55:AbstractUserContext" />
+        <xs:element minOccurs="0" name="accountId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="moduleRightsClassName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="isModuleRightsAdministrator" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddModuleRightsResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RemoveModuleRights">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q56="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" minOccurs="0" name="userContext" nillable="true" type="q56:AbstractUserContext" />
+        <xs:element minOccurs="0" name="accountId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="moduleRightsClassName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RemoveModuleRightsResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllModuleRights">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q57="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" minOccurs="0" name="userContext" nillable="true" type="q57:AbstractUserContext" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllModuleRightsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q58="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetAllModuleRightsResult" nillable="true" type="q58:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAccountModuleRightsList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q59="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" minOccurs="0" name="userContext" nillable="true" type="q59:AbstractUserContext" />
+        <xs:element minOccurs="0" name="accountId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAccountModuleRightsListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q60="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetAccountModuleRightsListResult" nillable="true" type="q60:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetAccountGroups">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q61="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" minOccurs="0" name="userContext" nillable="true" type="q61:AbstractUserContext" />
+        <xs:element minOccurs="0" name="accountId" nillable="true" type="xs:string" />
+        <xs:element xmlns:q62="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="groupsIds" nillable="true" type="q62:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetAccountGroupsResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RemoveAccountFromGroup">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q63="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" minOccurs="0" name="userContext" nillable="true" type="q63:AbstractUserContext" />
+        <xs:element minOccurs="0" name="accountId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="groupId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RemoveAccountFromGroupResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAccountsForFolder">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q64="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" minOccurs="0" name="userContext" nillable="true" type="q64:AbstractUserContext" />
+        <xs:element minOccurs="0" name="folderid" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="desiredCount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAccountsForFolderResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q65="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Services.Accounts" minOccurs="0" name="GetAccountsForFolderResult" nillable="true" type="q65:AccountSearchReturn" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchAccounts">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q66="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" minOccurs="0" name="userContext" nillable="true" type="q66:AbstractUserContext" />
+        <xs:element minOccurs="0" name="searchText" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="folderId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="groupId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="desiredCount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchAccountsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q67="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Services.Accounts" minOccurs="0" name="SearchAccountsResult" nillable="true" type="q67:AccountSearchReturn" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchAccountsInFolderAndSubFolders">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q68="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" minOccurs="0" name="userContext" nillable="true" type="q68:AbstractUserContext" />
+        <xs:element minOccurs="0" name="searchText" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="folderId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="groupId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="desiredCount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchAccountsInFolderAndSubFoldersResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q69="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Services.Accounts" minOccurs="0" name="SearchAccountsInFolderAndSubFoldersResult" nillable="true" type="q69:AccountSearchReturn" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSpecifiedAccountsICanImpersonate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q70="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" minOccurs="0" name="context" nillable="true" type="q70:AbstractUserContext" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSpecifiedAccountsICanImpersonateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q71="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Services.Accounts" minOccurs="0" name="GetSpecifiedAccountsICanImpersonateResult" nillable="true" type="q71:ArrayOfAccount" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAccountIdsICanImpersonate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q72="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" minOccurs="0" name="context" nillable="true" type="q72:AbstractUserContext" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAccountIdsICanImpersonateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q73="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Services.Folder" minOccurs="0" name="GetAccountIdsICanImpersonateResult" nillable="true" type="q73:ArrayOfEntityIdentifier" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddModuleRightsInstance">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q74="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" minOccurs="0" name="userContext" nillable="true" type="q74:AbstractUserContext" />
+        <xs:element minOccurs="0" name="accountID" nillable="true" type="xs:string" />
+        <xs:element xmlns:q75="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer" minOccurs="0" name="rights" nillable="true" type="q75:AbstractModuleRights" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddModuleRightsInstanceResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAccountAndGroupInfo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q76="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" minOccurs="0" name="userContext" nillable="true" type="q76:AbstractUserContext" />
+        <xs:element xmlns:q77="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="id" nillable="true" type="q77:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAccountAndGroupInfoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q78="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Services.Accounts" minOccurs="0" name="GetAccountAndGroupInfoResult" nillable="true" type="q78:AccountAndGroupsReturn" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddAccountToGroups">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q79="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" minOccurs="0" name="userContext" nillable="true" type="q79:AbstractUserContext" />
+        <xs:element minOccurs="0" name="accountId" nillable="true" type="xs:string" />
+        <xs:element xmlns:q80="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="groupIds" nillable="true" type="q80:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddAccountToGroupsResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveWithoutUserContext">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q81="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Services.Accounts" minOccurs="0" name="account" nillable="true" type="q81:Account" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveWithoutUserContextResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateAccount">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q82="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" minOccurs="0" name="userContext" nillable="true" type="q82:AbstractUserContext" />
+        <xs:element xmlns:q83="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Services.Accounts" minOccurs="0" name="account" nillable="true" type="q83:Account" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateAccountResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdateAccountResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAccountByPhoneNumber">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q84="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" minOccurs="0" name="userContext" nillable="true" type="q84:AbstractUserContext" />
+        <xs:element minOccurs="0" name="phoneNumber" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAccountByPhoneNumberResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q85="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Services.Accounts" minOccurs="0" name="GetAccountByPhoneNumberResult" nillable="true" type="q85:Account" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ActivateAccount">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q86="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" minOccurs="0" name="userContext" nillable="true" type="q86:AbstractUserContext" />
+        <xs:element minOccurs="0" name="emailAddress" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ActivateAccountResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeactivateAccount">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q87="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" minOccurs="0" name="userContext" nillable="true" type="q87:AbstractUserContext" />
+        <xs:element minOccurs="0" name="emailAddress" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeactivateAccountResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckAccountIsConfirmed">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q88="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Services.Accounts" minOccurs="0" name="account" nillable="true" type="q88:Account" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckAccountIsConfirmedResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CheckAccountIsConfirmedResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ConfirmAccount">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="confirmationCode" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ConfirmAccountResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ConfirmAccountResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SendConfirmationEmailToAccount">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="emailAddress" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SendConfirmationEmailToAccountResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SendConfirmationEmailToAccountWithParameters">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="emailAddress" nillable="true" type="xs:string" />
+        <xs:element xmlns:q89="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="parameters" nillable="true" type="q89:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SendConfirmationEmailToAccountWithParametersResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CloneAccountConfiguration">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q90="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" minOccurs="0" name="userContext" nillable="true" type="q90:AbstractUserContext" />
+        <xs:element minOccurs="0" name="importerAccountId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="exporterAccountId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CloneAccountConfigurationResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSecurityQuestionForAccount">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="emailAddress" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSecurityQuestionForAccountResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetSecurityQuestionForAccountResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ConfirmSecurityAnswerForAccount">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="emailAddress" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="securityAnswer" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ConfirmSecurityAnswerForAccountResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ConfirmSecurityAnswerForAccountResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckSecurityAnswerAndSetPassword">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="emailAddress" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="securityAnswer" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="newPassword" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckSecurityAnswerAndSetPasswordResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSecurityQuestionsForAccount">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="emailAddress" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSecurityQuestionsForAccountResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q91="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetSecurityQuestionsForAccountResult" nillable="true" type="q91:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ConfirmSecurityQuestionAndAnswerForAccount">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="emailAddress" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="securityQuestion" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="securityAnswer" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ConfirmSecurityQuestionAndAnswerForAccountResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ConfirmSecurityQuestionAndAnswerForAccountResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckSecurityQuestionAndAnswerAndSetPassword">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="emailAddress" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="securityQuestion" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="securityAnswer" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="newPassword" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckSecurityQuestionAndAnswerAndSetPasswordResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IsValidPassword">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="password" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IsValidPasswordResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="IsValidPasswordResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IsValidActiveDirectoryUser">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="username" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="password" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IsValidActiveDirectoryUserResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="IsValidActiveDirectoryUserResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAccountByHomeFolderId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q92="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" minOccurs="0" name="userContext" nillable="true" type="q92:AbstractUserContext" />
+        <xs:element minOccurs="0" name="homeFolderId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAccountByHomeFolderIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q93="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Services.Accounts" minOccurs="0" name="GetAccountByHomeFolderIdResult" nillable="true" type="q93:Account" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAccountByConfirmationCode">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="confirmationCode" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAccountByConfirmationCodeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q94="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Services.Accounts" minOccurs="0" name="GetAccountByConfirmationCodeResult" nillable="true" type="q94:Account" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAuthenticationId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q95="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" minOccurs="0" name="userContext" nillable="true" type="q95:AbstractUserContext" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAuthenticationIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetAuthenticationIdResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AccountHasManager">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q96="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" minOccurs="0" name="userContext" nillable="true" type="q96:AbstractUserContext" />
+        <xs:element minOccurs="0" name="accountId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AccountHasManagerResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AccountHasManagerResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAccountManager">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q97="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" minOccurs="0" name="userContext" nillable="true" type="q97:AbstractUserContext" />
+        <xs:element minOccurs="0" name="accountId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAccountManagerResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q98="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Services.Accounts" minOccurs="0" name="GetAccountManagerResult" nillable="true" type="q98:Account" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAccountsByEmployeeId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q99="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" minOccurs="0" name="userContext" nillable="true" type="q99:AbstractUserContext" />
+        <xs:element minOccurs="0" name="employeeId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAccountsByEmployeeIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q100="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Services.Accounts" minOccurs="0" name="GetAccountsByEmployeeIdResult" nillable="true" type="q100:Account" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAccountsByFirstAndLastName">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q101="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" minOccurs="0" name="userContext" nillable="true" type="q101:AbstractUserContext" />
+        <xs:element minOccurs="0" name="firstName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="lastName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAccountsByFirstAndLastNameResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q102="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Services.Accounts" minOccurs="0" name="GetAccountsByFirstAndLastNameResult" nillable="true" type="q102:ArrayOfAccount" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetCurrentAccountCulture">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q103="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" minOccurs="0" name="userContext" nillable="true" type="q103:AbstractUserContext" />
+        <xs:element minOccurs="0" name="cultureName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetCurrentAccountCultureResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetSessionActionsType">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q104="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" minOccurs="0" name="userContext" nillable="true" type="q104:AbstractUserContext" />
+        <xs:element xmlns:q105="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Actions" minOccurs="0" name="actionType" nillable="true" type="q105:ArrayOfEntityActionType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetSessionActionsTypeResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

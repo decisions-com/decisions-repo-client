@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/DecisionsFramework.Data.ORMapper" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/DecisionsFramework.Data.ORMapper" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="BaseORMEntityWithLogicalDelete">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseORMEntity">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Deleted" type="xs:boolean" />
+          <xs:element minOccurs="0" name="DeletedBy" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DeletedOn" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="BaseORMEntityWithLogicalDelete" nillable="true" type="tns:BaseORMEntityWithLogicalDelete" />
+  <xs:complexType name="BaseORMEntity">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:element name="BaseORMEntity" nillable="true" type="tns:BaseORMEntity" />
+  <xs:simpleType name="QueryMatchType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Equals" />
+      <xs:enumeration value="EqualsWithoutCase" />
+      <xs:enumeration value="Contains" />
+      <xs:enumeration value="ContainsWithoutCase" />
+      <xs:enumeration value="DoesNotEqual" />
+      <xs:enumeration value="GreaterThanOrEqualTo" />
+      <xs:enumeration value="LessThanOrEqualTo" />
+      <xs:enumeration value="GreaterThan" />
+      <xs:enumeration value="LessThan" />
+      <xs:enumeration value="Exists" />
+      <xs:enumeration value="DoesNotExist" />
+      <xs:enumeration value="IsNotNull" />
+      <xs:enumeration value="IsNull" />
+      <xs:enumeration value="EqualsToOtherField" />
+      <xs:enumeration value="StartsWith" />
+      <xs:enumeration value="EndsWith" />
+      <xs:enumeration value="DoesNotContain" />
+      <xs:enumeration value="DoesNotEndWith" />
+      <xs:enumeration value="DoesNotStartWith" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="QueryMatchType" nillable="true" type="tns:QueryMatchType" />
+</xs:schema>

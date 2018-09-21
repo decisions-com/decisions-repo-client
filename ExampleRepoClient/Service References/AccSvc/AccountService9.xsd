@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Services.Organization" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Services.Organization" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost/decisions/Primary/API/AccountService?xsd=xsd7" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:import schemaLocation="http://localhost/decisions/Primary/API/AccountService?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/DecisionsFramework.Data.ORMapper" />
+  <xs:import schemaLocation="http://localhost/decisions/Primary/API/AccountService?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer" />
+  <xs:complexType name="Address">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:AbstractContactEntity">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AddressId" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="AddressLine1" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="AddressLine2" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="AddressLine3" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="City" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CityInfoID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Country" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CountryInfoID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="County" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CountyInfoID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="IsPrimary" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Latitude" type="xs:double" />
+          <xs:element minOccurs="0" name="Longitude" type="xs:double" />
+          <xs:element minOccurs="0" name="PostalCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="State" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="StateInfoID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TimeZone" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TypeOfAddress" type="tns:AddressType" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Address" nillable="true" type="tns:Address" />
+  <xs:complexType name="AbstractContactEntity">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/DecisionsFramework.Data.ORMapper" base="q1:BaseORMEntity">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ContactInfoType" type="tns:ContactInfoType" />
+          <xs:element minOccurs="0" name="ContactPreferenceOrder" type="xs:int" />
+          <xs:element minOccurs="0" name="ContactPriorityID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ContactPriorityName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ContactPriorityOrder" type="xs:int" />
+          <xs:element minOccurs="0" name="IsSecured" type="xs:boolean" />
+          <xs:element xmlns:q2="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Members" nillable="true" type="q2:ArrayOfstring" />
+          <xs:element minOccurs="0" name="OwnerID" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="AbstractContactEntity" nillable="true" type="tns:AbstractContactEntity" />
+  <xs:simpleType name="ContactInfoType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Address" />
+      <xs:enumeration value="Phone" />
+      <xs:enumeration value="EmailAddress" />
+      <xs:enumeration value="InstantMessengerAddress" />
+      <xs:enumeration value="Other" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ContactInfoType" nillable="true" type="tns:ContactInfoType" />
+  <xs:complexType name="Phone">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:AbstractContactEntity">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AcceptSMS" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Extension" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="HasExtension" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsPrimary" type="xs:boolean" />
+          <xs:element minOccurs="0" name="PhoneId" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PhoneNumber" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SmsCarrier" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TypeOfPhone" type="tns:PhoneType" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Phone" nillable="true" type="tns:Phone" />
+  <xs:simpleType name="PhoneType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Mobile" />
+      <xs:enumeration value="Office" />
+      <xs:enumeration value="Home" />
+      <xs:enumeration value="Fax" />
+      <xs:enumeration value="Other" />
+      <xs:enumeration value="Pager" />
+      <xs:enumeration value="IpPhone" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="PhoneType" nillable="true" type="tns:PhoneType" />
+  <xs:complexType name="EmailAddress">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:AbstractContactEntity">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Address" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EmailId" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="IsPrimary" type="xs:boolean" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EmailAddress" nillable="true" type="tns:EmailAddress" />
+  <xs:complexType name="InstantMessengerAddress">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:AbstractContactEntity">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="InstantMessengerId" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="InstantMessengerUserName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Network" type="tns:InstantMessengerNetwork" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="InstantMessengerAddress" nillable="true" type="tns:InstantMessengerAddress" />
+  <xs:simpleType name="InstantMessengerNetwork">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="MSN" />
+      <xs:enumeration value="AOL" />
+      <xs:enumeration value="GoogleTalk" />
+      <xs:enumeration value="Yahoo" />
+      <xs:enumeration value="Other" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="InstantMessengerNetwork" nillable="true" type="tns:InstantMessengerNetwork" />
+  <xs:complexType name="OtherContact">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:AbstractContactEntity">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Account" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OtherContactId" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OtherContactTypeId" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OtherContactTypeName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="OtherContact" nillable="true" type="tns:OtherContact" />
+  <xs:simpleType name="AddressType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="NotSpecified" />
+      <xs:enumeration value="Home" />
+      <xs:enumeration value="Office" />
+      <xs:enumeration value="Other" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="AddressType" nillable="true" type="tns:AddressType" />
+  <xs:complexType name="PersonData">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q3="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer" base="q3:AbstractEntityExtensionData">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="JobTitle" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="MiddleInitial" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="PersonData" nillable="true" type="tns:PersonData" />
+</xs:schema>

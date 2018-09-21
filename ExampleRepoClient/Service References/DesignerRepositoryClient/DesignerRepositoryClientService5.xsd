@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Services.ImportExport" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Services.ImportExport" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost/decisions/Primary/API/DesignerRepositoryClientService?xsd=xsd4" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:complexType name="ImportResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="EntityId" nillable="true" type="xs:string" />
+      <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Errors" nillable="true" type="q1:ArrayOfstring" />
+      <xs:element minOccurs="0" name="Result" type="tns:ImportResults" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ImportResult" nillable="true" type="tns:ImportResult" />
+  <xs:simpleType name="ImportResults">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Imported" />
+      <xs:enumeration value="NotNecessary" />
+      <xs:enumeration value="ImportedNeedsRestart" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ImportResults" nillable="true" type="tns:ImportResults" />
+  <xs:complexType name="ArrayOfExportModuleData">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ExportModuleData" nillable="true" type="tns:ExportModuleData" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfExportModuleData" nillable="true" type="tns:ArrayOfExportModuleData" />
+  <xs:complexType name="ExportModuleData">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ClassName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CreatedBy" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CreatedOn" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FolderPath" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="HasDependencies" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Id" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsFolder" type="xs:boolean" />
+      <xs:element minOccurs="0" name="LastModifiedOn" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ModifiedBy" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ModuleName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NeedsExport" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ExportModuleData" nillable="true" type="tns:ExportModuleData" />
+</xs:schema>

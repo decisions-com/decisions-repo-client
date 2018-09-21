@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Decisions.DesignerRepository" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Decisions.DesignerRepository" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="ArrayOfModuleInfoFile">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ModuleInfoFile" nillable="true" type="tns:ModuleInfoFile" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfModuleInfoFile" nillable="true" type="tns:ArrayOfModuleInfoFile" />
+  <xs:complexType name="ModuleInfoFile">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="HasPreview" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Id" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ModifiedBy" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ModifiedByMachine" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ModifiedDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ModifiedOnRevisionId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Path" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TypeName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ModuleInfoFile" nillable="true" type="tns:ModuleInfoFile" />
+  <xs:complexType name="ArrayOfResourceCheckinInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ResourceCheckinInfo" nillable="true" type="tns:ResourceCheckinInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfResourceCheckinInfo" nillable="true" type="tns:ArrayOfResourceCheckinInfo" />
+  <xs:complexType name="ResourceCheckinInfo">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ModuleInfoFile">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Action" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="IsDeleted" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsNew" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsUpdated" type="xs:boolean" />
+          <xs:element minOccurs="0" name="RevisionId" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ShortTypeName" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ResourceCheckinInfo" nillable="true" type="tns:ResourceCheckinInfo" />
+  <xs:complexType name="ArrayOfModuleCheckinInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ModuleCheckinInfo" nillable="true" type="tns:ModuleCheckinInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfModuleCheckinInfo" nillable="true" type="tns:ArrayOfModuleCheckinInfo" />
+  <xs:complexType name="ModuleCheckinInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CheckinId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsTag" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ModifiedBy" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ModifiedDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Note" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Resources" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RevisionId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="State" type="tns:RepositoryState" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ModuleCheckinInfo" nillable="true" type="tns:ModuleCheckinInfo" />
+  <xs:simpleType name="RepositoryState">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Unknown" />
+      <xs:enumeration value="Release" />
+      <xs:enumeration value="HotFix" />
+      <xs:enumeration value="Development" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="RepositoryState" nillable="true" type="tns:RepositoryState" />
+</xs:schema>

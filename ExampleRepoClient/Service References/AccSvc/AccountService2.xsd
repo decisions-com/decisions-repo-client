@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Services.Accounts" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Services.Accounts" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost/decisions/Primary/API/AccountService?xsd=xsd7" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:import schemaLocation="http://localhost/decisions/Primary/API/AccountService?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer" />
+  <xs:import schemaLocation="http://localhost/decisions/Primary/API/AccountService?xsd=xsd8" namespace="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Services.Portal" />
+  <xs:complexType name="ArrayOfAccount">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Account" nillable="true" type="tns:Account" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAccount" nillable="true" type="tns:ArrayOfAccount" />
+  <xs:complexType name="Account">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer" base="q1:AbstractFolderEntity">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AccountID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="AccountPictureID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="AuthenticationType" type="tns:UserAuthenticationType" />
+          <xs:element minOccurs="0" name="CanUsePortal" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Company" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DefaultFolderId" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Department" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EmailAddress" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EmployeeID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FirstLoginDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="HomeFolderID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="IsActive" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsConfirmed" type="xs:boolean" />
+          <xs:element minOccurs="0" name="JobTitle" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="LanguageName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="LastLoginDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="LastPasswordResetDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="LastUSN" type="xs:long" />
+          <xs:element minOccurs="0" name="LocationId" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="MiddleInitial" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="MustChangePasswordOnNextLogin" type="xs:boolean" />
+          <xs:element minOccurs="0" name="NeverExpires" type="xs:boolean" />
+          <xs:element minOccurs="0" name="NickName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="NumberOfAttempts" type="xs:int" />
+          <xs:element xmlns:q2="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="PermittedIPAddresses" nillable="true" type="q2:ArrayOfstring" />
+          <xs:element minOccurs="0" name="SecurityAnswer" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SecurityAnswer2" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SecurityAnswer3" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SecurityQuestion" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SecurityQuestion2" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SecurityQuestion3" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ShowHints" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Theme" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TimezoneName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UserCulture" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UserIdentifier" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UserType" type="tns:AccountType" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Account" nillable="true" type="tns:Account" />
+  <xs:simpleType name="UserAuthenticationType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ActiveDirectory" />
+      <xs:enumeration value="Password" />
+      <xs:enumeration value="Facebook" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="UserAuthenticationType" nillable="true" type="tns:UserAuthenticationType" />
+  <xs:simpleType name="AccountType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Machine" />
+      <xs:enumeration value="Person" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="AccountType" nillable="true" type="tns:AccountType" />
+  <xs:complexType name="ArrayOfGroup">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Group" nillable="true" type="tns:Group" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfGroup" nillable="true" type="tns:ArrayOfGroup" />
+  <xs:complexType name="Group">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q3="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer" base="q3:AbstractFolderEntity">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AddingAccountToSubGroupAddsToBaseGroup" type="xs:boolean" />
+          <xs:element minOccurs="0" name="AddingAccountsOnlyInSubGroupIsAllowed" type="xs:boolean" />
+          <xs:element minOccurs="0" name="AddingToBaseGroupAddsToSubGroup" type="xs:boolean" />
+          <xs:element minOccurs="0" name="BaseGroupId" nillable="true" type="xs:string" />
+          <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Services.Portal" minOccurs="0" name="BrowserBehavior" type="q4:GroupBrowserSilverlightBehavior" />
+          <xs:element minOccurs="0" name="DefaultFolderId" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DefaultUrlParameters" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="GroupId" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="LastUSN" type="xs:long" />
+          <xs:element minOccurs="0" name="RemoveBaseGroupAccountsOnUnhook" type="xs:boolean" />
+          <xs:element minOccurs="0" name="RemovingAccountInSubGroupRemovesFromBaseGroup" type="xs:boolean" />
+          <xs:element minOccurs="0" name="RemovingFromBaseGroupRemovesFromSubGroup" type="xs:boolean" />
+          <xs:element minOccurs="0" name="SpecifyLinkedGroups" type="xs:boolean" />
+          <xs:element minOccurs="0" name="SpecifySyncGroup" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Theme" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Group" nillable="true" type="tns:Group" />
+  <xs:complexType name="AccountSearchReturn">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AccountIdentifiers" nillable="true" type="tns:ArrayOfAccountIdentifier" />
+      <xs:element minOccurs="0" name="TotalCountAvailable" type="xs:long" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AccountSearchReturn" nillable="true" type="tns:AccountSearchReturn" />
+  <xs:complexType name="ArrayOfAccountIdentifier">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="AccountIdentifier" nillable="true" type="tns:AccountIdentifier" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAccountIdentifier" nillable="true" type="tns:ArrayOfAccountIdentifier" />
+  <xs:complexType name="AccountIdentifier">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AccountIdentifier" nillable="true" type="tns:AccountIdentifier" />
+  <xs:complexType name="AccountAndGroupsReturn">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:element name="AccountAndGroupsReturn" nillable="true" type="tns:AccountAndGroupsReturn" />
+</xs:schema>

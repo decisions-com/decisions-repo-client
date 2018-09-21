@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="2cf2eef3-7ff5-453b-8962-cdfa102141ee" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://tirade.workflow.com/decisions/Primary/API/DesignerRepositoryService" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="DesignerRepositoryService.disco" MetadataType="Disco" ID="86093b41-e5d2-4a2d-a74a-070d752c9dbe" SourceId="1" SourceUrl="http://tirade.workflow.com/decisions/Primary/API/DesignerRepositoryService?disco" />
+    <MetadataFile FileName="DesignerRepositoryService.xsd" MetadataType="Schema" ID="eb563066-d4ea-4140-8a06-6ed74f41903e" SourceId="1" SourceUrl="http://tirade.workflow.com/decisions/Primary/API/DesignerRepositoryService?xsd=xsd5" />
+    <MetadataFile FileName="DesignerRepositoryService1.xsd" MetadataType="Schema" ID="26c4ffc5-929b-4396-ae98-85014ff9fd21" SourceId="1" SourceUrl="http://tirade.workflow.com/decisions/Primary/API/DesignerRepositoryService?xsd=xsd3" />
+    <MetadataFile FileName="DesignerRepositoryService2.xsd" MetadataType="Schema" ID="2460800d-ee7e-42e4-b3fa-9c1647bc7d1c" SourceId="1" SourceUrl="http://tirade.workflow.com/decisions/Primary/API/DesignerRepositoryService?xsd=xsd4" />
+    <MetadataFile FileName="DesignerRepositoryServiceWrapper.wsdl" MetadataType="Wsdl" ID="7dbc9ef7-d2e2-4d93-b9fc-db81752ab9de" SourceId="1" SourceUrl="http://tirade.workflow.com/decisions/Primary/API/DesignerRepositoryService?wsdl" />
+    <MetadataFile FileName="DesignerRepositoryService3.xsd" MetadataType="Schema" ID="13be17b8-d192-4f58-8e6e-aa887ad149db" SourceId="1" SourceUrl="http://tirade.workflow.com/decisions/Primary/API/DesignerRepositoryService?xsd=xsd6" />
+    <MetadataFile FileName="DesignerRepositoryService4.xsd" MetadataType="Schema" ID="ae6ed698-a435-405c-b676-4be87cc05d10" SourceId="1" SourceUrl="http://tirade.workflow.com/decisions/Primary/API/DesignerRepositoryService?xsd=xsd1" />
+    <MetadataFile FileName="DesignerRepositoryService5.xsd" MetadataType="Schema" ID="7995f874-f88a-4478-93d0-0bca6e042c85" SourceId="1" SourceUrl="http://tirade.workflow.com/decisions/Primary/API/DesignerRepositoryService?xsd=xsd7" />
+    <MetadataFile FileName="DesignerRepositoryService6.xsd" MetadataType="Schema" ID="91d66c41-943a-4009-8f98-a529aae51b6a" SourceId="1" SourceUrl="http://tirade.workflow.com/decisions/Primary/API/DesignerRepositoryService?xsd=xsd2" />
+    <MetadataFile FileName="DesignerRepositoryService7.xsd" MetadataType="Schema" ID="6ed22ced-851c-4032-9141-6779f04abf73" SourceId="1" SourceUrl="http://tirade.workflow.com/decisions/Primary/API/DesignerRepositoryService?xsd=xsd0" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

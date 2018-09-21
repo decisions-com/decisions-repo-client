@@ -1,0 +1,1995 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="DesignerRepositoryServiceWrapper" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="BasicHttpBinding_IDesignerRepositoryService1_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <sp:HttpsToken RequireClientCertificate="false" />
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict />
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://tirade.workflow.com/decisions/Primary/API/DesignerRepositoryService?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://tirade.workflow.com/decisions/Primary/API/DesignerRepositoryService?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" />
+      <xsd:import schemaLocation="http://tirade.workflow.com/decisions/Primary/API/DesignerRepositoryService?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://tirade.workflow.com/decisions/Primary/API/DesignerRepositoryService?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Services.Folder" />
+      <xsd:import schemaLocation="http://tirade.workflow.com/decisions/Primary/API/DesignerRepositoryService?xsd=xsd4" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://tirade.workflow.com/decisions/Primary/API/DesignerRepositoryService?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/Decisions.DesignerRepository" />
+      <xsd:import schemaLocation="http://tirade.workflow.com/decisions/Primary/API/DesignerRepositoryService?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/DecisionsFramework.Data.DataTypes" />
+      <xsd:import schemaLocation="http://tirade.workflow.com/decisions/Primary/API/DesignerRepositoryService?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Services.CodeBucket" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IDesignerRepositoryService_GetModules_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetModules" />
+  </wsdl:message>
+  <wsdl:message name="IDesignerRepositoryService_GetModules_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetModulesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDesignerRepositoryService_GetModules_FrameworkFault_FaultMessage">
+    <wsdl:part xmlns:q1="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" name="detail" element="q1:FrameworkFault" />
+  </wsdl:message>
+  <wsdl:message name="IDesignerRepositoryService_GetBranches_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetBranches" />
+  </wsdl:message>
+  <wsdl:message name="IDesignerRepositoryService_GetBranches_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetBranchesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDesignerRepositoryService_GetBranches_FrameworkFault_FaultMessage">
+    <wsdl:part xmlns:q2="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" name="detail" element="q2:FrameworkFault" />
+  </wsdl:message>
+  <wsdl:message name="IDesignerRepositoryService_GetModuleResources_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetModuleResources" />
+  </wsdl:message>
+  <wsdl:message name="IDesignerRepositoryService_GetModuleResources_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetModuleResourcesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDesignerRepositoryService_GetModuleResources_FrameworkFault_FaultMessage">
+    <wsdl:part xmlns:q3="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" name="detail" element="q3:FrameworkFault" />
+  </wsdl:message>
+  <wsdl:message name="IDesignerRepositoryService_GetModuleResourcesAsOfRevision_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetModuleResourcesAsOfRevision" />
+  </wsdl:message>
+  <wsdl:message name="IDesignerRepositoryService_GetModuleResourcesAsOfRevision_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetModuleResourcesAsOfRevisionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDesignerRepositoryService_GetModuleResourcesAsOfRevision_FrameworkFault_FaultMessage">
+    <wsdl:part xmlns:q4="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" name="detail" element="q4:FrameworkFault" />
+  </wsdl:message>
+  <wsdl:message name="IDesignerRepositoryService_GetModuleResourcesAsOfDate_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetModuleResourcesAsOfDate" />
+  </wsdl:message>
+  <wsdl:message name="IDesignerRepositoryService_GetModuleResourcesAsOfDate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetModuleResourcesAsOfDateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDesignerRepositoryService_GetModuleResourcesAsOfDate_FrameworkFault_FaultMessage">
+    <wsdl:part xmlns:q5="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" name="detail" element="q5:FrameworkFault" />
+  </wsdl:message>
+  <wsdl:message name="IDesignerRepositoryService_GetModuleInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetModuleInfo" />
+  </wsdl:message>
+  <wsdl:message name="IDesignerRepositoryService_GetModuleInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetModuleInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDesignerRepositoryService_GetModuleInfo_FrameworkFault_FaultMessage">
+    <wsdl:part xmlns:q6="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" name="detail" element="q6:FrameworkFault" />
+  </wsdl:message>
+  <wsdl:message name="IDesignerRepositoryService_GetModuleGeneralInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetModuleGeneralInfo" />
+  </wsdl:message>
+  <wsdl:message name="IDesignerRepositoryService_GetModuleGeneralInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetModuleGeneralInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDesignerRepositoryService_GetModuleGeneralInfo_FrameworkFault_FaultMessage">
+    <wsdl:part xmlns:q7="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" name="detail" element="q7:FrameworkFault" />
+  </wsdl:message>
+  <wsdl:message name="IDesignerRepositoryService_GetCheckinData_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCheckinData" />
+  </wsdl:message>
+  <wsdl:message name="IDesignerRepositoryService_GetCheckinData_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCheckinDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDesignerRepositoryService_GetCheckinData_FrameworkFault_FaultMessage">
+    <wsdl:part xmlns:q8="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" name="detail" element="q8:FrameworkFault" />
+  </wsdl:message>
+  <wsdl:message name="IDesignerRepositoryService_CreateModule_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateModule" />
+  </wsdl:message>
+  <wsdl:message name="IDesignerRepositoryService_CreateModule_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateModuleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDesignerRepositoryService_CreateModule_FrameworkFault_FaultMessage">
+    <wsdl:part xmlns:q9="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" name="detail" element="q9:FrameworkFault" />
+  </wsdl:message>
+  <wsdl:message name="IDesignerRepositoryService_CreateBranch_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateBranch" />
+  </wsdl:message>
+  <wsdl:message name="IDesignerRepositoryService_CreateBranch_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateBranchResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDesignerRepositoryService_CreateBranch_FrameworkFault_FaultMessage">
+    <wsdl:part xmlns:q10="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" name="detail" element="q10:FrameworkFault" />
+  </wsdl:message>
+  <wsdl:message name="IDesignerRepositoryService_GetPreview_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPreview" />
+  </wsdl:message>
+  <wsdl:message name="IDesignerRepositoryService_GetPreview_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPreviewResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDesignerRepositoryService_GetPreview_FrameworkFault_FaultMessage">
+    <wsdl:part xmlns:q11="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" name="detail" element="q11:FrameworkFault" />
+  </wsdl:message>
+  <wsdl:message name="IDesignerRepositoryService_GetPreviewAsOfRevision_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPreviewAsOfRevision" />
+  </wsdl:message>
+  <wsdl:message name="IDesignerRepositoryService_GetPreviewAsOfRevision_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPreviewAsOfRevisionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDesignerRepositoryService_GetPreviewAsOfRevision_FrameworkFault_FaultMessage">
+    <wsdl:part xmlns:q12="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" name="detail" element="q12:FrameworkFault" />
+  </wsdl:message>
+  <wsdl:message name="IDesignerRepositoryService_GetPreviewAsOfDate_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPreviewAsOfDate" />
+  </wsdl:message>
+  <wsdl:message name="IDesignerRepositoryService_GetPreviewAsOfDate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPreviewAsOfDateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDesignerRepositoryService_GetPreviewAsOfDate_FrameworkFault_FaultMessage">
+    <wsdl:part xmlns:q13="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" name="detail" element="q13:FrameworkFault" />
+  </wsdl:message>
+  <wsdl:message name="IDesignerRepositoryService_GetModuleFile_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetModuleFile" />
+  </wsdl:message>
+  <wsdl:message name="IDesignerRepositoryService_GetModuleFile_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetModuleFileResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDesignerRepositoryService_GetModuleFile_FrameworkFault_FaultMessage">
+    <wsdl:part xmlns:q14="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" name="detail" element="q14:FrameworkFault" />
+  </wsdl:message>
+  <wsdl:message name="IDesignerRepositoryService_GetModuleFileAsOfRevision_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetModuleFileAsOfRevision" />
+  </wsdl:message>
+  <wsdl:message name="IDesignerRepositoryService_GetModuleFileAsOfRevision_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetModuleFileAsOfRevisionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDesignerRepositoryService_GetModuleFileAsOfRevision_FrameworkFault_FaultMessage">
+    <wsdl:part xmlns:q15="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" name="detail" element="q15:FrameworkFault" />
+  </wsdl:message>
+  <wsdl:message name="IDesignerRepositoryService_GetModuleFileAsOfDate_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetModuleFileAsOfDate" />
+  </wsdl:message>
+  <wsdl:message name="IDesignerRepositoryService_GetModuleFileAsOfDate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetModuleFileAsOfDateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDesignerRepositoryService_GetModuleFileAsOfDate_FrameworkFault_FaultMessage">
+    <wsdl:part xmlns:q16="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" name="detail" element="q16:FrameworkFault" />
+  </wsdl:message>
+  <wsdl:message name="IDesignerRepositoryService_TagModule_InputMessage">
+    <wsdl:part name="parameters" element="tns:TagModule" />
+  </wsdl:message>
+  <wsdl:message name="IDesignerRepositoryService_TagModule_OutputMessage">
+    <wsdl:part name="parameters" element="tns:TagModuleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDesignerRepositoryService_TagModule_FrameworkFault_FaultMessage">
+    <wsdl:part xmlns:q17="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" name="detail" element="q17:FrameworkFault" />
+  </wsdl:message>
+  <wsdl:message name="IDesignerRepositoryService_StartCheckin_InputMessage">
+    <wsdl:part name="parameters" element="tns:StartCheckin" />
+  </wsdl:message>
+  <wsdl:message name="IDesignerRepositoryService_StartCheckin_OutputMessage">
+    <wsdl:part name="parameters" element="tns:StartCheckinResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDesignerRepositoryService_StartCheckin_FrameworkFault_FaultMessage">
+    <wsdl:part xmlns:q18="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" name="detail" element="q18:FrameworkFault" />
+  </wsdl:message>
+  <wsdl:message name="IDesignerRepositoryService_Commit_InputMessage">
+    <wsdl:part name="parameters" element="tns:Commit" />
+  </wsdl:message>
+  <wsdl:message name="IDesignerRepositoryService_Commit_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CommitResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDesignerRepositoryService_Commit_FrameworkFault_FaultMessage">
+    <wsdl:part xmlns:q19="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" name="detail" element="q19:FrameworkFault" />
+  </wsdl:message>
+  <wsdl:message name="IDesignerRepositoryService_Cancel_InputMessage">
+    <wsdl:part name="parameters" element="tns:Cancel" />
+  </wsdl:message>
+  <wsdl:message name="IDesignerRepositoryService_Cancel_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CancelResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDesignerRepositoryService_Cancel_FrameworkFault_FaultMessage">
+    <wsdl:part xmlns:q20="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" name="detail" element="q20:FrameworkFault" />
+  </wsdl:message>
+  <wsdl:message name="IDesignerRepositoryService_DeleteModuleFile_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteModuleFile" />
+  </wsdl:message>
+  <wsdl:message name="IDesignerRepositoryService_DeleteModuleFile_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteModuleFileResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDesignerRepositoryService_DeleteModuleFile_FrameworkFault_FaultMessage">
+    <wsdl:part xmlns:q21="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" name="detail" element="q21:FrameworkFault" />
+  </wsdl:message>
+  <wsdl:message name="IDesignerRepositoryService_UpdateModuleFile_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateModuleFile" />
+  </wsdl:message>
+  <wsdl:message name="IDesignerRepositoryService_UpdateModuleFile_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateModuleFileResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDesignerRepositoryService_UpdateModuleFile_FrameworkFault_FaultMessage">
+    <wsdl:part xmlns:q22="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" name="detail" element="q22:FrameworkFault" />
+  </wsdl:message>
+  <wsdl:message name="IDesignerRepositoryService_CopyToBranch_InputMessage">
+    <wsdl:part name="parameters" element="tns:CopyToBranch" />
+  </wsdl:message>
+  <wsdl:message name="IDesignerRepositoryService_CopyToBranch_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CopyToBranchResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDesignerRepositoryService_CopyToBranch_FrameworkFault_FaultMessage">
+    <wsdl:part xmlns:q23="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" name="detail" element="q23:FrameworkFault" />
+  </wsdl:message>
+  <wsdl:message name="IDesignerRepositoryService_RevertCheckin_InputMessage">
+    <wsdl:part name="parameters" element="tns:RevertCheckin" />
+  </wsdl:message>
+  <wsdl:message name="IDesignerRepositoryService_RevertCheckin_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RevertCheckinResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDesignerRepositoryService_RevertCheckin_FrameworkFault_FaultMessage">
+    <wsdl:part xmlns:q24="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" name="detail" element="q24:FrameworkFault" />
+  </wsdl:message>
+  <wsdl:message name="IDesignerRepositoryService_RollbackModuleToRevision_InputMessage">
+    <wsdl:part name="parameters" element="tns:RollbackModuleToRevision" />
+  </wsdl:message>
+  <wsdl:message name="IDesignerRepositoryService_RollbackModuleToRevision_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RollbackModuleToRevisionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDesignerRepositoryService_RollbackModuleToRevision_FrameworkFault_FaultMessage">
+    <wsdl:part xmlns:q25="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" name="detail" element="q25:FrameworkFault" />
+  </wsdl:message>
+  <wsdl:message name="IDesignerRepositoryService_RollbackModuleToDate_InputMessage">
+    <wsdl:part name="parameters" element="tns:RollbackModuleToDate" />
+  </wsdl:message>
+  <wsdl:message name="IDesignerRepositoryService_RollbackModuleToDate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RollbackModuleToDateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDesignerRepositoryService_RollbackModuleToDate_FrameworkFault_FaultMessage">
+    <wsdl:part xmlns:q26="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" name="detail" element="q26:FrameworkFault" />
+  </wsdl:message>
+  <wsdl:message name="IDesignerRepositoryService_GetCheckinInfos_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCheckinInfos" />
+  </wsdl:message>
+  <wsdl:message name="IDesignerRepositoryService_GetCheckinInfos_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCheckinInfosResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDesignerRepositoryService_GetCheckinInfos_FrameworkFault_FaultMessage">
+    <wsdl:part xmlns:q27="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" name="detail" element="q27:FrameworkFault" />
+  </wsdl:message>
+  <wsdl:message name="IDesignerRepositoryService_GetCheckinInfosAfterRevision_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCheckinInfosAfterRevision" />
+  </wsdl:message>
+  <wsdl:message name="IDesignerRepositoryService_GetCheckinInfosAfterRevision_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCheckinInfosAfterRevisionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDesignerRepositoryService_GetCheckinInfosAfterRevision_FrameworkFault_FaultMessage">
+    <wsdl:part xmlns:q28="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" name="detail" element="q28:FrameworkFault" />
+  </wsdl:message>
+  <wsdl:message name="IDesignerRepositoryService_GetCheckinInfosAfterDate_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCheckinInfosAfterDate" />
+  </wsdl:message>
+  <wsdl:message name="IDesignerRepositoryService_GetCheckinInfosAfterDate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCheckinInfosAfterDateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDesignerRepositoryService_GetCheckinInfosAfterDate_FrameworkFault_FaultMessage">
+    <wsdl:part xmlns:q29="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" name="detail" element="q29:FrameworkFault" />
+  </wsdl:message>
+  <wsdl:message name="IDesignerRepositoryService_GetResourcesInfoForRevision_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetResourcesInfoForRevision" />
+  </wsdl:message>
+  <wsdl:message name="IDesignerRepositoryService_GetResourcesInfoForRevision_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetResourcesInfoForRevisionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDesignerRepositoryService_GetResourcesInfoForRevision_FrameworkFault_FaultMessage">
+    <wsdl:part xmlns:q30="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" name="detail" element="q30:FrameworkFault" />
+  </wsdl:message>
+  <wsdl:message name="IDesignerRepositoryService_Ping_InputMessage">
+    <wsdl:part name="parameters" element="tns:Ping" />
+  </wsdl:message>
+  <wsdl:message name="IDesignerRepositoryService_Ping_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PingResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDesignerRepositoryService_Ping_FrameworkFault_FaultMessage">
+    <wsdl:part xmlns:q31="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" name="detail" element="q31:FrameworkFault" />
+  </wsdl:message>
+  <wsdl:message name="IDesignerRepositoryService_PingWithoutUserContext_InputMessage">
+    <wsdl:part name="parameters" element="tns:PingWithoutUserContext" />
+  </wsdl:message>
+  <wsdl:message name="IDesignerRepositoryService_PingWithoutUserContext_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PingWithoutUserContextResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDesignerRepositoryService_PingWithoutUserContext_FrameworkFault_FaultMessage">
+    <wsdl:part xmlns:q32="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" name="detail" element="q32:FrameworkFault" />
+  </wsdl:message>
+  <wsdl:message name="IDesignerRepositoryService_GetAllServerNames_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllServerNames" />
+  </wsdl:message>
+  <wsdl:message name="IDesignerRepositoryService_GetAllServerNames_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllServerNamesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDesignerRepositoryService_GetAllServerNames_FrameworkFault_FaultMessage">
+    <wsdl:part xmlns:q33="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" name="detail" element="q33:FrameworkFault" />
+  </wsdl:message>
+  <wsdl:message name="IDesignerRepositoryService_StartServerStateCheckin_InputMessage">
+    <wsdl:part name="parameters" element="tns:StartServerStateCheckin" />
+  </wsdl:message>
+  <wsdl:message name="IDesignerRepositoryService_StartServerStateCheckin_OutputMessage">
+    <wsdl:part name="parameters" element="tns:StartServerStateCheckinResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDesignerRepositoryService_StartServerStateCheckin_FrameworkFault_FaultMessage">
+    <wsdl:part xmlns:q34="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" name="detail" element="q34:FrameworkFault" />
+  </wsdl:message>
+  <wsdl:message name="IDesignerRepositoryService_UpdateModuleList_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateModuleList" />
+  </wsdl:message>
+  <wsdl:message name="IDesignerRepositoryService_UpdateModuleList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateModuleListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDesignerRepositoryService_UpdateModuleList_FrameworkFault_FaultMessage">
+    <wsdl:part xmlns:q35="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" name="detail" element="q35:FrameworkFault" />
+  </wsdl:message>
+  <wsdl:message name="IDesignerRepositoryService_GetModuleReferences_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetModuleReferences" />
+  </wsdl:message>
+  <wsdl:message name="IDesignerRepositoryService_GetModuleReferences_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetModuleReferencesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDesignerRepositoryService_GetModuleReferences_FrameworkFault_FaultMessage">
+    <wsdl:part xmlns:q36="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" name="detail" element="q36:FrameworkFault" />
+  </wsdl:message>
+  <wsdl:message name="IDesignerRepositoryService_GetModuleReferencesAsOfRevision_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetModuleReferencesAsOfRevision" />
+  </wsdl:message>
+  <wsdl:message name="IDesignerRepositoryService_GetModuleReferencesAsOfRevision_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetModuleReferencesAsOfRevisionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDesignerRepositoryService_GetModuleReferencesAsOfRevision_FrameworkFault_FaultMessage">
+    <wsdl:part xmlns:q37="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" name="detail" element="q37:FrameworkFault" />
+  </wsdl:message>
+  <wsdl:message name="IDesignerRepositoryService_GetModuleReferencesAsOfDate_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetModuleReferencesAsOfDate" />
+  </wsdl:message>
+  <wsdl:message name="IDesignerRepositoryService_GetModuleReferencesAsOfDate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetModuleReferencesAsOfDateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDesignerRepositoryService_GetModuleReferencesAsOfDate_FrameworkFault_FaultMessage">
+    <wsdl:part xmlns:q38="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" name="detail" element="q38:FrameworkFault" />
+  </wsdl:message>
+  <wsdl:message name="IDesignerRepositoryService_UpdateRepositoryReference_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateRepositoryReference" />
+  </wsdl:message>
+  <wsdl:message name="IDesignerRepositoryService_UpdateRepositoryReference_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateRepositoryReferenceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDesignerRepositoryService_UpdateRepositoryReference_FrameworkFault_FaultMessage">
+    <wsdl:part xmlns:q39="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" name="detail" element="q39:FrameworkFault" />
+  </wsdl:message>
+  <wsdl:message name="IDesignerRepositoryService_GetRepositoryReferences_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRepositoryReferences" />
+  </wsdl:message>
+  <wsdl:message name="IDesignerRepositoryService_GetRepositoryReferences_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRepositoryReferencesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDesignerRepositoryService_GetRepositoryReferences_FrameworkFault_FaultMessage">
+    <wsdl:part xmlns:q40="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" name="detail" element="q40:FrameworkFault" />
+  </wsdl:message>
+  <wsdl:message name="IDesignerRepositoryService_GetRepositoryReferencesAsOfRevision_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRepositoryReferencesAsOfRevision" />
+  </wsdl:message>
+  <wsdl:message name="IDesignerRepositoryService_GetRepositoryReferencesAsOfRevision_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRepositoryReferencesAsOfRevisionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDesignerRepositoryService_GetRepositoryReferencesAsOfRevision_FrameworkFault_FaultMessage">
+    <wsdl:part xmlns:q41="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" name="detail" element="q41:FrameworkFault" />
+  </wsdl:message>
+  <wsdl:message name="IDesignerRepositoryService_GetRepositoryReferencesAsOfDate_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRepositoryReferencesAsOfDate" />
+  </wsdl:message>
+  <wsdl:message name="IDesignerRepositoryService_GetRepositoryReferencesAsOfDate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRepositoryReferencesAsOfDateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDesignerRepositoryService_GetRepositoryReferencesAsOfDate_FrameworkFault_FaultMessage">
+    <wsdl:part xmlns:q42="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" name="detail" element="q42:FrameworkFault" />
+  </wsdl:message>
+  <wsdl:message name="IDesignerRepositoryService_UpdateServerFile_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateServerFile" />
+  </wsdl:message>
+  <wsdl:message name="IDesignerRepositoryService_UpdateServerFile_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateServerFileResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDesignerRepositoryService_UpdateServerFile_FrameworkFault_FaultMessage">
+    <wsdl:part xmlns:q43="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" name="detail" element="q43:FrameworkFault" />
+  </wsdl:message>
+  <wsdl:message name="IDesignerRepositoryService_GetServerFile_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetServerFile" />
+  </wsdl:message>
+  <wsdl:message name="IDesignerRepositoryService_GetServerFile_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetServerFileResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDesignerRepositoryService_GetServerFile_FrameworkFault_FaultMessage">
+    <wsdl:part xmlns:q44="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" name="detail" element="q44:FrameworkFault" />
+  </wsdl:message>
+  <wsdl:message name="IDesignerRepositoryService_GetServerFileList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetServerFileList" />
+  </wsdl:message>
+  <wsdl:message name="IDesignerRepositoryService_GetServerFileList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetServerFileListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDesignerRepositoryService_GetServerFileList_FrameworkFault_FaultMessage">
+    <wsdl:part xmlns:q45="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" name="detail" element="q45:FrameworkFault" />
+  </wsdl:message>
+  <wsdl:message name="IDesignerRepositoryService_GetServerFileInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetServerFileInfo" />
+  </wsdl:message>
+  <wsdl:message name="IDesignerRepositoryService_GetServerFileInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetServerFileInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDesignerRepositoryService_GetServerFileInfo_FrameworkFault_FaultMessage">
+    <wsdl:part xmlns:q46="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" name="detail" element="q46:FrameworkFault" />
+  </wsdl:message>
+  <wsdl:message name="IDesignerRepositoryService_GetServerFileListByResourceType_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetServerFileListByResourceType" />
+  </wsdl:message>
+  <wsdl:message name="IDesignerRepositoryService_GetServerFileListByResourceType_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetServerFileListByResourceTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDesignerRepositoryService_GetServerFileListByResourceType_FrameworkFault_FaultMessage">
+    <wsdl:part xmlns:q47="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" name="detail" element="q47:FrameworkFault" />
+  </wsdl:message>
+  <wsdl:message name="IDesignerRepositoryService_StartCheckout_InputMessage">
+    <wsdl:part name="parameters" element="tns:StartCheckout" />
+  </wsdl:message>
+  <wsdl:message name="IDesignerRepositoryService_StartCheckout_OutputMessage">
+    <wsdl:part name="parameters" element="tns:StartCheckoutResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDesignerRepositoryService_StartCheckout_FrameworkFault_FaultMessage">
+    <wsdl:part xmlns:q48="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" name="detail" element="q48:FrameworkFault" />
+  </wsdl:message>
+  <wsdl:message name="IDesignerRepositoryService_StartCheckoutOfDate_InputMessage">
+    <wsdl:part name="parameters" element="tns:StartCheckoutOfDate" />
+  </wsdl:message>
+  <wsdl:message name="IDesignerRepositoryService_StartCheckoutOfDate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:StartCheckoutOfDateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDesignerRepositoryService_StartCheckoutOfDate_FrameworkFault_FaultMessage">
+    <wsdl:part xmlns:q49="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" name="detail" element="q49:FrameworkFault" />
+  </wsdl:message>
+  <wsdl:message name="IDesignerRepositoryService_CommitCheckout_InputMessage">
+    <wsdl:part name="parameters" element="tns:CommitCheckout" />
+  </wsdl:message>
+  <wsdl:message name="IDesignerRepositoryService_CommitCheckout_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CommitCheckoutResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDesignerRepositoryService_CommitCheckout_FrameworkFault_FaultMessage">
+    <wsdl:part xmlns:q50="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" name="detail" element="q50:FrameworkFault" />
+  </wsdl:message>
+  <wsdl:message name="IDesignerRepositoryService_CancelCheckout_InputMessage">
+    <wsdl:part name="parameters" element="tns:CancelCheckout" />
+  </wsdl:message>
+  <wsdl:message name="IDesignerRepositoryService_CancelCheckout_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CancelCheckoutResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDesignerRepositoryService_CancelCheckout_FrameworkFault_FaultMessage">
+    <wsdl:part xmlns:q51="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" name="detail" element="q51:FrameworkFault" />
+  </wsdl:message>
+  <wsdl:portType name="IDesignerRepositoryService">
+    <wsdl:operation name="GetModules">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDesignerRepositoryService/GetModules" message="tns:IDesignerRepositoryService_GetModules_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDesignerRepositoryService/GetModulesResponse" message="tns:IDesignerRepositoryService_GetModules_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/FrameworkFaultAction" name="FrameworkFault" message="tns:IDesignerRepositoryService_GetModules_FrameworkFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBranches">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDesignerRepositoryService/GetBranches" message="tns:IDesignerRepositoryService_GetBranches_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDesignerRepositoryService/GetBranchesResponse" message="tns:IDesignerRepositoryService_GetBranches_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/FrameworkFaultAction" name="FrameworkFault" message="tns:IDesignerRepositoryService_GetBranches_FrameworkFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetModuleResources">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDesignerRepositoryService/GetModuleResources" message="tns:IDesignerRepositoryService_GetModuleResources_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDesignerRepositoryService/GetModuleResourcesResponse" message="tns:IDesignerRepositoryService_GetModuleResources_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/FrameworkFaultAction" name="FrameworkFault" message="tns:IDesignerRepositoryService_GetModuleResources_FrameworkFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetModuleResourcesAsOfRevision">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDesignerRepositoryService/GetModuleResourcesAsOfRevision" message="tns:IDesignerRepositoryService_GetModuleResourcesAsOfRevision_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDesignerRepositoryService/GetModuleResourcesAsOfRevisionResponse" message="tns:IDesignerRepositoryService_GetModuleResourcesAsOfRevision_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/FrameworkFaultAction" name="FrameworkFault" message="tns:IDesignerRepositoryService_GetModuleResourcesAsOfRevision_FrameworkFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetModuleResourcesAsOfDate">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDesignerRepositoryService/GetModuleResourcesAsOfDate" message="tns:IDesignerRepositoryService_GetModuleResourcesAsOfDate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDesignerRepositoryService/GetModuleResourcesAsOfDateResponse" message="tns:IDesignerRepositoryService_GetModuleResourcesAsOfDate_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/FrameworkFaultAction" name="FrameworkFault" message="tns:IDesignerRepositoryService_GetModuleResourcesAsOfDate_FrameworkFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetModuleInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDesignerRepositoryService/GetModuleInfo" message="tns:IDesignerRepositoryService_GetModuleInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDesignerRepositoryService/GetModuleInfoResponse" message="tns:IDesignerRepositoryService_GetModuleInfo_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/FrameworkFaultAction" name="FrameworkFault" message="tns:IDesignerRepositoryService_GetModuleInfo_FrameworkFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetModuleGeneralInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDesignerRepositoryService/GetModuleGeneralInfo" message="tns:IDesignerRepositoryService_GetModuleGeneralInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDesignerRepositoryService/GetModuleGeneralInfoResponse" message="tns:IDesignerRepositoryService_GetModuleGeneralInfo_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/FrameworkFaultAction" name="FrameworkFault" message="tns:IDesignerRepositoryService_GetModuleGeneralInfo_FrameworkFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCheckinData">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDesignerRepositoryService/GetCheckinData" message="tns:IDesignerRepositoryService_GetCheckinData_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDesignerRepositoryService/GetCheckinDataResponse" message="tns:IDesignerRepositoryService_GetCheckinData_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/FrameworkFaultAction" name="FrameworkFault" message="tns:IDesignerRepositoryService_GetCheckinData_FrameworkFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateModule">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDesignerRepositoryService/CreateModule" message="tns:IDesignerRepositoryService_CreateModule_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDesignerRepositoryService/CreateModuleResponse" message="tns:IDesignerRepositoryService_CreateModule_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/FrameworkFaultAction" name="FrameworkFault" message="tns:IDesignerRepositoryService_CreateModule_FrameworkFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateBranch">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDesignerRepositoryService/CreateBranch" message="tns:IDesignerRepositoryService_CreateBranch_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDesignerRepositoryService/CreateBranchResponse" message="tns:IDesignerRepositoryService_CreateBranch_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/FrameworkFaultAction" name="FrameworkFault" message="tns:IDesignerRepositoryService_CreateBranch_FrameworkFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPreview">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDesignerRepositoryService/GetPreview" message="tns:IDesignerRepositoryService_GetPreview_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDesignerRepositoryService/GetPreviewResponse" message="tns:IDesignerRepositoryService_GetPreview_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/FrameworkFaultAction" name="FrameworkFault" message="tns:IDesignerRepositoryService_GetPreview_FrameworkFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPreviewAsOfRevision">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDesignerRepositoryService/GetPreviewAsOfRevision" message="tns:IDesignerRepositoryService_GetPreviewAsOfRevision_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDesignerRepositoryService/GetPreviewAsOfRevisionResponse" message="tns:IDesignerRepositoryService_GetPreviewAsOfRevision_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/FrameworkFaultAction" name="FrameworkFault" message="tns:IDesignerRepositoryService_GetPreviewAsOfRevision_FrameworkFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPreviewAsOfDate">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDesignerRepositoryService/GetPreviewAsOfDate" message="tns:IDesignerRepositoryService_GetPreviewAsOfDate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDesignerRepositoryService/GetPreviewAsOfDateResponse" message="tns:IDesignerRepositoryService_GetPreviewAsOfDate_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/FrameworkFaultAction" name="FrameworkFault" message="tns:IDesignerRepositoryService_GetPreviewAsOfDate_FrameworkFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetModuleFile">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDesignerRepositoryService/GetModuleFile" message="tns:IDesignerRepositoryService_GetModuleFile_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDesignerRepositoryService/GetModuleFileResponse" message="tns:IDesignerRepositoryService_GetModuleFile_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/FrameworkFaultAction" name="FrameworkFault" message="tns:IDesignerRepositoryService_GetModuleFile_FrameworkFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetModuleFileAsOfRevision">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDesignerRepositoryService/GetModuleFileAsOfRevision" message="tns:IDesignerRepositoryService_GetModuleFileAsOfRevision_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDesignerRepositoryService/GetModuleFileAsOfRevisionResponse" message="tns:IDesignerRepositoryService_GetModuleFileAsOfRevision_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/FrameworkFaultAction" name="FrameworkFault" message="tns:IDesignerRepositoryService_GetModuleFileAsOfRevision_FrameworkFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetModuleFileAsOfDate">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDesignerRepositoryService/GetModuleFileAsOfDate" message="tns:IDesignerRepositoryService_GetModuleFileAsOfDate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDesignerRepositoryService/GetModuleFileAsOfDateResponse" message="tns:IDesignerRepositoryService_GetModuleFileAsOfDate_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/FrameworkFaultAction" name="FrameworkFault" message="tns:IDesignerRepositoryService_GetModuleFileAsOfDate_FrameworkFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="TagModule">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDesignerRepositoryService/TagModule" message="tns:IDesignerRepositoryService_TagModule_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDesignerRepositoryService/TagModuleResponse" message="tns:IDesignerRepositoryService_TagModule_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/FrameworkFaultAction" name="FrameworkFault" message="tns:IDesignerRepositoryService_TagModule_FrameworkFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="StartCheckin">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDesignerRepositoryService/StartCheckin" message="tns:IDesignerRepositoryService_StartCheckin_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDesignerRepositoryService/StartCheckinResponse" message="tns:IDesignerRepositoryService_StartCheckin_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/FrameworkFaultAction" name="FrameworkFault" message="tns:IDesignerRepositoryService_StartCheckin_FrameworkFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Commit">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDesignerRepositoryService/Commit" message="tns:IDesignerRepositoryService_Commit_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDesignerRepositoryService/CommitResponse" message="tns:IDesignerRepositoryService_Commit_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/FrameworkFaultAction" name="FrameworkFault" message="tns:IDesignerRepositoryService_Commit_FrameworkFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Cancel">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDesignerRepositoryService/Cancel" message="tns:IDesignerRepositoryService_Cancel_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDesignerRepositoryService/CancelResponse" message="tns:IDesignerRepositoryService_Cancel_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/FrameworkFaultAction" name="FrameworkFault" message="tns:IDesignerRepositoryService_Cancel_FrameworkFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteModuleFile">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDesignerRepositoryService/DeleteModuleFile" message="tns:IDesignerRepositoryService_DeleteModuleFile_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDesignerRepositoryService/DeleteModuleFileResponse" message="tns:IDesignerRepositoryService_DeleteModuleFile_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/FrameworkFaultAction" name="FrameworkFault" message="tns:IDesignerRepositoryService_DeleteModuleFile_FrameworkFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateModuleFile">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDesignerRepositoryService/UpdateModuleFile" message="tns:IDesignerRepositoryService_UpdateModuleFile_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDesignerRepositoryService/UpdateModuleFileResponse" message="tns:IDesignerRepositoryService_UpdateModuleFile_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/FrameworkFaultAction" name="FrameworkFault" message="tns:IDesignerRepositoryService_UpdateModuleFile_FrameworkFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CopyToBranch">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDesignerRepositoryService/CopyToBranch" message="tns:IDesignerRepositoryService_CopyToBranch_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDesignerRepositoryService/CopyToBranchResponse" message="tns:IDesignerRepositoryService_CopyToBranch_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/FrameworkFaultAction" name="FrameworkFault" message="tns:IDesignerRepositoryService_CopyToBranch_FrameworkFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RevertCheckin">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDesignerRepositoryService/RevertCheckin" message="tns:IDesignerRepositoryService_RevertCheckin_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDesignerRepositoryService/RevertCheckinResponse" message="tns:IDesignerRepositoryService_RevertCheckin_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/FrameworkFaultAction" name="FrameworkFault" message="tns:IDesignerRepositoryService_RevertCheckin_FrameworkFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RollbackModuleToRevision">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDesignerRepositoryService/RollbackModuleToRevision" message="tns:IDesignerRepositoryService_RollbackModuleToRevision_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDesignerRepositoryService/RollbackModuleToRevisionResponse" message="tns:IDesignerRepositoryService_RollbackModuleToRevision_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/FrameworkFaultAction" name="FrameworkFault" message="tns:IDesignerRepositoryService_RollbackModuleToRevision_FrameworkFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RollbackModuleToDate">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDesignerRepositoryService/RollbackModuleToDate" message="tns:IDesignerRepositoryService_RollbackModuleToDate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDesignerRepositoryService/RollbackModuleToDateResponse" message="tns:IDesignerRepositoryService_RollbackModuleToDate_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/FrameworkFaultAction" name="FrameworkFault" message="tns:IDesignerRepositoryService_RollbackModuleToDate_FrameworkFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCheckinInfos">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDesignerRepositoryService/GetCheckinInfos" message="tns:IDesignerRepositoryService_GetCheckinInfos_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDesignerRepositoryService/GetCheckinInfosResponse" message="tns:IDesignerRepositoryService_GetCheckinInfos_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/FrameworkFaultAction" name="FrameworkFault" message="tns:IDesignerRepositoryService_GetCheckinInfos_FrameworkFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCheckinInfosAfterRevision">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDesignerRepositoryService/GetCheckinInfosAfterRevision" message="tns:IDesignerRepositoryService_GetCheckinInfosAfterRevision_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDesignerRepositoryService/GetCheckinInfosAfterRevisionResponse" message="tns:IDesignerRepositoryService_GetCheckinInfosAfterRevision_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/FrameworkFaultAction" name="FrameworkFault" message="tns:IDesignerRepositoryService_GetCheckinInfosAfterRevision_FrameworkFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCheckinInfosAfterDate">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDesignerRepositoryService/GetCheckinInfosAfterDate" message="tns:IDesignerRepositoryService_GetCheckinInfosAfterDate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDesignerRepositoryService/GetCheckinInfosAfterDateResponse" message="tns:IDesignerRepositoryService_GetCheckinInfosAfterDate_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/FrameworkFaultAction" name="FrameworkFault" message="tns:IDesignerRepositoryService_GetCheckinInfosAfterDate_FrameworkFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetResourcesInfoForRevision">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDesignerRepositoryService/GetResourcesInfoForRevision" message="tns:IDesignerRepositoryService_GetResourcesInfoForRevision_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDesignerRepositoryService/GetResourcesInfoForRevisionResponse" message="tns:IDesignerRepositoryService_GetResourcesInfoForRevision_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/FrameworkFaultAction" name="FrameworkFault" message="tns:IDesignerRepositoryService_GetResourcesInfoForRevision_FrameworkFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Ping">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDesignerRepositoryService/Ping" message="tns:IDesignerRepositoryService_Ping_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDesignerRepositoryService/PingResponse" message="tns:IDesignerRepositoryService_Ping_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/FrameworkFaultAction" name="FrameworkFault" message="tns:IDesignerRepositoryService_Ping_FrameworkFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PingWithoutUserContext">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDesignerRepositoryService/PingWithoutUserContext" message="tns:IDesignerRepositoryService_PingWithoutUserContext_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDesignerRepositoryService/PingWithoutUserContextResponse" message="tns:IDesignerRepositoryService_PingWithoutUserContext_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/FrameworkFaultAction" name="FrameworkFault" message="tns:IDesignerRepositoryService_PingWithoutUserContext_FrameworkFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllServerNames">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDesignerRepositoryService/GetAllServerNames" message="tns:IDesignerRepositoryService_GetAllServerNames_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDesignerRepositoryService/GetAllServerNamesResponse" message="tns:IDesignerRepositoryService_GetAllServerNames_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/FrameworkFaultAction" name="FrameworkFault" message="tns:IDesignerRepositoryService_GetAllServerNames_FrameworkFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="StartServerStateCheckin">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDesignerRepositoryService/StartServerStateCheckin" message="tns:IDesignerRepositoryService_StartServerStateCheckin_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDesignerRepositoryService/StartServerStateCheckinResponse" message="tns:IDesignerRepositoryService_StartServerStateCheckin_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/FrameworkFaultAction" name="FrameworkFault" message="tns:IDesignerRepositoryService_StartServerStateCheckin_FrameworkFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateModuleList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDesignerRepositoryService/UpdateModuleList" message="tns:IDesignerRepositoryService_UpdateModuleList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDesignerRepositoryService/UpdateModuleListResponse" message="tns:IDesignerRepositoryService_UpdateModuleList_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/FrameworkFaultAction" name="FrameworkFault" message="tns:IDesignerRepositoryService_UpdateModuleList_FrameworkFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetModuleReferences">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDesignerRepositoryService/GetModuleReferences" message="tns:IDesignerRepositoryService_GetModuleReferences_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDesignerRepositoryService/GetModuleReferencesResponse" message="tns:IDesignerRepositoryService_GetModuleReferences_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/FrameworkFaultAction" name="FrameworkFault" message="tns:IDesignerRepositoryService_GetModuleReferences_FrameworkFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetModuleReferencesAsOfRevision">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDesignerRepositoryService/GetModuleReferencesAsOfRevision" message="tns:IDesignerRepositoryService_GetModuleReferencesAsOfRevision_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDesignerRepositoryService/GetModuleReferencesAsOfRevisionResponse" message="tns:IDesignerRepositoryService_GetModuleReferencesAsOfRevision_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/FrameworkFaultAction" name="FrameworkFault" message="tns:IDesignerRepositoryService_GetModuleReferencesAsOfRevision_FrameworkFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetModuleReferencesAsOfDate">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDesignerRepositoryService/GetModuleReferencesAsOfDate" message="tns:IDesignerRepositoryService_GetModuleReferencesAsOfDate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDesignerRepositoryService/GetModuleReferencesAsOfDateResponse" message="tns:IDesignerRepositoryService_GetModuleReferencesAsOfDate_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/FrameworkFaultAction" name="FrameworkFault" message="tns:IDesignerRepositoryService_GetModuleReferencesAsOfDate_FrameworkFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateRepositoryReference">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDesignerRepositoryService/UpdateRepositoryReference" message="tns:IDesignerRepositoryService_UpdateRepositoryReference_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDesignerRepositoryService/UpdateRepositoryReferenceResponse" message="tns:IDesignerRepositoryService_UpdateRepositoryReference_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/FrameworkFaultAction" name="FrameworkFault" message="tns:IDesignerRepositoryService_UpdateRepositoryReference_FrameworkFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRepositoryReferences">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDesignerRepositoryService/GetRepositoryReferences" message="tns:IDesignerRepositoryService_GetRepositoryReferences_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDesignerRepositoryService/GetRepositoryReferencesResponse" message="tns:IDesignerRepositoryService_GetRepositoryReferences_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/FrameworkFaultAction" name="FrameworkFault" message="tns:IDesignerRepositoryService_GetRepositoryReferences_FrameworkFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRepositoryReferencesAsOfRevision">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDesignerRepositoryService/GetRepositoryReferencesAsOfRevision" message="tns:IDesignerRepositoryService_GetRepositoryReferencesAsOfRevision_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDesignerRepositoryService/GetRepositoryReferencesAsOfRevisionResponse" message="tns:IDesignerRepositoryService_GetRepositoryReferencesAsOfRevision_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/FrameworkFaultAction" name="FrameworkFault" message="tns:IDesignerRepositoryService_GetRepositoryReferencesAsOfRevision_FrameworkFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRepositoryReferencesAsOfDate">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDesignerRepositoryService/GetRepositoryReferencesAsOfDate" message="tns:IDesignerRepositoryService_GetRepositoryReferencesAsOfDate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDesignerRepositoryService/GetRepositoryReferencesAsOfDateResponse" message="tns:IDesignerRepositoryService_GetRepositoryReferencesAsOfDate_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/FrameworkFaultAction" name="FrameworkFault" message="tns:IDesignerRepositoryService_GetRepositoryReferencesAsOfDate_FrameworkFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateServerFile">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDesignerRepositoryService/UpdateServerFile" message="tns:IDesignerRepositoryService_UpdateServerFile_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDesignerRepositoryService/UpdateServerFileResponse" message="tns:IDesignerRepositoryService_UpdateServerFile_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/FrameworkFaultAction" name="FrameworkFault" message="tns:IDesignerRepositoryService_UpdateServerFile_FrameworkFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetServerFile">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDesignerRepositoryService/GetServerFile" message="tns:IDesignerRepositoryService_GetServerFile_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDesignerRepositoryService/GetServerFileResponse" message="tns:IDesignerRepositoryService_GetServerFile_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/FrameworkFaultAction" name="FrameworkFault" message="tns:IDesignerRepositoryService_GetServerFile_FrameworkFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetServerFileList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDesignerRepositoryService/GetServerFileList" message="tns:IDesignerRepositoryService_GetServerFileList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDesignerRepositoryService/GetServerFileListResponse" message="tns:IDesignerRepositoryService_GetServerFileList_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/FrameworkFaultAction" name="FrameworkFault" message="tns:IDesignerRepositoryService_GetServerFileList_FrameworkFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetServerFileInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDesignerRepositoryService/GetServerFileInfo" message="tns:IDesignerRepositoryService_GetServerFileInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDesignerRepositoryService/GetServerFileInfoResponse" message="tns:IDesignerRepositoryService_GetServerFileInfo_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/FrameworkFaultAction" name="FrameworkFault" message="tns:IDesignerRepositoryService_GetServerFileInfo_FrameworkFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetServerFileListByResourceType">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDesignerRepositoryService/GetServerFileListByResourceType" message="tns:IDesignerRepositoryService_GetServerFileListByResourceType_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDesignerRepositoryService/GetServerFileListByResourceTypeResponse" message="tns:IDesignerRepositoryService_GetServerFileListByResourceType_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/FrameworkFaultAction" name="FrameworkFault" message="tns:IDesignerRepositoryService_GetServerFileListByResourceType_FrameworkFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="StartCheckout">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDesignerRepositoryService/StartCheckout" message="tns:IDesignerRepositoryService_StartCheckout_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDesignerRepositoryService/StartCheckoutResponse" message="tns:IDesignerRepositoryService_StartCheckout_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/FrameworkFaultAction" name="FrameworkFault" message="tns:IDesignerRepositoryService_StartCheckout_FrameworkFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="StartCheckoutOfDate">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDesignerRepositoryService/StartCheckoutOfDate" message="tns:IDesignerRepositoryService_StartCheckoutOfDate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDesignerRepositoryService/StartCheckoutOfDateResponse" message="tns:IDesignerRepositoryService_StartCheckoutOfDate_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/FrameworkFaultAction" name="FrameworkFault" message="tns:IDesignerRepositoryService_StartCheckoutOfDate_FrameworkFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CommitCheckout">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDesignerRepositoryService/CommitCheckout" message="tns:IDesignerRepositoryService_CommitCheckout_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDesignerRepositoryService/CommitCheckoutResponse" message="tns:IDesignerRepositoryService_CommitCheckout_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/FrameworkFaultAction" name="FrameworkFault" message="tns:IDesignerRepositoryService_CommitCheckout_FrameworkFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CancelCheckout">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDesignerRepositoryService/CancelCheckout" message="tns:IDesignerRepositoryService_CancelCheckout_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDesignerRepositoryService/CancelCheckoutResponse" message="tns:IDesignerRepositoryService_CancelCheckout_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/FrameworkFaultAction" name="FrameworkFault" message="tns:IDesignerRepositoryService_CancelCheckout_FrameworkFault_FaultMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IDesignerRepositoryService" type="tns:IDesignerRepositoryService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetModules">
+      <soap:operation soapAction="http://tempuri.org/IDesignerRepositoryService/GetModules" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetBranches">
+      <soap:operation soapAction="http://tempuri.org/IDesignerRepositoryService/GetBranches" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetModuleResources">
+      <soap:operation soapAction="http://tempuri.org/IDesignerRepositoryService/GetModuleResources" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetModuleResourcesAsOfRevision">
+      <soap:operation soapAction="http://tempuri.org/IDesignerRepositoryService/GetModuleResourcesAsOfRevision" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetModuleResourcesAsOfDate">
+      <soap:operation soapAction="http://tempuri.org/IDesignerRepositoryService/GetModuleResourcesAsOfDate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetModuleInfo">
+      <soap:operation soapAction="http://tempuri.org/IDesignerRepositoryService/GetModuleInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetModuleGeneralInfo">
+      <soap:operation soapAction="http://tempuri.org/IDesignerRepositoryService/GetModuleGeneralInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetCheckinData">
+      <soap:operation soapAction="http://tempuri.org/IDesignerRepositoryService/GetCheckinData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="CreateModule">
+      <soap:operation soapAction="http://tempuri.org/IDesignerRepositoryService/CreateModule" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="CreateBranch">
+      <soap:operation soapAction="http://tempuri.org/IDesignerRepositoryService/CreateBranch" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetPreview">
+      <soap:operation soapAction="http://tempuri.org/IDesignerRepositoryService/GetPreview" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetPreviewAsOfRevision">
+      <soap:operation soapAction="http://tempuri.org/IDesignerRepositoryService/GetPreviewAsOfRevision" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetPreviewAsOfDate">
+      <soap:operation soapAction="http://tempuri.org/IDesignerRepositoryService/GetPreviewAsOfDate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetModuleFile">
+      <soap:operation soapAction="http://tempuri.org/IDesignerRepositoryService/GetModuleFile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetModuleFileAsOfRevision">
+      <soap:operation soapAction="http://tempuri.org/IDesignerRepositoryService/GetModuleFileAsOfRevision" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetModuleFileAsOfDate">
+      <soap:operation soapAction="http://tempuri.org/IDesignerRepositoryService/GetModuleFileAsOfDate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="TagModule">
+      <soap:operation soapAction="http://tempuri.org/IDesignerRepositoryService/TagModule" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="StartCheckin">
+      <soap:operation soapAction="http://tempuri.org/IDesignerRepositoryService/StartCheckin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="Commit">
+      <soap:operation soapAction="http://tempuri.org/IDesignerRepositoryService/Commit" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="Cancel">
+      <soap:operation soapAction="http://tempuri.org/IDesignerRepositoryService/Cancel" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteModuleFile">
+      <soap:operation soapAction="http://tempuri.org/IDesignerRepositoryService/DeleteModuleFile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateModuleFile">
+      <soap:operation soapAction="http://tempuri.org/IDesignerRepositoryService/UpdateModuleFile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="CopyToBranch">
+      <soap:operation soapAction="http://tempuri.org/IDesignerRepositoryService/CopyToBranch" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="RevertCheckin">
+      <soap:operation soapAction="http://tempuri.org/IDesignerRepositoryService/RevertCheckin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="RollbackModuleToRevision">
+      <soap:operation soapAction="http://tempuri.org/IDesignerRepositoryService/RollbackModuleToRevision" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="RollbackModuleToDate">
+      <soap:operation soapAction="http://tempuri.org/IDesignerRepositoryService/RollbackModuleToDate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetCheckinInfos">
+      <soap:operation soapAction="http://tempuri.org/IDesignerRepositoryService/GetCheckinInfos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetCheckinInfosAfterRevision">
+      <soap:operation soapAction="http://tempuri.org/IDesignerRepositoryService/GetCheckinInfosAfterRevision" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetCheckinInfosAfterDate">
+      <soap:operation soapAction="http://tempuri.org/IDesignerRepositoryService/GetCheckinInfosAfterDate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetResourcesInfoForRevision">
+      <soap:operation soapAction="http://tempuri.org/IDesignerRepositoryService/GetResourcesInfoForRevision" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="Ping">
+      <soap:operation soapAction="http://tempuri.org/IDesignerRepositoryService/Ping" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="PingWithoutUserContext">
+      <soap:operation soapAction="http://tempuri.org/IDesignerRepositoryService/PingWithoutUserContext" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllServerNames">
+      <soap:operation soapAction="http://tempuri.org/IDesignerRepositoryService/GetAllServerNames" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="StartServerStateCheckin">
+      <soap:operation soapAction="http://tempuri.org/IDesignerRepositoryService/StartServerStateCheckin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateModuleList">
+      <soap:operation soapAction="http://tempuri.org/IDesignerRepositoryService/UpdateModuleList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetModuleReferences">
+      <soap:operation soapAction="http://tempuri.org/IDesignerRepositoryService/GetModuleReferences" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetModuleReferencesAsOfRevision">
+      <soap:operation soapAction="http://tempuri.org/IDesignerRepositoryService/GetModuleReferencesAsOfRevision" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetModuleReferencesAsOfDate">
+      <soap:operation soapAction="http://tempuri.org/IDesignerRepositoryService/GetModuleReferencesAsOfDate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateRepositoryReference">
+      <soap:operation soapAction="http://tempuri.org/IDesignerRepositoryService/UpdateRepositoryReference" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetRepositoryReferences">
+      <soap:operation soapAction="http://tempuri.org/IDesignerRepositoryService/GetRepositoryReferences" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetRepositoryReferencesAsOfRevision">
+      <soap:operation soapAction="http://tempuri.org/IDesignerRepositoryService/GetRepositoryReferencesAsOfRevision" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetRepositoryReferencesAsOfDate">
+      <soap:operation soapAction="http://tempuri.org/IDesignerRepositoryService/GetRepositoryReferencesAsOfDate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateServerFile">
+      <soap:operation soapAction="http://tempuri.org/IDesignerRepositoryService/UpdateServerFile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetServerFile">
+      <soap:operation soapAction="http://tempuri.org/IDesignerRepositoryService/GetServerFile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetServerFileList">
+      <soap:operation soapAction="http://tempuri.org/IDesignerRepositoryService/GetServerFileList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetServerFileInfo">
+      <soap:operation soapAction="http://tempuri.org/IDesignerRepositoryService/GetServerFileInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetServerFileListByResourceType">
+      <soap:operation soapAction="http://tempuri.org/IDesignerRepositoryService/GetServerFileListByResourceType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="StartCheckout">
+      <soap:operation soapAction="http://tempuri.org/IDesignerRepositoryService/StartCheckout" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="StartCheckoutOfDate">
+      <soap:operation soapAction="http://tempuri.org/IDesignerRepositoryService/StartCheckoutOfDate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="CommitCheckout">
+      <soap:operation soapAction="http://tempuri.org/IDesignerRepositoryService/CommitCheckout" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="CancelCheckout">
+      <soap:operation soapAction="http://tempuri.org/IDesignerRepositoryService/CancelCheckout" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BasicHttpBinding_IDesignerRepositoryService1" type="tns:IDesignerRepositoryService">
+    <wsp:PolicyReference URI="#BasicHttpBinding_IDesignerRepositoryService1_policy" />
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetModules">
+      <soap:operation soapAction="http://tempuri.org/IDesignerRepositoryService/GetModules" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetBranches">
+      <soap:operation soapAction="http://tempuri.org/IDesignerRepositoryService/GetBranches" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetModuleResources">
+      <soap:operation soapAction="http://tempuri.org/IDesignerRepositoryService/GetModuleResources" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetModuleResourcesAsOfRevision">
+      <soap:operation soapAction="http://tempuri.org/IDesignerRepositoryService/GetModuleResourcesAsOfRevision" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetModuleResourcesAsOfDate">
+      <soap:operation soapAction="http://tempuri.org/IDesignerRepositoryService/GetModuleResourcesAsOfDate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetModuleInfo">
+      <soap:operation soapAction="http://tempuri.org/IDesignerRepositoryService/GetModuleInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetModuleGeneralInfo">
+      <soap:operation soapAction="http://tempuri.org/IDesignerRepositoryService/GetModuleGeneralInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetCheckinData">
+      <soap:operation soapAction="http://tempuri.org/IDesignerRepositoryService/GetCheckinData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="CreateModule">
+      <soap:operation soapAction="http://tempuri.org/IDesignerRepositoryService/CreateModule" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="CreateBranch">
+      <soap:operation soapAction="http://tempuri.org/IDesignerRepositoryService/CreateBranch" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetPreview">
+      <soap:operation soapAction="http://tempuri.org/IDesignerRepositoryService/GetPreview" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetPreviewAsOfRevision">
+      <soap:operation soapAction="http://tempuri.org/IDesignerRepositoryService/GetPreviewAsOfRevision" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetPreviewAsOfDate">
+      <soap:operation soapAction="http://tempuri.org/IDesignerRepositoryService/GetPreviewAsOfDate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetModuleFile">
+      <soap:operation soapAction="http://tempuri.org/IDesignerRepositoryService/GetModuleFile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetModuleFileAsOfRevision">
+      <soap:operation soapAction="http://tempuri.org/IDesignerRepositoryService/GetModuleFileAsOfRevision" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetModuleFileAsOfDate">
+      <soap:operation soapAction="http://tempuri.org/IDesignerRepositoryService/GetModuleFileAsOfDate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="TagModule">
+      <soap:operation soapAction="http://tempuri.org/IDesignerRepositoryService/TagModule" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="StartCheckin">
+      <soap:operation soapAction="http://tempuri.org/IDesignerRepositoryService/StartCheckin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="Commit">
+      <soap:operation soapAction="http://tempuri.org/IDesignerRepositoryService/Commit" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="Cancel">
+      <soap:operation soapAction="http://tempuri.org/IDesignerRepositoryService/Cancel" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteModuleFile">
+      <soap:operation soapAction="http://tempuri.org/IDesignerRepositoryService/DeleteModuleFile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateModuleFile">
+      <soap:operation soapAction="http://tempuri.org/IDesignerRepositoryService/UpdateModuleFile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="CopyToBranch">
+      <soap:operation soapAction="http://tempuri.org/IDesignerRepositoryService/CopyToBranch" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="RevertCheckin">
+      <soap:operation soapAction="http://tempuri.org/IDesignerRepositoryService/RevertCheckin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="RollbackModuleToRevision">
+      <soap:operation soapAction="http://tempuri.org/IDesignerRepositoryService/RollbackModuleToRevision" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="RollbackModuleToDate">
+      <soap:operation soapAction="http://tempuri.org/IDesignerRepositoryService/RollbackModuleToDate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetCheckinInfos">
+      <soap:operation soapAction="http://tempuri.org/IDesignerRepositoryService/GetCheckinInfos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetCheckinInfosAfterRevision">
+      <soap:operation soapAction="http://tempuri.org/IDesignerRepositoryService/GetCheckinInfosAfterRevision" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetCheckinInfosAfterDate">
+      <soap:operation soapAction="http://tempuri.org/IDesignerRepositoryService/GetCheckinInfosAfterDate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetResourcesInfoForRevision">
+      <soap:operation soapAction="http://tempuri.org/IDesignerRepositoryService/GetResourcesInfoForRevision" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="Ping">
+      <soap:operation soapAction="http://tempuri.org/IDesignerRepositoryService/Ping" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="PingWithoutUserContext">
+      <soap:operation soapAction="http://tempuri.org/IDesignerRepositoryService/PingWithoutUserContext" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllServerNames">
+      <soap:operation soapAction="http://tempuri.org/IDesignerRepositoryService/GetAllServerNames" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="StartServerStateCheckin">
+      <soap:operation soapAction="http://tempuri.org/IDesignerRepositoryService/StartServerStateCheckin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateModuleList">
+      <soap:operation soapAction="http://tempuri.org/IDesignerRepositoryService/UpdateModuleList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetModuleReferences">
+      <soap:operation soapAction="http://tempuri.org/IDesignerRepositoryService/GetModuleReferences" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetModuleReferencesAsOfRevision">
+      <soap:operation soapAction="http://tempuri.org/IDesignerRepositoryService/GetModuleReferencesAsOfRevision" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetModuleReferencesAsOfDate">
+      <soap:operation soapAction="http://tempuri.org/IDesignerRepositoryService/GetModuleReferencesAsOfDate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateRepositoryReference">
+      <soap:operation soapAction="http://tempuri.org/IDesignerRepositoryService/UpdateRepositoryReference" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetRepositoryReferences">
+      <soap:operation soapAction="http://tempuri.org/IDesignerRepositoryService/GetRepositoryReferences" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetRepositoryReferencesAsOfRevision">
+      <soap:operation soapAction="http://tempuri.org/IDesignerRepositoryService/GetRepositoryReferencesAsOfRevision" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetRepositoryReferencesAsOfDate">
+      <soap:operation soapAction="http://tempuri.org/IDesignerRepositoryService/GetRepositoryReferencesAsOfDate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateServerFile">
+      <soap:operation soapAction="http://tempuri.org/IDesignerRepositoryService/UpdateServerFile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetServerFile">
+      <soap:operation soapAction="http://tempuri.org/IDesignerRepositoryService/GetServerFile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetServerFileList">
+      <soap:operation soapAction="http://tempuri.org/IDesignerRepositoryService/GetServerFileList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetServerFileInfo">
+      <soap:operation soapAction="http://tempuri.org/IDesignerRepositoryService/GetServerFileInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetServerFileListByResourceType">
+      <soap:operation soapAction="http://tempuri.org/IDesignerRepositoryService/GetServerFileListByResourceType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="StartCheckout">
+      <soap:operation soapAction="http://tempuri.org/IDesignerRepositoryService/StartCheckout" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="StartCheckoutOfDate">
+      <soap:operation soapAction="http://tempuri.org/IDesignerRepositoryService/StartCheckoutOfDate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="CommitCheckout">
+      <soap:operation soapAction="http://tempuri.org/IDesignerRepositoryService/CommitCheckout" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="CancelCheckout">
+      <soap:operation soapAction="http://tempuri.org/IDesignerRepositoryService/CancelCheckout" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FrameworkFault">
+        <soap:fault use="literal" name="FrameworkFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="DesignerRepositoryServiceWrapper">
+    <wsdl:port name="BasicHttpBinding_IDesignerRepositoryService" binding="tns:BasicHttpBinding_IDesignerRepositoryService">
+      <soap:address location="http://tirade.workflow.com/decisions/Primary/API/DesignerRepositoryService" />
+    </wsdl:port>
+    <wsdl:port name="BasicHttpBinding_IDesignerRepositoryService1" binding="tns:BasicHttpBinding_IDesignerRepositoryService1">
+      <soap:address location="https://localhost/decisions/Primary/API/DesignerRepositoryService" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

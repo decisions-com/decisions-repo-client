@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost/decisions/Primary/API/AccountService?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/DecisionsFramework.Data.ORMapper" />
+  <xs:complexType name="AbstractFolderEntity">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:AbstractEntity">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AdministratorViewOnly" type="xs:boolean" />
+          <xs:element minOccurs="0" name="EntityFolderID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Hidden" type="xs:boolean" />
+          <xs:element minOccurs="0" name="HistoryFolderID" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="AbstractFolderEntity" nillable="true" type="tns:AbstractFolderEntity" />
+  <xs:complexType name="AbstractEntity">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/DecisionsFramework.Data.ORMapper" base="q1:BaseORMEntityWithLogicalDelete">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AllTagsData" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Archived" type="xs:boolean" />
+          <xs:element minOccurs="0" name="ArchivedBy" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ArchivedDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CreatedBy" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CreatedOnDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="EntityDescription" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EntityName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ModifiedBy" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ModifiedDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="State" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="AbstractEntity" nillable="true" type="tns:AbstractEntity" />
+  <xs:complexType name="AbstractEntityExtensionData">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q2="http://schemas.datacontract.org/2004/07/DecisionsFramework.Data.ORMapper" base="q2:BaseORMEntityWithLogicalDelete">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="EntityId" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EntityTypeName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ExtensionId" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="AbstractEntityExtensionData" nillable="true" type="tns:AbstractEntityExtensionData" />
+  <xs:complexType name="AbstractModuleRights">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:AbstractFolderEntity">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="UserRightsID" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="AbstractModuleRights" nillable="true" type="tns:AbstractModuleRights" />
+</xs:schema>
