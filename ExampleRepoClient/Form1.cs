@@ -290,10 +290,14 @@ namespace ExampleRepoClient
 
             }
 
+            /////////
+            /////////
+            ////////
+            ////////
+            ///t ------ this issue - 
+            string id = clientLoginPanel.ClientSvcClient.StartImportResources(clientUC, GetSelectedModule(), GetSelectedBranch(), folderId, resources);
 
 
-            
-            
 
             ImportResult ItemResult = clientLoginPanel.ClientSvcClient.FinishImportResources(clientUC, id, GetSelectedModule(), GetSelectedBranch(), folderId, resources); 
             foreach (string eachError in ItemResult.Errors) {
