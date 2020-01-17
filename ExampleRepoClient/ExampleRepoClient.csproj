@@ -33,6 +33,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
@@ -48,12 +51,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Datatypes\LocalCreds.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Functions.cs" />
     <Compile Include="LoginPanelControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -92,6 +97,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -217,31 +223,31 @@
     <None Include="Service References\DesignerRepositoryClient\ExampleRepoClient.DesignerRepositoryClient.ResourceCheckinInfo.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\RepositoryServer\DesignerRepositoryService.xsd">
+    <None Include="Service References\RepositoryServer\DesignerRepositoryService8.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\RepositoryServer\DesignerRepositoryService1.xsd">
+    <None Include="Service References\RepositoryServer\DesignerRepositoryService81.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\RepositoryServer\DesignerRepositoryService2.xsd">
+    <None Include="Service References\RepositoryServer\DesignerRepositoryService82.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\RepositoryServer\DesignerRepositoryService3.xsd">
+    <None Include="Service References\RepositoryServer\DesignerRepositoryService83.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\RepositoryServer\DesignerRepositoryService4.xsd">
+    <None Include="Service References\RepositoryServer\DesignerRepositoryService84.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\RepositoryServer\DesignerRepositoryService5.xsd">
+    <None Include="Service References\RepositoryServer\DesignerRepositoryService85.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\RepositoryServer\DesignerRepositoryService6.xsd">
+    <None Include="Service References\RepositoryServer\DesignerRepositoryService86.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\RepositoryServer\DesignerRepositoryService7.xsd">
+    <None Include="Service References\RepositoryServer\DesignerRepositoryService87.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\RepositoryServer\DesignerRepositoryServiceWrapper.wsdl" />
+    <None Include="Service References\RepositoryServer\DesignerRepositoryServiceWrapper1.wsdl" />
     <None Include="Service References\RepositoryServer\ExampleRepoClient.RepositoryServer.FileCheckinInfo.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -249,6 +255,9 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\RepositoryServer\ExampleRepoClient.RepositoryServer.ModuleCheckinInfo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\RepositoryServer\ExampleRepoClient.RepositoryServer.ModuleDetails.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\RepositoryServer\ExampleRepoClient.RepositoryServer.ModuleInfo.datasource">
@@ -300,9 +309,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\RepositoryServer\DesignerRepositoryService.disco" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Service References\RepositoryServer\configuration91.svcinfo" />
   </ItemGroup>
   <ItemGroup>
@@ -328,6 +334,9 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\RepositoryServer\DesignerRepositoryService1.disco" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

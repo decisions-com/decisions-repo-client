@@ -41,6 +41,8 @@
             this.lbRepoServerUsername = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.tbRepoServerURL = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -65,7 +67,7 @@
             // 
             // lblStatus
             // 
-            this.lblStatus.Location = new System.Drawing.Point(6, 423);
+            this.lblStatus.Location = new System.Drawing.Point(9, 486);
             this.lblStatus.Name = "lblStatus";
             this.lblStatus.Size = new System.Drawing.Size(276, 23);
             this.lblStatus.TabIndex = 2;
@@ -74,7 +76,7 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(279, 415);
+            this.button1.Location = new System.Drawing.Point(282, 478);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(99, 31);
             this.button1.TabIndex = 3;
@@ -93,7 +95,7 @@
             // tbRepoServerUser
             // 
             this.tbRepoServerUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbRepoServerUser.Location = new System.Drawing.Point(6, 56);
+            this.tbRepoServerUser.Location = new System.Drawing.Point(6, 125);
             this.tbRepoServerUser.Name = "tbRepoServerUser";
             this.tbRepoServerUser.Size = new System.Drawing.Size(360, 26);
             this.tbRepoServerUser.TabIndex = 5;
@@ -101,7 +103,7 @@
             // tbRepoServerPass
             // 
             this.tbRepoServerPass.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbRepoServerPass.Location = new System.Drawing.Point(6, 122);
+            this.tbRepoServerPass.Location = new System.Drawing.Point(6, 191);
             this.tbRepoServerPass.Name = "tbRepoServerPass";
             this.tbRepoServerPass.PasswordChar = '*';
             this.tbRepoServerPass.Size = new System.Drawing.Size(360, 26);
@@ -111,7 +113,7 @@
             // 
             this.lbClientBaseUrl.AutoSize = true;
             this.lbClientBaseUrl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbClientBaseUrl.Location = new System.Drawing.Point(6, 32);
+            this.lbClientBaseUrl.Location = new System.Drawing.Point(7, 33);
             this.lbClientBaseUrl.Name = "lbClientBaseUrl";
             this.lbClientBaseUrl.Size = new System.Drawing.Size(102, 20);
             this.lbClientBaseUrl.TabIndex = 7;
@@ -141,7 +143,7 @@
             // 
             this.lbRepoServerUsername.AutoSize = true;
             this.lbRepoServerUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbRepoServerUsername.Location = new System.Drawing.Point(6, 33);
+            this.lbRepoServerUsername.Location = new System.Drawing.Point(6, 102);
             this.lbRepoServerUsername.Name = "lbRepoServerUsername";
             this.lbRepoServerUsername.Size = new System.Drawing.Size(87, 20);
             this.lbRepoServerUsername.TabIndex = 10;
@@ -151,7 +153,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(6, 99);
+            this.label1.Location = new System.Drawing.Point(6, 168);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(82, 20);
             this.label1.TabIndex = 11;
@@ -159,6 +161,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.tbRepoServerURL);
+            this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.tbRepoServerUser);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.lbRepoServerUsername);
@@ -166,10 +170,28 @@
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(6, 244);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(372, 154);
+            this.groupBox1.Size = new System.Drawing.Size(372, 228);
             this.groupBox1.TabIndex = 12;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Repository Server";
+            // 
+            // tbRepoServerURL
+            // 
+            this.tbRepoServerURL.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbRepoServerURL.Location = new System.Drawing.Point(6, 73);
+            this.tbRepoServerURL.Name = "tbRepoServerURL";
+            this.tbRepoServerURL.Size = new System.Drawing.Size(360, 26);
+            this.tbRepoServerURL.TabIndex = 10;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(7, 51);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(102, 20);
+            this.label2.TabIndex = 11;
+            this.label2.Text = "Service URL:";
             // 
             // groupBox2
             // 
@@ -223,5 +245,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.TextBox tbRepoServerURL;
+        private System.Windows.Forms.Label label2;
     }
 }

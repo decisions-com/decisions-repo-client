@@ -19,19 +19,19 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://tirade.workflow.com/decisions/Primary/API/DesignerRepositoryService" Protocol="http" SourceId="1" />
+    <MetadataSource Address="https://172.16.1.12/decisions/Primary/API/DesignerRepositoryService" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="DesignerRepositoryService.disco" MetadataType="Disco" ID="86093b41-e5d2-4a2d-a74a-070d752c9dbe" SourceId="1" SourceUrl="http://tirade.workflow.com/decisions/Primary/API/DesignerRepositoryService?disco" />
-    <MetadataFile FileName="DesignerRepositoryService.xsd" MetadataType="Schema" ID="eb563066-d4ea-4140-8a06-6ed74f41903e" SourceId="1" SourceUrl="http://tirade.workflow.com/decisions/Primary/API/DesignerRepositoryService?xsd=xsd5" />
-    <MetadataFile FileName="DesignerRepositoryService1.xsd" MetadataType="Schema" ID="26c4ffc5-929b-4396-ae98-85014ff9fd21" SourceId="1" SourceUrl="http://tirade.workflow.com/decisions/Primary/API/DesignerRepositoryService?xsd=xsd3" />
-    <MetadataFile FileName="DesignerRepositoryService2.xsd" MetadataType="Schema" ID="2460800d-ee7e-42e4-b3fa-9c1647bc7d1c" SourceId="1" SourceUrl="http://tirade.workflow.com/decisions/Primary/API/DesignerRepositoryService?xsd=xsd4" />
-    <MetadataFile FileName="DesignerRepositoryServiceWrapper.wsdl" MetadataType="Wsdl" ID="7dbc9ef7-d2e2-4d93-b9fc-db81752ab9de" SourceId="1" SourceUrl="http://tirade.workflow.com/decisions/Primary/API/DesignerRepositoryService?wsdl" />
-    <MetadataFile FileName="DesignerRepositoryService3.xsd" MetadataType="Schema" ID="13be17b8-d192-4f58-8e6e-aa887ad149db" SourceId="1" SourceUrl="http://tirade.workflow.com/decisions/Primary/API/DesignerRepositoryService?xsd=xsd6" />
-    <MetadataFile FileName="DesignerRepositoryService4.xsd" MetadataType="Schema" ID="ae6ed698-a435-405c-b676-4be87cc05d10" SourceId="1" SourceUrl="http://tirade.workflow.com/decisions/Primary/API/DesignerRepositoryService?xsd=xsd1" />
-    <MetadataFile FileName="DesignerRepositoryService5.xsd" MetadataType="Schema" ID="7995f874-f88a-4478-93d0-0bca6e042c85" SourceId="1" SourceUrl="http://tirade.workflow.com/decisions/Primary/API/DesignerRepositoryService?xsd=xsd7" />
-    <MetadataFile FileName="DesignerRepositoryService6.xsd" MetadataType="Schema" ID="91d66c41-943a-4009-8f98-a529aae51b6a" SourceId="1" SourceUrl="http://tirade.workflow.com/decisions/Primary/API/DesignerRepositoryService?xsd=xsd2" />
-    <MetadataFile FileName="DesignerRepositoryService7.xsd" MetadataType="Schema" ID="6ed22ced-851c-4032-9141-6779f04abf73" SourceId="1" SourceUrl="http://tirade.workflow.com/decisions/Primary/API/DesignerRepositoryService?xsd=xsd0" />
+    <MetadataFile FileName="DesignerRepositoryService8.xsd" MetadataType="Schema" ID="5fa6f489-4ee5-4d2d-bf65-48c44020bc10" SourceId="1" SourceUrl="https://172.16.1.12/decisions/Primary/API/DesignerRepositoryService?xsd=xsd2" />
+    <MetadataFile FileName="DesignerRepositoryServiceWrapper1.wsdl" MetadataType="Wsdl" ID="d51c6e4c-3dce-4d07-a950-ae4ffd95c6b2" SourceId="1" SourceUrl="https://172.16.1.12/decisions/Primary/API/DesignerRepositoryService?wsdl" />
+    <MetadataFile FileName="DesignerRepositoryService1.disco" MetadataType="Disco" ID="94f0d8ea-d13c-4a86-b058-05a0b9e6d9ec" SourceId="1" SourceUrl="https://172.16.1.12/decisions/Primary/API/DesignerRepositoryService?disco" />
+    <MetadataFile FileName="DesignerRepositoryService81.xsd" MetadataType="Schema" ID="d59aa891-b62f-45bf-8348-5cce0cc4414f" SourceId="1" SourceUrl="https://172.16.1.12/decisions/Primary/API/DesignerRepositoryService?xsd=xsd5" />
+    <MetadataFile FileName="DesignerRepositoryService82.xsd" MetadataType="Schema" ID="2cb658ac-36ee-4b1e-8d72-b18da785b11a" SourceId="1" SourceUrl="https://172.16.1.12/decisions/Primary/API/DesignerRepositoryService?xsd=xsd4" />
+    <MetadataFile FileName="DesignerRepositoryService83.xsd" MetadataType="Schema" ID="997a1471-bd30-44d5-8c07-3f6e82091603" SourceId="1" SourceUrl="https://172.16.1.12/decisions/Primary/API/DesignerRepositoryService?xsd=xsd7" />
+    <MetadataFile FileName="DesignerRepositoryService84.xsd" MetadataType="Schema" ID="dd99dceb-f56d-4363-a00b-9dfcbec4e88a" SourceId="1" SourceUrl="https://172.16.1.12/decisions/Primary/API/DesignerRepositoryService?xsd=xsd6" />
+    <MetadataFile FileName="DesignerRepositoryService85.xsd" MetadataType="Schema" ID="bf1b725e-4622-4953-bd79-e76f58cf7c8a" SourceId="1" SourceUrl="https://172.16.1.12/decisions/Primary/API/DesignerRepositoryService?xsd=xsd1" />
+    <MetadataFile FileName="DesignerRepositoryService86.xsd" MetadataType="Schema" ID="4daff1a7-7693-4038-a2df-31a2c14e2dd6" SourceId="1" SourceUrl="https://172.16.1.12/decisions/Primary/API/DesignerRepositoryService?xsd=xsd0" />
+    <MetadataFile FileName="DesignerRepositoryService87.xsd" MetadataType="Schema" ID="c6db02fc-51b2-4ac1-bec1-5c5cb692dd48" SourceId="1" SourceUrl="https://172.16.1.12/decisions/Primary/API/DesignerRepositoryService?xsd=xsd3" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

@@ -473,11 +473,336 @@ namespace ExampleRepoClient.RepositoryServer {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ModuleCheckinInfo", Namespace="http://schemas.datacontract.org/2004/07/Decisions.DesignerRepository")]
+    [System.SerializableAttribute()]
+    public partial class ModuleCheckinInfo : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CheckinIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DescriptionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool IsTagField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ModifiedByField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime ModifiedDateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NoteField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ResourcesField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string RevisionIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private ExampleRepoClient.RepositoryServer.RepositoryState StateField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CheckinId {
+            get {
+                return this.CheckinIdField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CheckinIdField, value) != true)) {
+                    this.CheckinIdField = value;
+                    this.RaisePropertyChanged("CheckinId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Description {
+            get {
+                return this.DescriptionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DescriptionField, value) != true)) {
+                    this.DescriptionField = value;
+                    this.RaisePropertyChanged("Description");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool IsTag {
+            get {
+                return this.IsTagField;
+            }
+            set {
+                if ((this.IsTagField.Equals(value) != true)) {
+                    this.IsTagField = value;
+                    this.RaisePropertyChanged("IsTag");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ModifiedBy {
+            get {
+                return this.ModifiedByField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ModifiedByField, value) != true)) {
+                    this.ModifiedByField = value;
+                    this.RaisePropertyChanged("ModifiedBy");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime ModifiedDate {
+            get {
+                return this.ModifiedDateField;
+            }
+            set {
+                if ((this.ModifiedDateField.Equals(value) != true)) {
+                    this.ModifiedDateField = value;
+                    this.RaisePropertyChanged("ModifiedDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Note {
+            get {
+                return this.NoteField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NoteField, value) != true)) {
+                    this.NoteField = value;
+                    this.RaisePropertyChanged("Note");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Resources {
+            get {
+                return this.ResourcesField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ResourcesField, value) != true)) {
+                    this.ResourcesField = value;
+                    this.RaisePropertyChanged("Resources");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string RevisionId {
+            get {
+                return this.RevisionIdField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.RevisionIdField, value) != true)) {
+                    this.RevisionIdField = value;
+                    this.RaisePropertyChanged("RevisionId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public ExampleRepoClient.RepositoryServer.RepositoryState State {
+            get {
+                return this.StateField;
+            }
+            set {
+                if ((this.StateField.Equals(value) != true)) {
+                    this.StateField = value;
+                    this.RaisePropertyChanged("State");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="RepositoryState", Namespace="http://schemas.datacontract.org/2004/07/Decisions.DesignerRepository")]
+    public enum RepositoryState : int {
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Unknown = 0,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Release = 1,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        HotFix = 2,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Development = 3,
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ResourceCheckinInfo", Namespace="http://schemas.datacontract.org/2004/07/Decisions.DesignerRepository")]
+    [System.SerializableAttribute()]
+    public partial class ResourceCheckinInfo : ExampleRepoClient.RepositoryServer.ModuleInfoFile {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ActionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string BranchNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool IsDeletedField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool IsNewField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool IsUpdatedField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ModuleNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string RevisionIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ShortTypeNameField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Action {
+            get {
+                return this.ActionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ActionField, value) != true)) {
+                    this.ActionField = value;
+                    this.RaisePropertyChanged("Action");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string BranchName {
+            get {
+                return this.BranchNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.BranchNameField, value) != true)) {
+                    this.BranchNameField = value;
+                    this.RaisePropertyChanged("BranchName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool IsDeleted {
+            get {
+                return this.IsDeletedField;
+            }
+            set {
+                if ((this.IsDeletedField.Equals(value) != true)) {
+                    this.IsDeletedField = value;
+                    this.RaisePropertyChanged("IsDeleted");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool IsNew {
+            get {
+                return this.IsNewField;
+            }
+            set {
+                if ((this.IsNewField.Equals(value) != true)) {
+                    this.IsNewField = value;
+                    this.RaisePropertyChanged("IsNew");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool IsUpdated {
+            get {
+                return this.IsUpdatedField;
+            }
+            set {
+                if ((this.IsUpdatedField.Equals(value) != true)) {
+                    this.IsUpdatedField = value;
+                    this.RaisePropertyChanged("IsUpdated");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ModuleName {
+            get {
+                return this.ModuleNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ModuleNameField, value) != true)) {
+                    this.ModuleNameField = value;
+                    this.RaisePropertyChanged("ModuleName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string RevisionId {
+            get {
+                return this.RevisionIdField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.RevisionIdField, value) != true)) {
+                    this.RevisionIdField = value;
+                    this.RaisePropertyChanged("RevisionId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ShortTypeName {
+            get {
+                return this.ShortTypeNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ShortTypeNameField, value) != true)) {
+                    this.ShortTypeNameField = value;
+                    this.RaisePropertyChanged("ShortTypeName");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ModuleInfoFile", Namespace="http://schemas.datacontract.org/2004/07/Decisions.DesignerRepository")]
     [System.SerializableAttribute()]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(ExampleRepoClient.RepositoryServer.FileCheckinInfo))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(ExampleRepoClient.RepositoryServer.ResourceCheckinInfo))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(ExampleRepoClient.RepositoryServer.ServerModuleInfoFile))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(ExampleRepoClient.RepositoryServer.ResourceCheckinInfo))]
     public partial class ModuleInfoFile : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
@@ -672,118 +997,31 @@ namespace ExampleRepoClient.RepositoryServer {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="ResourceCheckinInfo", Namespace="http://schemas.datacontract.org/2004/07/Decisions.DesignerRepository")]
-    [System.SerializableAttribute()]
-    public partial class ResourceCheckinInfo : ExampleRepoClient.RepositoryServer.ModuleInfoFile {
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string ActionField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private bool IsDeletedField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private bool IsNewField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private bool IsUpdatedField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string RevisionIdField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string ShortTypeNameField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Action {
-            get {
-                return this.ActionField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ActionField, value) != true)) {
-                    this.ActionField = value;
-                    this.RaisePropertyChanged("Action");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public bool IsDeleted {
-            get {
-                return this.IsDeletedField;
-            }
-            set {
-                if ((this.IsDeletedField.Equals(value) != true)) {
-                    this.IsDeletedField = value;
-                    this.RaisePropertyChanged("IsDeleted");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public bool IsNew {
-            get {
-                return this.IsNewField;
-            }
-            set {
-                if ((this.IsNewField.Equals(value) != true)) {
-                    this.IsNewField = value;
-                    this.RaisePropertyChanged("IsNew");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public bool IsUpdated {
-            get {
-                return this.IsUpdatedField;
-            }
-            set {
-                if ((this.IsUpdatedField.Equals(value) != true)) {
-                    this.IsUpdatedField = value;
-                    this.RaisePropertyChanged("IsUpdated");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string RevisionId {
-            get {
-                return this.RevisionIdField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.RevisionIdField, value) != true)) {
-                    this.RevisionIdField = value;
-                    this.RaisePropertyChanged("RevisionId");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string ShortTypeName {
-            get {
-                return this.ShortTypeNameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ShortTypeNameField, value) != true)) {
-                    this.ShortTypeNameField = value;
-                    this.RaisePropertyChanged("ShortTypeName");
-                }
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ServerModuleInfoFile", Namespace="http://schemas.datacontract.org/2004/07/Decisions.DesignerRepository")]
     [System.SerializableAttribute()]
     public partial class ServerModuleInfoFile : ExampleRepoClient.RepositoryServer.ModuleInfoFile {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string FilePathField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string ResourceTypeField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<System.DateTime> ServerFileTimeField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string FilePath {
+            get {
+                return this.FilePathField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.FilePathField, value) != true)) {
+                    this.FilePathField = value;
+                    this.RaisePropertyChanged("FilePath");
+                }
+            }
+        }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string ResourceType {
@@ -808,6 +1046,195 @@ namespace ExampleRepoClient.RepositoryServer {
                     this.ServerFileTimeField = value;
                     this.RaisePropertyChanged("ServerFileTime");
                 }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ModuleDetails", Namespace="http://schemas.datacontract.org/2004/07/Decisions.DesignerRepository")]
+    [System.SerializableAttribute()]
+    public partial class ModuleDetails : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool CategoryField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CreatedByField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<System.DateTime> CreatedOnField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DescriptionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DescriptionURLField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool ForceCopyField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ModuleNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string[] RequiredProjectsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int ResourcesCountField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string RootFolderIdField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool Category {
+            get {
+                return this.CategoryField;
+            }
+            set {
+                if ((this.CategoryField.Equals(value) != true)) {
+                    this.CategoryField = value;
+                    this.RaisePropertyChanged("Category");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CreatedBy {
+            get {
+                return this.CreatedByField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CreatedByField, value) != true)) {
+                    this.CreatedByField = value;
+                    this.RaisePropertyChanged("CreatedBy");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> CreatedOn {
+            get {
+                return this.CreatedOnField;
+            }
+            set {
+                if ((this.CreatedOnField.Equals(value) != true)) {
+                    this.CreatedOnField = value;
+                    this.RaisePropertyChanged("CreatedOn");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Description {
+            get {
+                return this.DescriptionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DescriptionField, value) != true)) {
+                    this.DescriptionField = value;
+                    this.RaisePropertyChanged("Description");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string DescriptionURL {
+            get {
+                return this.DescriptionURLField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DescriptionURLField, value) != true)) {
+                    this.DescriptionURLField = value;
+                    this.RaisePropertyChanged("DescriptionURL");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool ForceCopy {
+            get {
+                return this.ForceCopyField;
+            }
+            set {
+                if ((this.ForceCopyField.Equals(value) != true)) {
+                    this.ForceCopyField = value;
+                    this.RaisePropertyChanged("ForceCopy");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ModuleName {
+            get {
+                return this.ModuleNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ModuleNameField, value) != true)) {
+                    this.ModuleNameField = value;
+                    this.RaisePropertyChanged("ModuleName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string[] RequiredProjects {
+            get {
+                return this.RequiredProjectsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.RequiredProjectsField, value) != true)) {
+                    this.RequiredProjectsField = value;
+                    this.RaisePropertyChanged("RequiredProjects");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int ResourcesCount {
+            get {
+                return this.ResourcesCountField;
+            }
+            set {
+                if ((this.ResourcesCountField.Equals(value) != true)) {
+                    this.ResourcesCountField = value;
+                    this.RaisePropertyChanged("ResourcesCount");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string RootFolderId {
+            get {
+                return this.RootFolderIdField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.RootFolderIdField, value) != true)) {
+                    this.RootFolderIdField = value;
+                    this.RaisePropertyChanged("RootFolderId");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
             }
         }
     }
@@ -937,23 +1364,6 @@ namespace ExampleRepoClient.RepositoryServer {
         }
     }
     
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="RepositoryState", Namespace="http://schemas.datacontract.org/2004/07/Decisions.DesignerRepository")]
-    public enum RepositoryState : int {
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Unknown = 0,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Release = 1,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        HotFix = 2,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Development = 3,
-    }
-    
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="SessionClientInfo", Namespace="http://schemas.datacontract.org/2004/07/Decisions.DesignerRepository")]
@@ -1037,6 +1447,7 @@ namespace ExampleRepoClient.RepositoryServer {
     [System.SerializableAttribute()]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(ExampleRepoClient.RepositoryServer.ServerFileData))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(ExampleRepoClient.RepositoryServer.CodeFileData))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(ExampleRepoClient.RepositoryServer.FileDataWithReferencePath))]
     public partial class FileData : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
@@ -1101,7 +1512,23 @@ namespace ExampleRepoClient.RepositoryServer {
     public partial class ServerFileData : ExampleRepoClient.RepositoryServer.FileData {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string FilePathField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.DateTime ServerFileTimeField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string FilePath {
+            get {
+                return this.FilePathField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.FilePathField, value) != true)) {
+                    this.FilePathField = value;
+                    this.RaisePropertyChanged("FilePath");
+                }
+            }
+        }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.DateTime ServerFileTime {
@@ -1175,173 +1602,39 @@ namespace ExampleRepoClient.RepositoryServer {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="ModuleCheckinInfo", Namespace="http://schemas.datacontract.org/2004/07/Decisions.DesignerRepository")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="FileDataWithReferencePath", Namespace="http://schemas.datacontract.org/2004/07/DecisionsFramework.Data.DataTypes")]
     [System.SerializableAttribute()]
-    public partial class ModuleCheckinInfo : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+    public partial class FileDataWithReferencePath : ExampleRepoClient.RepositoryServer.FileData {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string CheckinIdField;
+        private int ContentLengthField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string DescriptionField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private bool IsTagField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string ModifiedByField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.DateTime ModifiedDateField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string NoteField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string ResourcesField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string RevisionIdField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private ExampleRepoClient.RepositoryServer.RepositoryState StateField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
+        private string FilePathField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string CheckinId {
+        public int ContentLength {
             get {
-                return this.CheckinIdField;
+                return this.ContentLengthField;
             }
             set {
-                if ((object.ReferenceEquals(this.CheckinIdField, value) != true)) {
-                    this.CheckinIdField = value;
-                    this.RaisePropertyChanged("CheckinId");
+                if ((this.ContentLengthField.Equals(value) != true)) {
+                    this.ContentLengthField = value;
+                    this.RaisePropertyChanged("ContentLength");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Description {
+        public string FilePath {
             get {
-                return this.DescriptionField;
+                return this.FilePathField;
             }
             set {
-                if ((object.ReferenceEquals(this.DescriptionField, value) != true)) {
-                    this.DescriptionField = value;
-                    this.RaisePropertyChanged("Description");
+                if ((object.ReferenceEquals(this.FilePathField, value) != true)) {
+                    this.FilePathField = value;
+                    this.RaisePropertyChanged("FilePath");
                 }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public bool IsTag {
-            get {
-                return this.IsTagField;
-            }
-            set {
-                if ((this.IsTagField.Equals(value) != true)) {
-                    this.IsTagField = value;
-                    this.RaisePropertyChanged("IsTag");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string ModifiedBy {
-            get {
-                return this.ModifiedByField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ModifiedByField, value) != true)) {
-                    this.ModifiedByField = value;
-                    this.RaisePropertyChanged("ModifiedBy");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.DateTime ModifiedDate {
-            get {
-                return this.ModifiedDateField;
-            }
-            set {
-                if ((this.ModifiedDateField.Equals(value) != true)) {
-                    this.ModifiedDateField = value;
-                    this.RaisePropertyChanged("ModifiedDate");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Note {
-            get {
-                return this.NoteField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.NoteField, value) != true)) {
-                    this.NoteField = value;
-                    this.RaisePropertyChanged("Note");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Resources {
-            get {
-                return this.ResourcesField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ResourcesField, value) != true)) {
-                    this.ResourcesField = value;
-                    this.RaisePropertyChanged("Resources");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string RevisionId {
-            get {
-                return this.RevisionIdField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.RevisionIdField, value) != true)) {
-                    this.RevisionIdField = value;
-                    this.RaisePropertyChanged("RevisionId");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public ExampleRepoClient.RepositoryServer.RepositoryState State {
-            get {
-                return this.StateField;
-            }
-            set {
-                if ((this.StateField.Equals(value) != true)) {
-                    this.StateField = value;
-                    this.RaisePropertyChanged("State");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
             }
         }
     }
@@ -1488,6 +1781,32 @@ namespace ExampleRepoClient.RepositoryServer {
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="RepositoryServer.IDesignerRepositoryService")]
     public interface IDesignerRepositoryService {
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDesignerRepositoryService/GetBranches", ReplyAction="http://tempuri.org/IDesignerRepositoryService/GetBranchesResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(ExampleRepoClient.RepositoryServer.FrameworkFault), Action="http://tempuri.org/FrameworkFaultAction", Name="FrameworkFault", Namespace="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" +
+            "")]
+        string[] GetBranches(ExampleRepoClient.RepositoryServer.AbstractUserContext context, string moduleName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDesignerRepositoryService/GetBranches", ReplyAction="http://tempuri.org/IDesignerRepositoryService/GetBranchesResponse")]
+        System.Threading.Tasks.Task<string[]> GetBranchesAsync(ExampleRepoClient.RepositoryServer.AbstractUserContext context, string moduleName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDesignerRepositoryService/GetCheckinInfos", ReplyAction="http://tempuri.org/IDesignerRepositoryService/GetCheckinInfosResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(ExampleRepoClient.RepositoryServer.FrameworkFault), Action="http://tempuri.org/FrameworkFaultAction", Name="FrameworkFault", Namespace="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" +
+            "")]
+        ExampleRepoClient.RepositoryServer.ModuleCheckinInfo[] GetCheckinInfos(ExampleRepoClient.RepositoryServer.AbstractUserContext context, string moduleName, string branchName, int count);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDesignerRepositoryService/GetCheckinInfos", ReplyAction="http://tempuri.org/IDesignerRepositoryService/GetCheckinInfosResponse")]
+        System.Threading.Tasks.Task<ExampleRepoClient.RepositoryServer.ModuleCheckinInfo[]> GetCheckinInfosAsync(ExampleRepoClient.RepositoryServer.AbstractUserContext context, string moduleName, string branchName, int count);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDesignerRepositoryService/GetResourcesInfoForRevision", ReplyAction="http://tempuri.org/IDesignerRepositoryService/GetResourcesInfoForRevisionResponse" +
+            "")]
+        [System.ServiceModel.FaultContractAttribute(typeof(ExampleRepoClient.RepositoryServer.FrameworkFault), Action="http://tempuri.org/FrameworkFaultAction", Name="FrameworkFault", Namespace="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" +
+            "")]
+        ExampleRepoClient.RepositoryServer.ResourceCheckinInfo[] GetResourcesInfoForRevision(ExampleRepoClient.RepositoryServer.AbstractUserContext context, string moduleName, string branchName, string revisionId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDesignerRepositoryService/GetResourcesInfoForRevision", ReplyAction="http://tempuri.org/IDesignerRepositoryService/GetResourcesInfoForRevisionResponse" +
+            "")]
+        System.Threading.Tasks.Task<ExampleRepoClient.RepositoryServer.ResourceCheckinInfo[]> GetResourcesInfoForRevisionAsync(ExampleRepoClient.RepositoryServer.AbstractUserContext context, string moduleName, string branchName, string revisionId);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDesignerRepositoryService/GetModules", ReplyAction="http://tempuri.org/IDesignerRepositoryService/GetModulesResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(ExampleRepoClient.RepositoryServer.FrameworkFault), Action="http://tempuri.org/FrameworkFaultAction", Name="FrameworkFault", Namespace="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" +
             "")]
@@ -1496,13 +1815,13 @@ namespace ExampleRepoClient.RepositoryServer {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDesignerRepositoryService/GetModules", ReplyAction="http://tempuri.org/IDesignerRepositoryService/GetModulesResponse")]
         System.Threading.Tasks.Task<string[]> GetModulesAsync(ExampleRepoClient.RepositoryServer.AbstractUserContext context);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDesignerRepositoryService/GetBranches", ReplyAction="http://tempuri.org/IDesignerRepositoryService/GetBranchesResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDesignerRepositoryService/GetModulesForAppStore", ReplyAction="http://tempuri.org/IDesignerRepositoryService/GetModulesForAppStoreResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(ExampleRepoClient.RepositoryServer.FrameworkFault), Action="http://tempuri.org/FrameworkFaultAction", Name="FrameworkFault", Namespace="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" +
             "")]
-        string[] GetBranches(ExampleRepoClient.RepositoryServer.AbstractUserContext context, string moduleName);
+        ExampleRepoClient.RepositoryServer.ModuleDetails[] GetModulesForAppStore(ExampleRepoClient.RepositoryServer.AbstractUserContext context);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDesignerRepositoryService/GetBranches", ReplyAction="http://tempuri.org/IDesignerRepositoryService/GetBranchesResponse")]
-        System.Threading.Tasks.Task<string[]> GetBranchesAsync(ExampleRepoClient.RepositoryServer.AbstractUserContext context, string moduleName);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDesignerRepositoryService/GetModulesForAppStore", ReplyAction="http://tempuri.org/IDesignerRepositoryService/GetModulesForAppStoreResponse")]
+        System.Threading.Tasks.Task<ExampleRepoClient.RepositoryServer.ModuleDetails[]> GetModulesForAppStoreAsync(ExampleRepoClient.RepositoryServer.AbstractUserContext context);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDesignerRepositoryService/GetModuleResources", ReplyAction="http://tempuri.org/IDesignerRepositoryService/GetModuleResourcesResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(ExampleRepoClient.RepositoryServer.FrameworkFault), Action="http://tempuri.org/FrameworkFaultAction", Name="FrameworkFault", Namespace="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" +
@@ -1553,6 +1872,14 @@ namespace ExampleRepoClient.RepositoryServer {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDesignerRepositoryService/GetCheckinData", ReplyAction="http://tempuri.org/IDesignerRepositoryService/GetCheckinDataResponse")]
         System.Threading.Tasks.Task<ExampleRepoClient.RepositoryServer.FileCheckinInfo[]> GetCheckinDataAsync(ExampleRepoClient.RepositoryServer.AbstractUserContext context, string moduleName, string branchName, string typeName, string id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDesignerRepositoryService/RemoveModule", ReplyAction="http://tempuri.org/IDesignerRepositoryService/RemoveModuleResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(ExampleRepoClient.RepositoryServer.FrameworkFault), Action="http://tempuri.org/FrameworkFaultAction", Name="FrameworkFault", Namespace="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" +
+            "")]
+        void RemoveModule(ExampleRepoClient.RepositoryServer.AbstractUserContext context, string moduleName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDesignerRepositoryService/RemoveModule", ReplyAction="http://tempuri.org/IDesignerRepositoryService/RemoveModuleResponse")]
+        System.Threading.Tasks.Task RemoveModuleAsync(ExampleRepoClient.RepositoryServer.AbstractUserContext context, string moduleName);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDesignerRepositoryService/CreateModule", ReplyAction="http://tempuri.org/IDesignerRepositoryService/CreateModuleResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(ExampleRepoClient.RepositoryServer.FrameworkFault), Action="http://tempuri.org/FrameworkFaultAction", Name="FrameworkFault", Namespace="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" +
@@ -1666,6 +1993,14 @@ namespace ExampleRepoClient.RepositoryServer {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDesignerRepositoryService/UpdateModuleFile", ReplyAction="http://tempuri.org/IDesignerRepositoryService/UpdateModuleFileResponse")]
         System.Threading.Tasks.Task UpdateModuleFileAsync(ExampleRepoClient.RepositoryServer.AbstractUserContext context, string revisionId, string fromRevisionId, string typeName, string id, string entityName, string path, ExampleRepoClient.RepositoryServer.FileData data, ExampleRepoClient.RepositoryServer.FileData previewData);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDesignerRepositoryService/ForceUpdateModuleFile", ReplyAction="http://tempuri.org/IDesignerRepositoryService/ForceUpdateModuleFileResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(ExampleRepoClient.RepositoryServer.FrameworkFault), Action="http://tempuri.org/FrameworkFaultAction", Name="FrameworkFault", Namespace="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" +
+            "")]
+        void ForceUpdateModuleFile(ExampleRepoClient.RepositoryServer.AbstractUserContext context, string revisionId, string fromRevisionId, string typeName, string id, string entityName, string path, ExampleRepoClient.RepositoryServer.FileData data, ExampleRepoClient.RepositoryServer.FileData previewData);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDesignerRepositoryService/ForceUpdateModuleFile", ReplyAction="http://tempuri.org/IDesignerRepositoryService/ForceUpdateModuleFileResponse")]
+        System.Threading.Tasks.Task ForceUpdateModuleFileAsync(ExampleRepoClient.RepositoryServer.AbstractUserContext context, string revisionId, string fromRevisionId, string typeName, string id, string entityName, string path, ExampleRepoClient.RepositoryServer.FileData data, ExampleRepoClient.RepositoryServer.FileData previewData);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDesignerRepositoryService/CopyToBranch", ReplyAction="http://tempuri.org/IDesignerRepositoryService/CopyToBranchResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(ExampleRepoClient.RepositoryServer.FrameworkFault), Action="http://tempuri.org/FrameworkFaultAction", Name="FrameworkFault", Namespace="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" +
             "")]
@@ -1698,14 +2033,6 @@ namespace ExampleRepoClient.RepositoryServer {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDesignerRepositoryService/RollbackModuleToDate", ReplyAction="http://tempuri.org/IDesignerRepositoryService/RollbackModuleToDateResponse")]
         System.Threading.Tasks.Task RollbackModuleToDateAsync(ExampleRepoClient.RepositoryServer.AbstractUserContext context, ExampleRepoClient.RepositoryServer.SessionClientInfo sessionInfo, string moduleName, string branchName, System.DateTime revisionDate);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDesignerRepositoryService/GetCheckinInfos", ReplyAction="http://tempuri.org/IDesignerRepositoryService/GetCheckinInfosResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(ExampleRepoClient.RepositoryServer.FrameworkFault), Action="http://tempuri.org/FrameworkFaultAction", Name="FrameworkFault", Namespace="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" +
-            "")]
-        ExampleRepoClient.RepositoryServer.ModuleCheckinInfo[] GetCheckinInfos(ExampleRepoClient.RepositoryServer.AbstractUserContext context, string moduleName, string branchName, int count);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDesignerRepositoryService/GetCheckinInfos", ReplyAction="http://tempuri.org/IDesignerRepositoryService/GetCheckinInfosResponse")]
-        System.Threading.Tasks.Task<ExampleRepoClient.RepositoryServer.ModuleCheckinInfo[]> GetCheckinInfosAsync(ExampleRepoClient.RepositoryServer.AbstractUserContext context, string moduleName, string branchName, int count);
-        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDesignerRepositoryService/GetCheckinInfosAfterRevision", ReplyAction="http://tempuri.org/IDesignerRepositoryService/GetCheckinInfosAfterRevisionRespons" +
             "e")]
         [System.ServiceModel.FaultContractAttribute(typeof(ExampleRepoClient.RepositoryServer.FrameworkFault), Action="http://tempuri.org/FrameworkFaultAction", Name="FrameworkFault", Namespace="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" +
@@ -1723,16 +2050,6 @@ namespace ExampleRepoClient.RepositoryServer {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDesignerRepositoryService/GetCheckinInfosAfterDate", ReplyAction="http://tempuri.org/IDesignerRepositoryService/GetCheckinInfosAfterDateResponse")]
         System.Threading.Tasks.Task<ExampleRepoClient.RepositoryServer.ModuleCheckinInfo[]> GetCheckinInfosAfterDateAsync(ExampleRepoClient.RepositoryServer.AbstractUserContext context, string moduleName, string branchName, System.DateTime date);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDesignerRepositoryService/GetResourcesInfoForRevision", ReplyAction="http://tempuri.org/IDesignerRepositoryService/GetResourcesInfoForRevisionResponse" +
-            "")]
-        [System.ServiceModel.FaultContractAttribute(typeof(ExampleRepoClient.RepositoryServer.FrameworkFault), Action="http://tempuri.org/FrameworkFaultAction", Name="FrameworkFault", Namespace="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" +
-            "")]
-        ExampleRepoClient.RepositoryServer.ResourceCheckinInfo[] GetResourcesInfoForRevision(ExampleRepoClient.RepositoryServer.AbstractUserContext context, string moduleName, string branchName, string revisionId);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDesignerRepositoryService/GetResourcesInfoForRevision", ReplyAction="http://tempuri.org/IDesignerRepositoryService/GetResourcesInfoForRevisionResponse" +
-            "")]
-        System.Threading.Tasks.Task<ExampleRepoClient.RepositoryServer.ResourceCheckinInfo[]> GetResourcesInfoForRevisionAsync(ExampleRepoClient.RepositoryServer.AbstractUserContext context, string moduleName, string branchName, string revisionId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDesignerRepositoryService/Ping", ReplyAction="http://tempuri.org/IDesignerRepositoryService/PingResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(ExampleRepoClient.RepositoryServer.FrameworkFault), Action="http://tempuri.org/FrameworkFaultAction", Name="FrameworkFault", Namespace="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" +
@@ -1942,6 +2259,30 @@ namespace ExampleRepoClient.RepositoryServer {
                 base(binding, remoteAddress) {
         }
         
+        public string[] GetBranches(ExampleRepoClient.RepositoryServer.AbstractUserContext context, string moduleName) {
+            return base.Channel.GetBranches(context, moduleName);
+        }
+        
+        public System.Threading.Tasks.Task<string[]> GetBranchesAsync(ExampleRepoClient.RepositoryServer.AbstractUserContext context, string moduleName) {
+            return base.Channel.GetBranchesAsync(context, moduleName);
+        }
+        
+        public ExampleRepoClient.RepositoryServer.ModuleCheckinInfo[] GetCheckinInfos(ExampleRepoClient.RepositoryServer.AbstractUserContext context, string moduleName, string branchName, int count) {
+            return base.Channel.GetCheckinInfos(context, moduleName, branchName, count);
+        }
+        
+        public System.Threading.Tasks.Task<ExampleRepoClient.RepositoryServer.ModuleCheckinInfo[]> GetCheckinInfosAsync(ExampleRepoClient.RepositoryServer.AbstractUserContext context, string moduleName, string branchName, int count) {
+            return base.Channel.GetCheckinInfosAsync(context, moduleName, branchName, count);
+        }
+        
+        public ExampleRepoClient.RepositoryServer.ResourceCheckinInfo[] GetResourcesInfoForRevision(ExampleRepoClient.RepositoryServer.AbstractUserContext context, string moduleName, string branchName, string revisionId) {
+            return base.Channel.GetResourcesInfoForRevision(context, moduleName, branchName, revisionId);
+        }
+        
+        public System.Threading.Tasks.Task<ExampleRepoClient.RepositoryServer.ResourceCheckinInfo[]> GetResourcesInfoForRevisionAsync(ExampleRepoClient.RepositoryServer.AbstractUserContext context, string moduleName, string branchName, string revisionId) {
+            return base.Channel.GetResourcesInfoForRevisionAsync(context, moduleName, branchName, revisionId);
+        }
+        
         public string[] GetModules(ExampleRepoClient.RepositoryServer.AbstractUserContext context) {
             return base.Channel.GetModules(context);
         }
@@ -1950,12 +2291,12 @@ namespace ExampleRepoClient.RepositoryServer {
             return base.Channel.GetModulesAsync(context);
         }
         
-        public string[] GetBranches(ExampleRepoClient.RepositoryServer.AbstractUserContext context, string moduleName) {
-            return base.Channel.GetBranches(context, moduleName);
+        public ExampleRepoClient.RepositoryServer.ModuleDetails[] GetModulesForAppStore(ExampleRepoClient.RepositoryServer.AbstractUserContext context) {
+            return base.Channel.GetModulesForAppStore(context);
         }
         
-        public System.Threading.Tasks.Task<string[]> GetBranchesAsync(ExampleRepoClient.RepositoryServer.AbstractUserContext context, string moduleName) {
-            return base.Channel.GetBranchesAsync(context, moduleName);
+        public System.Threading.Tasks.Task<ExampleRepoClient.RepositoryServer.ModuleDetails[]> GetModulesForAppStoreAsync(ExampleRepoClient.RepositoryServer.AbstractUserContext context) {
+            return base.Channel.GetModulesForAppStoreAsync(context);
         }
         
         public ExampleRepoClient.RepositoryServer.ModuleInfoFile[] GetModuleResources(ExampleRepoClient.RepositoryServer.AbstractUserContext context, string moduleName, string branchName) {
@@ -2004,6 +2345,14 @@ namespace ExampleRepoClient.RepositoryServer {
         
         public System.Threading.Tasks.Task<ExampleRepoClient.RepositoryServer.FileCheckinInfo[]> GetCheckinDataAsync(ExampleRepoClient.RepositoryServer.AbstractUserContext context, string moduleName, string branchName, string typeName, string id) {
             return base.Channel.GetCheckinDataAsync(context, moduleName, branchName, typeName, id);
+        }
+        
+        public void RemoveModule(ExampleRepoClient.RepositoryServer.AbstractUserContext context, string moduleName) {
+            base.Channel.RemoveModule(context, moduleName);
+        }
+        
+        public System.Threading.Tasks.Task RemoveModuleAsync(ExampleRepoClient.RepositoryServer.AbstractUserContext context, string moduleName) {
+            return base.Channel.RemoveModuleAsync(context, moduleName);
         }
         
         public void CreateModule(ExampleRepoClient.RepositoryServer.AbstractUserContext context, ExampleRepoClient.RepositoryServer.SessionClientInfo sessionInfo, string moduleName) {
@@ -2118,6 +2467,14 @@ namespace ExampleRepoClient.RepositoryServer {
             return base.Channel.UpdateModuleFileAsync(context, revisionId, fromRevisionId, typeName, id, entityName, path, data, previewData);
         }
         
+        public void ForceUpdateModuleFile(ExampleRepoClient.RepositoryServer.AbstractUserContext context, string revisionId, string fromRevisionId, string typeName, string id, string entityName, string path, ExampleRepoClient.RepositoryServer.FileData data, ExampleRepoClient.RepositoryServer.FileData previewData) {
+            base.Channel.ForceUpdateModuleFile(context, revisionId, fromRevisionId, typeName, id, entityName, path, data, previewData);
+        }
+        
+        public System.Threading.Tasks.Task ForceUpdateModuleFileAsync(ExampleRepoClient.RepositoryServer.AbstractUserContext context, string revisionId, string fromRevisionId, string typeName, string id, string entityName, string path, ExampleRepoClient.RepositoryServer.FileData data, ExampleRepoClient.RepositoryServer.FileData previewData) {
+            return base.Channel.ForceUpdateModuleFileAsync(context, revisionId, fromRevisionId, typeName, id, entityName, path, data, previewData);
+        }
+        
         public void CopyToBranch(ExampleRepoClient.RepositoryServer.AbstractUserContext context, ExampleRepoClient.RepositoryServer.SessionClientInfo sessionInfo, string moduleName, string fromBranch, string toBranch, string type, string id) {
             base.Channel.CopyToBranch(context, sessionInfo, moduleName, fromBranch, toBranch, type, id);
         }
@@ -2150,14 +2507,6 @@ namespace ExampleRepoClient.RepositoryServer {
             return base.Channel.RollbackModuleToDateAsync(context, sessionInfo, moduleName, branchName, revisionDate);
         }
         
-        public ExampleRepoClient.RepositoryServer.ModuleCheckinInfo[] GetCheckinInfos(ExampleRepoClient.RepositoryServer.AbstractUserContext context, string moduleName, string branchName, int count) {
-            return base.Channel.GetCheckinInfos(context, moduleName, branchName, count);
-        }
-        
-        public System.Threading.Tasks.Task<ExampleRepoClient.RepositoryServer.ModuleCheckinInfo[]> GetCheckinInfosAsync(ExampleRepoClient.RepositoryServer.AbstractUserContext context, string moduleName, string branchName, int count) {
-            return base.Channel.GetCheckinInfosAsync(context, moduleName, branchName, count);
-        }
-        
         public ExampleRepoClient.RepositoryServer.ModuleCheckinInfo[] GetCheckinInfosAfterRevision(ExampleRepoClient.RepositoryServer.AbstractUserContext context, string moduleName, string branchName, string revisionId) {
             return base.Channel.GetCheckinInfosAfterRevision(context, moduleName, branchName, revisionId);
         }
@@ -2172,14 +2521,6 @@ namespace ExampleRepoClient.RepositoryServer {
         
         public System.Threading.Tasks.Task<ExampleRepoClient.RepositoryServer.ModuleCheckinInfo[]> GetCheckinInfosAfterDateAsync(ExampleRepoClient.RepositoryServer.AbstractUserContext context, string moduleName, string branchName, System.DateTime date) {
             return base.Channel.GetCheckinInfosAfterDateAsync(context, moduleName, branchName, date);
-        }
-        
-        public ExampleRepoClient.RepositoryServer.ResourceCheckinInfo[] GetResourcesInfoForRevision(ExampleRepoClient.RepositoryServer.AbstractUserContext context, string moduleName, string branchName, string revisionId) {
-            return base.Channel.GetResourcesInfoForRevision(context, moduleName, branchName, revisionId);
-        }
-        
-        public System.Threading.Tasks.Task<ExampleRepoClient.RepositoryServer.ResourceCheckinInfo[]> GetResourcesInfoForRevisionAsync(ExampleRepoClient.RepositoryServer.AbstractUserContext context, string moduleName, string branchName, string revisionId) {
-            return base.Channel.GetResourcesInfoForRevisionAsync(context, moduleName, branchName, revisionId);
         }
         
         public void Ping(ExampleRepoClient.RepositoryServer.AbstractUserContext userContext) {

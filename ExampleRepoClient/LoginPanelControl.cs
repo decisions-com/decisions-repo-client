@@ -11,13 +11,15 @@ using System.ServiceModel;
 using ExampleRepoClient.AccSvc;
 using System.Diagnostics;
 using System.ServiceModel.Channels;
+using System.IO;
+using Newtonsoft.Json;
 
 namespace ExampleRepoClient
 {
     public partial class LoginPanelControl : UserControl
     {
         bool client = true;
-        BasicHttpBinding binding = null;
+        
         DesignerRepositoryClient.DesignerRepositoryClientServiceClient repoClientClient = null;
             
         //RepositoryServer.DesignerRepositoryServiceClient serverClient = null;
@@ -25,18 +27,20 @@ namespace ExampleRepoClient
         SessionUserContext suc = null;
         public delegate void LoginSuccess();
         public LoginSuccess OnLoginSuccess;
-         
+        public string sessionIDModules = null;
         public LoginPanelControl()
         {
+            BasicHttpBinding binding = null;
             binding = new BasicHttpBinding();
             binding.MaxReceivedMessageSize = int.MaxValue;
             binding.MaxBufferSize = int.MaxValue;
             binding.MaxBufferPoolSize = int.MaxValue;
-            binding.ReceiveTimeout = TimeSpan.MaxValue;
-            binding.SendTimeout = TimeSpan.MaxValue;
-
+            binding.ReceiveTimeout = new TimeSpan(20, 10, 0);
+            binding.SendTimeout = new TimeSpan(21, 10, 0);
+            binding.OpenTimeout = new TimeSpan(22, 10, 0);
+            binding.CloseTimeout = new TimeSpan(23, 10, 0);
             //httpBindingElement.MaxBufferSize = Int32.MaxValue;
-            //httpBindingElement.MaxReceivedMessageSize = Int32.MaxValue;
+           // httpBindingElement.MaxReceivedMessageSize = Int32.MaxValue;
             //binding.Elements.Add(httpBindingElement);
 
             client = true;
@@ -46,54 +50,79 @@ namespace ExampleRepoClient
 
             InitializeComponent();
 
-            if (client)
+            if(File.Exists("creds.json"))
             {
-                tbURL.Text = "http://localhost/decisions/Primary/API/DesignerRepositoryClientService";
-                
-            }
-            else {
-                //tbURL.Text = "https://localhost/decisions/Primary/API/DesignerRepositoryService";
-            }
+                var filecontents = File.ReadAllText("creds.json");
+                var deserialised = JsonConvert.DeserializeObject<Datatypes.LocalCreds>(filecontents);
+                tbURL.Text = deserialised.ClientServerURL;
+                tbPwd.Text = deserialised.ClientPassword;
+                tbUser.Text = deserialised.ClientUsername;
 
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            SetStatus("Starting Login...");
-
-            string accSvcUrl = tbURL.Text.Replace("/API/DesignerRepositoryClientService", "/API/AccountService");
-
-            accClient.Endpoint.Address = new EndpointAddress(accSvcUrl);
-
-            if (client)
-            {
-                repoClientClient.Endpoint.Address = new EndpointAddress(tbURL.Text);
-                // repoClientClient.Log
+                tbRepoServerURL.Text = deserialised.RepoServerURL;
+                tbRepoServerUser.Text = deserialised.RepoUserName;
+                tbRepoServerPass.Text = deserialised.ReposPassword;
             }
             else
             {
-                //serverClient.Endpoint.Address = new EndpointAddress(tbRepoServerBaseUrl.Text);
-            }
 
+                tbURL.Text = "http://172.16.1.130/decisions/Primary/API/DesignerRepositoryClientService";
+                tbRepoServerURL.Text = "https://172.16.1.12/Decisions/Primary/API/DesignerRepositoryClientService";
+                tbRepoServerUser.Text = "";
+                tbRepoServerPass.Text = "";
+                tbPwd.Text = "";
+                tbUser.Text = "";
+            }
             
+
+        }
+
+
+
+
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
             try
             {
-                suc = accClient.LoginUser(new PasswordCredentialsUserContext()
-                {
-                    UserID = tbUser.Text,
-                    Password = tbPwd.Text
-                });
-                SetStatus("Login ok! - Updating Repo user...");
+                SetStatus("Starting Login...");
 
+
+                var RepoAuth = new Functions().LoginRepo(tbRepoServerURL.Text, tbRepoServerUser.Text, tbRepoServerPass.Text);
+                if (RepoAuth == null)
+                {
+                    throw new Exception("Repo Auth didnt work");
+                }
+            
+                var ClientAuth = new Functions().LoginRepo(tbURL.Text, tbUser.Text, tbPwd.Text);
+                if (ClientAuth == null)
+                {
+                    throw new Exception("Client Auth didnt work");
+                }
+
+                SetStatus("Logged In...");
+
+                ClientSvcClient.Endpoint.Address = new EndpointAddress(tbURL.Text);
+
+                
                 ClientSvcClient.UpdateUserCredentials(
-                    new DesignerRepositoryClient.SessionUserContext() { SessionValue = suc.SessionValue }, 
-                    tbRepoServerUser.Text, 
+                    new DesignerRepositoryClient.SessionUserContext() { SessionValue = ClientAuth.SessionValue },
+                    tbRepoServerUser.Text,
                     tbRepoServerPass.Text, true);
 
-                if (OnLoginSuccess != null) {
+                
+
+                if (OnLoginSuccess != null)
+                {
+                    sessionIDModules = ClientAuth.SessionValue;
                     OnLoginSuccess();
                 }
                 SetStatus("Login Complete");
+                
+
+
+
+
             }
             catch (Exception ex) {
                 Debug.Write(ex.ToString());
@@ -103,9 +132,11 @@ namespace ExampleRepoClient
         }
 
         public string SessionId {
+            
             get {
                 return suc != null ? suc.SessionValue : null;
             }
+            
         }
 
         public DesignerRepositoryClient.DesignerRepositoryClientServiceClient ClientSvcClient
@@ -117,7 +148,7 @@ namespace ExampleRepoClient
 
         }
 
-        private void SetStatus(string v)
+        public void SetStatus(string v)
         {
             if (lblStatus.InvokeRequired)
             {
@@ -128,5 +159,10 @@ namespace ExampleRepoClient
                 lblStatus.Text = v;
             }
         }
+
+
+
+
+        
     }
 }

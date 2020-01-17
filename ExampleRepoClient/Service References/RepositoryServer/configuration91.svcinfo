@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="E1SNOIiS7/9iWYWWbO4Iuxd7sxs=">
+<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="9j7Pb2w10AQCiMLf5R70pEBXJP8=">
   <bindingConfigurations>
     <bindingConfiguration bindingType="basicHttpBinding" name="BasicHttpBinding_IDesignerRepositoryService">
       <properties>
@@ -221,10 +221,10 @@
     </bindingConfiguration>
   </bindingConfigurations>
   <endpoints>
-    <endpoint name="BasicHttpBinding_IDesignerRepositoryService" contract="RepositoryServer.IDesignerRepositoryService" bindingType="basicHttpBinding" address="http://tirade.workflow.com/decisions/Primary/API/DesignerRepositoryService" bindingConfiguration="BasicHttpBinding_IDesignerRepositoryService">
+    <endpoint name="BasicHttpBinding_IDesignerRepositoryService" contract="RepositoryServer.IDesignerRepositoryService" bindingType="basicHttpBinding" address="http://localhost/bpa/Primary/API/DesignerRepositoryService" bindingConfiguration="BasicHttpBinding_IDesignerRepositoryService">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>http://tirade.workflow.com/decisions/Primary/API/DesignerRepositoryService</serializedValue>
+          <serializedValue>http://localhost/bpa/Primary/API/DesignerRepositoryService</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />
@@ -306,10 +306,10 @@
         </property>
       </properties>
     </endpoint>
-    <endpoint name="BasicHttpBinding_IDesignerRepositoryService1" contract="RepositoryServer.IDesignerRepositoryService" bindingType="basicHttpBinding" address="https://localhost/decisions/Primary/API/DesignerRepositoryService" bindingConfiguration="BasicHttpBinding_IDesignerRepositoryService1">
+    <endpoint name="BasicHttpBinding_IDesignerRepositoryService1" contract="RepositoryServer.IDesignerRepositoryService" bindingType="basicHttpBinding" address="https://172.16.1.12/decisions/Primary/API/DesignerRepositoryService" bindingConfiguration="BasicHttpBinding_IDesignerRepositoryService1">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>https://localhost/decisions/Primary/API/DesignerRepositoryService</serializedValue>
+          <serializedValue>https://172.16.1.12/decisions/Primary/API/DesignerRepositoryService</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />

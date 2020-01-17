@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="cf13f361-3591-4fd5-8ea8-b21ba81ea847" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="https://ariarepo01.workflow.ariasystems.net/bpa/Primary/API/AccountService" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="AccountService.xsd" MetadataType="Schema" ID="1a614a57-dde9-427f-a90a-0982458de54f" SourceId="1" SourceUrl="https://ariarepo01.workflow.ariasystems.net/bpa/Primary/API/AccountService?xsd=xsd7" />
+    <MetadataFile FileName="AccountService1.xsd" MetadataType="Schema" ID="fc2cc716-5521-4e8a-8952-2d2cb323ee39" SourceId="1" SourceUrl="https://ariarepo01.workflow.ariasystems.net/bpa/Primary/API/AccountService?xsd=xsd10" />
+    <MetadataFile FileName="AccountService2.xsd" MetadataType="Schema" ID="78feaa7c-f1dd-4c87-86b0-06bd2a3c1acf" SourceId="1" SourceUrl="https://ariarepo01.workflow.ariasystems.net/bpa/Primary/API/AccountService?xsd=xsd4" />
+    <MetadataFile FileName="AccountService3.xsd" MetadataType="Schema" ID="fba9432b-8d98-4f80-8508-0e3ba8d43784" SourceId="1" SourceUrl="https://ariarepo01.workflow.ariasystems.net/bpa/Primary/API/AccountService?xsd=xsd8" />
+    <MetadataFile FileName="AccountService4.xsd" MetadataType="Schema" ID="0fec060e-abb1-49e9-90d2-c447cc81082d" SourceId="1" SourceUrl="https://ariarepo01.workflow.ariasystems.net/bpa/Primary/API/AccountService?xsd=xsd9" />
+    <MetadataFile FileName="AccountService5.xsd" MetadataType="Schema" ID="140598b4-3bc9-4652-970c-992e61a1b2f4" SourceId="1" SourceUrl="https://ariarepo01.workflow.ariasystems.net/bpa/Primary/API/AccountService?xsd=xsd0" />
+    <MetadataFile FileName="AccountServiceWrapper.wsdl" MetadataType="Wsdl" ID="b910c310-ca80-40f6-a794-6ce580a88a9e" SourceId="1" SourceUrl="https://ariarepo01.workflow.ariasystems.net/bpa/Primary/API/AccountService?wsdl" />
+    <MetadataFile FileName="AccountService6.xsd" MetadataType="Schema" ID="4e5a73b9-2f56-43ff-b518-27d122195e63" SourceId="1" SourceUrl="https://ariarepo01.workflow.ariasystems.net/bpa/Primary/API/AccountService?xsd=xsd5" />
+    <MetadataFile FileName="AccountService7.xsd" MetadataType="Schema" ID="04ee9718-7baf-41d5-b2c9-953020427d7f" SourceId="1" SourceUrl="https://ariarepo01.workflow.ariasystems.net/bpa/Primary/API/AccountService?xsd=xsd6" />
+    <MetadataFile FileName="AccountService8.xsd" MetadataType="Schema" ID="527aaabd-8d60-4021-8dad-b3688da92403" SourceId="1" SourceUrl="https://ariarepo01.workflow.ariasystems.net/bpa/Primary/API/AccountService?xsd=xsd1" />
+    <MetadataFile FileName="AccountService.disco" MetadataType="Disco" ID="b03549f8-a5ff-4cbd-9d5b-fe9cd58f40d5" SourceId="1" SourceUrl="https://ariarepo01.workflow.ariasystems.net/bpa/Primary/API/AccountService?disco" />
+    <MetadataFile FileName="AccountService9.xsd" MetadataType="Schema" ID="16b94fe8-3e98-4475-8c06-712bf53b4501" SourceId="1" SourceUrl="https://ariarepo01.workflow.ariasystems.net/bpa/Primary/API/AccountService?xsd=xsd2" />
+    <MetadataFile FileName="AccountService10.xsd" MetadataType="Schema" ID="acceaf66-5f5c-4159-84fb-ab5c676289c7" SourceId="1" SourceUrl="https://ariarepo01.workflow.ariasystems.net/bpa/Primary/API/AccountService?xsd=xsd3" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
